@@ -150,11 +150,7 @@ class Tempone_Updater {
 			}
 		}
 
-		// Fallback to zipball if no asset found.
-		if ( empty( $package_url ) && ! empty( $data['zipball_url'] ) ) {
-			$package_url = $data['zipball_url'];
-		}
-
+		// If no asset found, return false (don't use zipball as it creates wrong folder names).
 		if ( empty( $package_url ) ) {
 			return false;
 		}

@@ -19,7 +19,7 @@ function tempone_enqueue_assets() : void {
 	// Custom theme styles (SCSS compiled - gradients, post layouts, custom designs).
 	wp_enqueue_style(
 		'tempone-theme',
-		TEMPONE_URI . '/css/tempone.css',
+		TEMPONE_URI . '/css/tempone.min.css',
 		array( 'tempone-fonts' ),
 		$theme_version
 	);
