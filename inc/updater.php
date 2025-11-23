@@ -23,7 +23,7 @@ class Tempone_Updater {
 	 *
 	 * @var string
 	 */
-	private $github_owner = 'webane';
+	private $github_owner = 'webaneid';
 
 	/**
 	 * GitHub repository name.
