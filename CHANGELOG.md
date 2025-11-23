@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.1] - 2025-01-24
+
+### Fixed
+- Test auto-update system
+- Minor bug fixes
+
 ## [0.1.0] - 2025-01-23
 
 ### Added
@@ -110,5 +116,6 @@ This is the initial release of Tempone, a sophisticated WordPress theme for news
 
 ---
 
-[Unreleased]: https://github.com/webane/tempone/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/webane/tempone/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/webane/tempone/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/webane/tempone/releases/tag/v0.1.0
