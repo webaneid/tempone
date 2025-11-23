@@ -89,11 +89,15 @@ class Tempone_Updater {
 
 		// Compare versions.
 		if ( version_compare( $this->current_version, $remote_version['version'], '<' ) ) {
+			$theme_data = wp_get_theme( $this->theme_slug );
+
 			$transient->response[ $this->theme_slug ] = array(
-				'theme'       => $this->theme_slug,
-				'new_version' => $remote_version['version'],
-				'url'         => $remote_version['url'],
-				'package'     => $remote_version['package'],
+				'theme'        => $this->theme_slug,
+				'new_version'  => $remote_version['version'],
+				'url'          => $remote_version['url'],
+				'package'      => $remote_version['package'],
+				'requires'     => '6.0',
+				'requires_php' => '7.4',
 			);
 		}
 
@@ -256,6 +260,16 @@ function tempone_add_manual_update_check() {
 				<p><?php esc_html_e( 'Update check completed!', 'tempone' ); ?></p>
 			</div>
 			<?php
+		}
+
+		// Debug: Show update transient data (remove after debugging).
+		if ( 'themes' === $screen->base && isset( $_GET['tempone_debug'] ) ) {
+			$updates = get_site_transient( 'update_themes' );
+			echo '<div class="notice notice-info"><pre>';
+			echo 'Current version: ' . wp_get_theme()->get( 'Version' ) . "\n";
+			echo 'Update data: ';
+			print_r( isset( $updates->response['tempone'] ) ? $updates->response['tempone'] : 'No update data' );
+			echo '</pre></div>';
 		}
 	});
 }
