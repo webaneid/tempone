@@ -7,17 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [0.1.3] - 2025-01-24
+## [0.1.5] - 2025-01-24
 
 ### Fixed
 - Remove zipball fallback in updater (prevents wrong folder names like webaneid-tempone-ba50689)
-- Use minified CSS (tempone.min.css) for 10KB size reduction
 - Add clickable "Update now" link to update notification
 - Add "Update Available" action link to theme card (visible on hover)
-
-## [0.1.2] - 2025-01-24
+- Fix theme update button not appearing in WordPress admin
 
 ### Performance
+- Use minified CSS (tempone.min.css) for 10KB size reduction
 - Move Tailwind CDN loading to footer (eliminate render-blocking, save ~250ms)
 - Add preconnect hints for external resources (save ~200-400ms DNS/connection time)
 - Add font-display swap to Google Fonts (prevent invisible text during font loading)
@@ -131,8 +130,7 @@ This is the initial release of Tempone, a sophisticated WordPress theme for news
 
 ---
 
-[Unreleased]: https://github.com/webaneid/tempone/compare/v0.1.3...HEAD
-[0.1.3]: https://github.com/webaneid/tempone/compare/v0.1.2...v0.1.3
-[0.1.2]: https://github.com/webaneid/tempone/compare/v0.1.1...v0.1.2
+[Unreleased]: https://github.com/webaneid/tempone/compare/v0.1.5...HEAD
+[0.1.5]: https://github.com/webaneid/tempone/compare/v0.1.1...v0.1.5
 [0.1.1]: https://github.com/webaneid/tempone/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/webaneid/tempone/releases/tag/v0.1.0
