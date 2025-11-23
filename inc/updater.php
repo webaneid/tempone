@@ -132,17 +132,37 @@ class Tempone_Updater {
 		$body = wp_remote_retrieve_body( $response );
 		$data = json_decode( $body, true );
 
-		if ( empty( $data['tag_name'] ) || empty( $data['zipball_url'] ) ) {
+		if ( empty( $data['tag_name'] ) ) {
 			return false;
 		}
 
 		// Remove 'v' prefix from version.
 		$version = ltrim( $data['tag_name'], 'v' );
 
+		// Get download URL from assets (tempone-x.x.x.zip).
+		$package_url = '';
+		if ( ! empty( $data['assets'] ) && is_array( $data['assets'] ) ) {
+			foreach ( $data['assets'] as $asset ) {
+				if ( isset( $asset['name'] ) && strpos( $asset['name'], 'tempone-' ) === 0 && strpos( $asset['name'], '.zip' ) !== false ) {
+					$package_url = $asset['browser_download_url'];
+					break;
+				}
+			}
+		}
+
+		// Fallback to zipball if no asset found.
+		if ( empty( $package_url ) && ! empty( $data['zipball_url'] ) ) {
+			$package_url = $data['zipball_url'];
+		}
+
+		if ( empty( $package_url ) ) {
+			return false;
+		}
+
 		$version_info = array(
 			'version' => $version,
 			'url'     => $data['html_url'],
-			'package' => $data['zipball_url'],
+			'package' => $package_url,
 		);
 
 		// Cache for 24 hours.
