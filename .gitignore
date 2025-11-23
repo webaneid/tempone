@@ -1,0 +1,52 @@
+# WordPress
+.DS_Store
+Thumbs.db
+
+# Node modules
+node_modules/
+package-lock.json
+
+# Compiled files (will be generated in CI/CD)
+*.map
+*.css.map
+
+# Development
+.sass-cache/
+*.log
+
+# IDE
+.vscode/
+.idea/
+*.sublime-*
+
+# OS
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Temp files
+*.tmp
+*.temp
+*.swp
+*~
+
+# Build artifacts
+dist/
+build/
+releases/
+
+# Environment
+.env
+.env.local
+
+# Composer (if used)
+vendor/
+composer.lock
+
+# Don't ignore compiled CSS (needed for distribution)
+!css/*.css
+!css/*.min.css
+
+# Don't ignore compiled MO files (needed for translations)
+!languages/*.mo

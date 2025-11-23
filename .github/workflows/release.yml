@@ -1,0 +1,75 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install Sass
+        run: npm install -g sass
+
+      - name: Compile SCSS
+        run: |
+          sass scss/tempone.scss css/tempone.css --style=compressed
+          sass scss/admin.scss css/admin.css --style=compressed
+          sass scss/editor-style.scss css/editor-style.css --style=compressed
+
+      - name: Compile Translations
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gettext
+          msgfmt -o languages/tempone-id_ID.mo languages/tempone-id_ID.po
+
+      - name: Get version from tag
+        id: get_version
+        run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+      - name: Create distribution package
+        run: |
+          mkdir -p dist
+          rsync -av --progress . dist/tempone \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='node_modules' \
+            --exclude='scss' \
+            --exclude='dist' \
+            --exclude='.gitignore' \
+            --exclude='.DS_Store' \
+            --exclude='*.map'
+          cd dist
+          zip -r tempone-${{ steps.get_version.outputs.VERSION }}.zip tempone
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Tempone v${{ steps.get_version.outputs.VERSION }}
+          body_path: CHANGELOG.md
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./dist/tempone-${{ steps.get_version.outputs.VERSION }}.zip
+          asset_name: tempone-${{ steps.get_version.outputs.VERSION }}.zip
+          asset_content_type: application/zip

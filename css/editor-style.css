@@ -1,0 +1,314 @@
+/**
+ * Editor Styles - Gutenberg Block Editor
+ *
+ * Custom typography dan styling untuk WordPress Editor
+ * agar match dengan frontend appearance.
+ */
+:root {
+  --tempone-color-primary: #2d232e;
+  --tempone-color-primary-rgb: 45, 35, 46;
+  --tempone-color-secondary: #474448;
+  --tempone-color-secondary-rgb: 71, 68, 72;
+  --tempone-color-body: #1e2d2f;
+  --tempone-color-body-rgb: 30, 45, 47;
+  --tempone-color-light: #f1f0ea;
+  --tempone-color-light-rgb: 241, 240, 234;
+  --tempone-color-dark: #1a1a1a;
+  --tempone-color-dark-rgb: 26, 26, 26;
+  --tempone-color-accent: #e0ddcf;
+  --tempone-color-accent-rgb: 224, 221, 207;
+  --tempone-color-white: #ffffff;
+  --tempone-color-black: #000000;
+}
+
+/* Google Fonts sudah di-enqueue via PHP */
+/* Editor wrapper */
+.editor-styles-wrapper {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  color: var(--tempone-color-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings - Poppins font */
+.editor-styles-wrapper h1,
+.editor-styles-wrapper h2,
+.editor-styles-wrapper h3,
+.editor-styles-wrapper h4,
+.editor-styles-wrapper h5,
+.editor-styles-wrapper h6,
+.editor-styles-wrapper .wp-block-heading {
+  font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--tempone-color-primary);
+  margin: 1.5em 0 0.75em;
+}
+
+.editor-styles-wrapper h1,
+.editor-styles-wrapper .wp-block-heading.has-h-1-font-size {
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.editor-styles-wrapper h2,
+.editor-styles-wrapper .wp-block-heading.has-h-2-font-size {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.editor-styles-wrapper h3,
+.editor-styles-wrapper .wp-block-heading.has-h-3-font-size {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.editor-styles-wrapper h4,
+.editor-styles-wrapper .wp-block-heading.has-h-4-font-size {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.editor-styles-wrapper h5,
+.editor-styles-wrapper .wp-block-heading.has-h-5-font-size {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.editor-styles-wrapper h6,
+.editor-styles-wrapper .wp-block-heading.has-h-6-font-size {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+/* Paragraphs - Inter font 17px */
+.editor-styles-wrapper p,
+.editor-styles-wrapper .wp-block-paragraph {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  margin-bottom: 1.5em;
+  color: var(--tempone-color-body);
+}
+
+/* Lead/Intro paragraph */
+.editor-styles-wrapper .has-large-font-size,
+.editor-styles-wrapper .wp-block-paragraph.has-large-font-size {
+  font-size: 1.25rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* Small text */
+.editor-styles-wrapper .has-small-font-size,
+.editor-styles-wrapper .wp-block-paragraph.has-small-font-size {
+  font-size: 0.875rem;
+}
+
+/* Links */
+.editor-styles-wrapper a {
+  color: var(--tempone-color-primary);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.editor-styles-wrapper a:hover {
+  color: var(--tempone-color-secondary);
+}
+
+/* Lists */
+.editor-styles-wrapper ul,
+.editor-styles-wrapper ol {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 17px;
+  line-height: 1.75;
+  margin-bottom: 1.5em;
+  padding-left: 1.5em;
+}
+
+.editor-styles-wrapper li {
+  margin-bottom: 0.5em;
+}
+
+/* Blockquote */
+.editor-styles-wrapper blockquote,
+.editor-styles-wrapper .wp-block-quote {
+  font-family: "Poppins", serif;
+  font-size: 1.25rem;
+  font-style: italic;
+  line-height: 1.6;
+  margin: 2em 0;
+  padding: 1.5em 2em;
+  border-left: 4px solid var(--tempone-color-primary);
+  background: var(--tempone-color-light);
+  color: var(--tempone-color-secondary);
+}
+
+.editor-styles-wrapper blockquote cite,
+.editor-styles-wrapper .wp-block-quote cite {
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 600;
+  color: var(--tempone-color-body);
+  display: block;
+  margin-top: 1em;
+}
+
+/* Code */
+.editor-styles-wrapper code,
+.editor-styles-wrapper .wp-block-code {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9em;
+  background: var(--tempone-color-light);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+
+.editor-styles-wrapper pre,
+.editor-styles-wrapper .wp-block-code code {
+  padding: 1.5em;
+  background: var(--tempone-color-dark);
+  color: var(--tempone-color-light);
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* Tables */
+.editor-styles-wrapper table,
+.editor-styles-wrapper .wp-block-table {
+  font-family: "Inter", sans-serif;
+  font-size: 0.95rem;
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1.5em;
+}
+
+.editor-styles-wrapper table th {
+  font-weight: 600;
+  background: var(--tempone-color-light);
+  padding: 0.75em 1em;
+  text-align: left;
+  border-bottom: 2px solid var(--tempone-color-primary);
+}
+
+.editor-styles-wrapper table td {
+  padding: 0.75em 1em;
+  border-bottom: 1px solid var(--tempone-color-light);
+}
+
+/* Images */
+.editor-styles-wrapper .wp-block-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.editor-styles-wrapper figcaption {
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  color: var(--tempone-color-secondary);
+  margin-top: 0.75em;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Buttons */
+.editor-styles-wrapper .wp-block-button__link {
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0.75em 2em;
+  border-radius: 4px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+/* Separator */
+.editor-styles-wrapper hr,
+.editor-styles-wrapper .wp-block-separator {
+  border: 0;
+  border-top: 2px solid var(--tempone-color-light);
+  margin: 2.5em 0;
+}
+
+/* Pullquote */
+.editor-styles-wrapper .wp-block-pullquote {
+  font-family: "Poppins", serif;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  padding: 2em;
+  border-top: 4px solid var(--tempone-color-primary);
+  border-bottom: 4px solid var(--tempone-color-primary);
+  margin: 2em 0;
+}
+
+/* Cover block text */
+.editor-styles-wrapper .wp-block-cover h1,
+.editor-styles-wrapper .wp-block-cover h2,
+.editor-styles-wrapper .wp-block-cover h3,
+.editor-styles-wrapper .wp-block-cover p {
+  color: #ffffff;
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Columns */
+.editor-styles-wrapper .wp-block-columns {
+  margin-bottom: 1.5em;
+}
+
+/* Spacing */
+.editor-styles-wrapper > *:first-child {
+  margin-top: 0;
+}
+
+.editor-styles-wrapper > *:last-child {
+  margin-bottom: 0;
+}
+
+/* Selection color */
+.editor-styles-wrapper ::selection {
+  background: var(--tempone-color-accent);
+  color: var(--tempone-color-primary);
+}
+
+/* Editor title */
+.editor-post-title__input,
+.editor-post-title textarea {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--tempone-color-primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .editor-styles-wrapper {
+    font-size: 16px;
+  }
+  .editor-styles-wrapper h1,
+  .editor-styles-wrapper .wp-block-heading.has-h-1-font-size {
+    font-size: 2rem;
+  }
+  .editor-styles-wrapper h2,
+  .editor-styles-wrapper .wp-block-heading.has-h-2-font-size {
+    font-size: 1.75rem;
+  }
+  .editor-styles-wrapper h3,
+  .editor-styles-wrapper .wp-block-heading.has-h-3-font-size {
+    font-size: 1.5rem;
+  }
+  .editor-post-title__input,
+  .editor-post-title textarea {
+    font-size: 2rem;
+  }
+}/*# sourceMappingURL=editor-style.css.map */

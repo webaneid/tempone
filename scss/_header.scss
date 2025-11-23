@@ -1,0 +1,578 @@
+.site-header {
+  background-color: var(--tempone-color-white);
+  border-bottom: 1px solid rgba(var(--tempone-color-primary-rgb), 0.08);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+
+  // Container now handled by Tailwind .container class in HTML
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(var(--tempone-color-primary-rgb), 0.06);
+    flex-wrap: wrap;
+  }
+
+  &__brand {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__logo img {
+    display: block;
+    height: 40px;
+    width: auto;
+  }
+
+  &__menu-toggle {
+    appearance: none;
+    border: 0;
+    background: transparent;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--tempone-color-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 0.25rem 0.25rem 0.25rem 0;
+
+    svg {
+      width: 30px;
+      height: 30px;
+      color: var(--tempone-color-black);
+    }
+  }
+
+  &__menu-icon {
+    width: 20px;
+    height: 2px;
+    background-color: currentColor;
+    display: inline-block;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background-color: currentColor;
+    }
+
+    &::before {
+      top: -6px;
+    }
+
+    &::after {
+      top: 6px;
+    }
+  }
+
+  &__secondary-nav {
+    flex: 1;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+
+    // Hide scrollbar
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &__actions {
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+  }
+
+  &__action {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0.55rem 1.4rem;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  }
+
+  &__action--subscribe {
+    background-color: var(--tempone-color-primary);
+    border-color: var(--tempone-color-primary);
+    color: var(--tempone-color-white);
+
+    &:hover {
+      background-color: rgba(var(--tempone-color-primary-rgb), 0.85);
+      border-color: rgba(var(--tempone-color-primary-rgb), 0.85);
+    }
+  }
+
+  &__action--login {
+    border-color: var(--tempone-color-primary);
+    color: var(--tempone-color-primary);
+    background-color: transparent;
+
+    &:hover {
+      background-color: rgba(var(--tempone-color-primary-rgb), 0.05);
+    }
+  }
+
+  &__action-icon {
+    display: inline-block;
+  }
+
+  &__menus {
+    border-top: 1px solid var(--tempone-color-light);
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    padding: 0.75rem 0;
+    position: relative; // Allow submenu to position relative to this
+  }
+
+  &__primary-nav {
+    flex: 1;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    // Mobile: use overflow visible to allow submenu dropdown
+    @media (max-width: 767px) {
+      overflow: visible; // Allow submenu to show outside bounds
+    }
+
+    // Desktop: completely visible
+    @media (min-width: 768px) {
+      overflow: visible;
+    }
+  }
+
+  &__search {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid var(--tempone-color-light);
+    border-radius: 999px;
+    padding: 0.2rem 0.25rem 0.2rem 1rem;
+    max-width: 260px;
+    width: 100%;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+
+    // Tablet & Desktop collapsed state - button only
+    @media (min-width: 768px) {
+      width: 44px;
+      max-width: 44px;
+      padding: 0;
+      border-color: transparent;
+      gap: 0;
+
+      &.is-expanded {
+        width: 260px;
+        max-width: 260px;
+        padding: 0.2rem 0.25rem 0.2rem 1rem;
+        border-color: var(--tempone-color-light);
+        gap: 0.5rem;
+      }
+    }
+
+    input {
+      border: 0;
+      background: transparent;
+      font-size: 0.9rem;
+      flex: 1;
+      color: var(--tempone-color-body);
+      opacity: 1;
+      transition: opacity 0.3s ease 0.1s;
+
+      &:focus {
+        outline: none;
+      }
+
+      // Tablet & Desktop collapsed: hide input
+      @media (min-width: 768px) {
+        position: absolute;
+        width: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease;
+      }
+    }
+
+    &.is-expanded input {
+      @media (min-width: 768px) {
+        position: static;
+        width: auto;
+        opacity: 1;
+        pointer-events: auto;
+        transition: opacity 0.3s ease 0.15s;
+      }
+    }
+
+    button {
+      border: 0;
+      background: var(--tempone-color-light);
+      border-radius: 999px;
+      width: 34px;
+      height: 34px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      flex-shrink: 0;
+      transition: background-color 0.2s ease;
+      color: var(--tempone-color-secondary);
+
+      svg {
+        width: 16px;
+        height: 16px;
+        display: block;
+
+        @media (min-width: 768px) {
+          width: 18px;
+          height: 18px;
+        }
+      }
+
+      // Tablet & Desktop: larger circular button, stays same size
+      @media (min-width: 768px) {
+        width: 44px;
+        height: 44px;
+        background: var(--tempone-color-primary);
+        color: var(--tempone-color-white);
+
+        &:hover {
+          background: var(--tempone-color-secondary);
+        }
+      }
+    }
+
+    &.is-expanded button {
+      @media (min-width: 768px) {
+        background: var(--tempone-color-light);
+        color: var(--tempone-color-secondary);
+
+        &:hover {
+          background: var(--tempone-color-light);
+        }
+      }
+    }
+  }
+}
+
+.header-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  li {
+    margin: 0;
+    position: relative;
+    @media (max-width: 767px) {
+      width: max-content;
+      position: relative; // Ensure relative positioning for absolute submenu
+    }
+  }
+
+  a {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--tempone-color-secondary);
+    text-decoration: none;
+    padding-bottom: 0.4rem;
+    display: inline-flex;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    border-bottom: 2px solid transparent;
+    width: max-content;
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--tempone-color-primary);
+    border-bottom-color: var(--tempone-color-primary);
+  }
+
+  // Submenu styles
+  .sub-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 220px;
+    background: var(--tempone-color-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    padding: 0.5rem 0;
+
+    @media (max-width: 767px) {
+      // Use fixed positioning to escape overflow parent
+      position: fixed;
+      background: var(--tempone-color-white);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--tempone-color-light);
+      min-width: 200px;
+      padding: 0.5rem 0;
+      z-index: 9999;
+    }
+
+    li {
+      margin: 0;
+      width: 100%;
+
+      @media (max-width: 767px) {
+        width: auto;
+      }
+    }
+
+    a {
+      padding: 0.75rem 1.25rem;
+      border-bottom: 0;
+      color: var(--tempone-color-white);
+      font-size: 0.875rem;
+      display: block;
+      width: 100%;
+      white-space: nowrap;
+
+      @media (max-width: 767px) {
+        color: var(--tempone-color-secondary);
+        padding: 0.5rem 0;
+      }
+
+      &:hover,
+      &:focus {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--tempone-color-white);
+
+        @media (max-width: 767px) {
+          background: transparent;
+          color: var(--tempone-color-primary);
+        }
+      }
+    }
+  }
+
+  // Desktop: show submenu on hover
+  @media (min-width: 768px) {
+    .menu-item-has-children {
+      &:hover > .sub-menu,
+      &:focus-within > .sub-menu {
+        display: block;
+      }
+
+      > a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 0;
+          height: 0;
+          border-left: 4px solid transparent;
+          border-right: 4px solid transparent;
+          border-top: 4px solid currentColor;
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+
+  // Mobile: toggle submenu
+  @media (max-width: 767px) {
+    .menu-item-has-children {
+      > a {
+        position: relative;
+        padding-right: 2rem;
+
+        &::after {
+          content: '+';
+          position: absolute;
+          right: 0;
+          top: 36%;
+          transform: translateY(-50%);
+          font-size: 1.25rem;
+          font-weight: 400;
+          line-height: 1;
+        }
+      }
+
+      &.is-open {
+        > a::after {
+          content: '−';
+        }
+
+        > .sub-menu {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &--secondary {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: rgba(var(--tempone-color-body-rgb), 0.65);
+    gap: 1rem;
+    flex-wrap: nowrap;
+
+    li + li::before {
+      content: "";
+      position: absolute;
+      left: -0.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 14px;
+      background-color: rgba(var(--tempone-color-primary-rgb), 0.08);
+    }
+
+    a {
+      padding-bottom: 0;
+      border-bottom: 0;
+      color: inherit;
+      white-space: nowrap;
+    }
+  }
+
+  &--primary {
+    color: var(--tempone-color-primary);
+    flex-wrap: nowrap;
+
+    // Mobile: enable horizontal scroll on the menu itself
+    @media (max-width: 767px) {
+      overflow-x: auto;
+      overflow-y: visible;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+}
+
+// Desktop: hide hamburger menu
+@media (min-width: 1024px) {
+  .site-header {
+    &__menu-toggle {
+      display: none;
+    }
+  }
+}
+
+// Mobile only
+@media (max-width: 767px) {
+  .site-header {
+    &__top {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &__actions {
+      width: 100%;
+      justify-content: flex-start;
+    }
+
+    &__secondary-nav {
+      width: 100%;
+      order: 3;
+    }
+
+    &__menus {
+      display: none;
+
+      &.is-open {
+        display: block;
+      }
+    }
+
+    &__bottom {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    &__search {
+      max-width: 100%;
+      margin-left: 0;
+      width: 100%;
+    }
+
+    &__primary-nav {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      .header-menu--primary {
+        flex-wrap: nowrap;
+        min-width: min-content;
+      }
+    }
+    &__brand {
+      a.custom-logo-link {
+        img {
+          max-width: 80%;
+        }
+      }
+    }
+  }
+
+}
+
+// Tablet: hide hamburger, show menus
+@media (min-width: 768px) and (max-width: 1023px) {
+  .site-header {
+    &__menu-toggle {
+      display: none;
+    }
+
+    &__menus {
+      display: block;
+    }
+  }
+}

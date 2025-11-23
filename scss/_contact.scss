@@ -1,0 +1,315 @@
+/**
+ * Contact Form 7 Styling
+ *
+ * @package tempone
+ */
+
+.contact-page {
+  padding: 4rem 1rem;
+
+  @media (min-width: 1024px) {
+    padding: 5rem 2rem;
+  }
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--tempone-color-body);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+
+    @media (min-width: 1024px) {
+      font-size: 1.125rem;
+    }
+  }
+
+  &__tagline {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--tempone-color-body);
+    margin-bottom: 1rem;
+    line-height: 1.2;
+
+    @media (min-width: 1024px) {
+      font-size: 2.5rem;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1rem;
+    color: var(--tempone-color-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+
+    @media (min-width: 1024px) {
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+  }
+
+  &__form-wrapper {
+    background-color: var(--tempone-color-light);
+    padding: 2rem;
+    border-radius: 8px;
+
+    @media (min-width: 1024px) {
+      padding: 3rem;
+    }
+  }
+
+  &__info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+}
+
+// Contact Info Cards
+.contact-info {
+  &__card {
+    background-color: var(--tempone-color-light);
+    padding: 2rem;
+    border-radius: 8px;
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--tempone-color-body);
+    margin-bottom: 0.5rem;
+  }
+
+  &__description {
+    font-size: 0.875rem;
+    color: var(--tempone-color-secondary);
+    margin-bottom: 1rem;
+  }
+
+  &__value {
+    font-size: 1rem;
+    color: var(--tempone-color-body);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--tempone-color-primary);
+      text-decoration: underline;
+    }
+  }
+
+  &__address {
+    font-size: 0.875rem;
+    color: var(--tempone-color-secondary);
+    line-height: 1.6;
+  }
+
+  &__hours {
+    font-size: 0.875rem;
+    color: var(--tempone-color-secondary);
+    font-style: italic;
+    margin-top: 0.5rem;
+  }
+}
+
+// Contact Form 7 Styling
+.wpcf7 {
+  &-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &-form-control-wrap {
+    display: block;
+    width: 100%;
+  }
+
+  // Labels
+  label {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--tempone-color-body);
+    margin-bottom: 0.5rem;
+  }
+
+  // Input fields
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="number"],
+  textarea,
+  select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 0.9375rem;
+    color: var(--tempone-color-body);
+    background-color: var(--tempone-color-white);
+    border: 1px solid var(--tempone-color-light);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    font-family: inherit;
+
+    &::placeholder {
+      color: var(--tempone-color-secondary);
+      opacity: 0.6;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: var(--tempone-color-primary);
+      box-shadow: 0 0 0 3px rgba(var(--tempone-color-primary-rgb), 0.1);
+    }
+
+    &:hover {
+      border-color: var(--tempone-color-secondary);
+    }
+  }
+
+  // Textarea specific
+  textarea {
+    resize: vertical;
+    min-height: 120px;
+  }
+
+  // Select dropdown
+  select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%23474448' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E");
+    background-position: right 0.75rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5rem 1.5rem;
+    padding-right: 2.5rem;
+  }
+
+  // Submit button
+  .wpcf7-submit {
+    width: 100%;
+    padding: 0.875rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--tempone-color-white);
+    background-color: var(--tempone-color-primary);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-transform: none;
+
+    &:hover {
+      background-color: var(--tempone-color-body);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 6px rgba(var(--tempone-color-black), 0.1);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+
+    &:disabled,
+    &[disabled] {
+      background-color: var(--tempone-color-accent);
+      color: var(--tempone-color-secondary);
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+  }
+
+  // Validation messages
+  .wpcf7-not-valid-tip {
+    display: block;
+    font-size: 0.75rem;
+    color: #dc2626; // Standard red for errors (accessibility)
+    margin-top: 0.25rem;
+  }
+
+  // Response messages
+  .wpcf7-response-output {
+    padding: 1rem;
+    margin-top: 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    border: 1px solid transparent;
+  }
+
+  .wpcf7-mail-sent-ok {
+    background-color: #d1fae5; // Light green
+    color: #065f46; // Dark green text
+    border-color: #6ee7b7;
+  }
+
+  .wpcf7-mail-sent-ng,
+  .wpcf7-validation-errors,
+  .wpcf7-acceptance-missing {
+    background-color: #fee2e2; // Light red
+    color: #991b1b; // Dark red text
+    border-color: #fca5a5;
+  }
+
+  .wpcf7-spam-blocked {
+    background-color: #fef3c7; // Light yellow
+    color: #92400e; // Dark yellow/brown text
+    border-color: #fcd34d;
+  }
+
+  // Invalid fields
+  .wpcf7-not-valid {
+    border-color: #dc2626 !important; // Standard red
+
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+    }
+  }
+
+  // Spinner
+  .wpcf7-spinner {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-left: 10px;
+    vertical-align: middle;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: var(--tempone-color-white);
+    animation: wpcf7-spin 0.6s linear infinite;
+  }
+
+  @keyframes wpcf7-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  // Form groups
+  p {
+    margin: 0;
+  }
+}
+
+// Accessibility: Screen reader only text
+.screen-reader-response {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

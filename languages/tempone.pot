@@ -1,0 +1,672 @@
+# Copyright (C) 2024 Tempone
+# This file is distributed under the same license as the Tempone package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Tempone 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/tempone/tempone\n"
+"POT-Creation-Date: 2024-11-20 15:00+0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Manual\n"
+"X-Domain: tempone\n"
+
+#: style.css
+msgid "Tempone"
+msgstr ""
+
+#: style.css
+msgid "Modern WordPress theme for news and magazine websites with monochrome design"
+msgstr ""
+
+#: style.css
+msgid "Tempone Team"
+msgstr ""
+
+#: style.css
+msgid "https://tempone.com"
+msgstr ""
+
+#. translators: %s: search query
+#: search.php:25
+msgid "Search Results for: %s"
+msgstr ""
+
+#: search.php:55
+msgid "Nothing found"
+msgstr ""
+
+#: search.php:56
+msgid "Sorry, but nothing matched your search terms. Please try again with different keywords."
+msgstr ""
+
+#: 404.php:18
+msgid "404 - Page Not Found"
+msgstr ""
+
+#: 404.php:19
+msgid "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
+msgstr ""
+
+#: 404.php:20
+msgid "Back to Homepage"
+msgstr ""
+
+#: comments.php:39
+msgid "One comment on &ldquo;%1$s&rdquo;"
+msgstr ""
+
+#: comments.php:45
+msgid "%1$s comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:68
+msgid "Previous Comments"
+msgstr ""
+
+#: comments.php:69
+msgid "Next Comments"
+msgstr ""
+
+#: comments.php:77
+msgid "Comments are closed."
+msgstr ""
+
+#: tp/comments-facebook.php:32
+msgid "Comments"
+msgstr ""
+
+#: inc/setup.php:27
+msgid "Primary Menu"
+msgstr ""
+
+#: inc/setup.php:28
+msgid "Secondary Menu"
+msgstr ""
+
+#: inc/setup.php:29
+msgid "Footer Menu"
+msgstr ""
+
+#: inc/setup.php:30
+msgid "Jaringan Media Menu"
+msgstr ""
+
+#: inc/setup.php:31
+msgid "Footer Bottom Menu"
+msgstr ""
+
+#: inc/setup.php:62
+msgid "Main Sidebar"
+msgstr ""
+
+#: inc/setup.php:70
+msgid "Landing Page Sidebar"
+msgstr ""
+
+#: inc/template-tags.php:24
+msgid "Posts by %s"
+msgstr ""
+
+#: inc/template-tags.php:272
+msgid "min read"
+msgstr ""
+
+#: inc/post.php:186
+msgid "Just now"
+msgstr ""
+
+#: inc/post.php:193
+msgid "%s minute ago"
+msgid_plural "%s minutes ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/post.php:202
+msgid "%s hour ago"
+msgid_plural "%s hours ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/post.php:211
+msgid "%s day ago"
+msgid_plural "%s days ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/post.php:220
+msgid "%s week ago"
+msgid_plural "%s weeks ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/post.php:229
+msgid "%s month ago"
+msgid_plural "%s months ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/post.php:237
+msgid "%s year ago"
+msgid_plural "%s years ago"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/post.php:367
+msgid "%d min read"
+msgid_plural "%d mins read"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/template-tags.php:330
+msgid "Share"
+msgstr ""
+
+#: inc/template-tags.php:333
+msgid "Share on Facebook"
+msgstr ""
+
+#: inc/template-tags.php:337
+msgid "Share on X"
+msgstr ""
+
+#: inc/template-tags.php:341
+msgid "Share on WhatsApp"
+msgstr ""
+
+#: inc/template-tags.php:345
+msgid "Share on Telegram"
+msgstr ""
+
+#: inc/post.php:27
+msgid "Related Posts"
+msgstr ""
+
+#: inc/post.php:65
+msgid "Category"
+msgstr ""
+
+#: inc/post.php:103
+msgid "Newest Posts"
+msgstr ""
+
+#: inc/widget.php:22
+msgid "Tempone: Posts"
+msgstr ""
+
+#: inc/widget.php:23
+msgid "Display posts with various filtering options"
+msgstr ""
+
+#: inc/widget.php:36
+msgid "Title"
+msgstr ""
+
+#: inc/widget.php:45
+msgid "Type"
+msgstr ""
+
+#: inc/widget.php:48
+msgid "Recent Post"
+msgstr ""
+
+#: inc/widget.php:49
+msgid "Popular Post"
+msgstr ""
+
+#: inc/widget.php:50
+msgid "Most Comments"
+msgstr ""
+
+#: inc/widget.php:51
+msgid "Post Format: Gallery"
+msgstr ""
+
+#: inc/widget.php:52
+msgid "Post Format: Video"
+msgstr ""
+
+#: inc/post.php:482
+msgid "%s view"
+msgid_plural "%s views"
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/post.php:593
+msgid "Views"
+msgstr ""
+
+#: inc/widget.php:63
+msgid "Number of posts to show"
+msgstr ""
+
+#: inc/widget.php:72
+msgid "Category (separate by comma)"
+msgstr ""
+
+#: inc/widget.php:81
+msgid "Tag (separate by comma)"
+msgstr ""
+
+#: inc/widget.php:90
+msgid "Order By"
+msgstr ""
+
+#: inc/widget.php:93
+msgid "ID"
+msgstr ""
+
+#: inc/widget.php:94 inc/seo.php:143
+msgid "Title"
+msgstr ""
+
+#: inc/widget.php:95
+msgid "Date"
+msgstr ""
+
+#: inc/widget.php:96
+msgid "Random"
+msgstr ""
+
+#: inc/widget.php:97
+msgid "Comment Count"
+msgstr ""
+
+#: inc/widget.php:98
+msgid "View Count"
+msgstr ""
+
+#: inc/widget.php:109
+msgid "Order"
+msgstr ""
+
+#: inc/widget.php:112
+msgid "Descending"
+msgstr ""
+
+#: inc/widget.php:113
+msgid "Ascending"
+msgstr ""
+
+#: inc/seo.php:142
+msgid "Author"
+msgstr ""
+
+#: inc/seo.php:144
+msgid "Description"
+msgstr ""
+
+#: inc/seo.php:145
+msgid "Publisher"
+msgstr ""
+
+#: inc/seo.php:146
+msgid "Publication Date"
+msgstr ""
+
+#: inc/seo.php:147
+msgid "Keywords"
+msgstr ""
+
+#: inc/seo.php:231
+msgid "Tags:"
+msgstr ""
+
+#: inc/acf-layouts.php:192
+msgid "Theme Customization"
+msgstr ""
+
+#: inc/acf-layouts.php:193
+msgid "Customization"
+msgstr ""
+
+#: inc/acf-layouts.php:384
+msgid "Facebook Comments"
+msgstr ""
+
+#: inc/acf-layouts.php:389
+msgid "Enable Facebook Comments"
+msgstr ""
+
+#: inc/acf-layouts.php:392
+msgid "Enable to replace WordPress native comments with Facebook Comments Social Plugin."
+msgstr ""
+
+#: inc/acf-layouts.php:399
+msgid "Facebook App ID"
+msgstr ""
+
+#: inc/acf-layouts.php:402
+msgid "Enter your Facebook App ID. Get it from: https://developers.facebook.com/apps/"
+msgstr ""
+
+#: inc/acf-layouts.php:404
+msgid "<strong>IMPORTANT:</strong> After entering App ID, make sure your website domain is added in Facebook App Settings → Basic → App Domains. Example: yoursite.com"
+msgstr ""
+
+#: inc/acf-layouts.php:418
+msgid "Language / Locale"
+msgstr ""
+
+#: inc/acf-layouts.php:421
+msgid "Select language for Facebook Comments plugin."
+msgstr ""
+
+#: inc/acf-layouts.php:447
+msgid "Number of Comments"
+msgstr ""
+
+#: inc/acf-layouts.php:450
+msgid "Number of comments to display (default: 10)."
+msgstr ""
+
+#: inc/admin.php:14
+msgid "Tempone Setup"
+msgstr ""
+
+#: inc/admin.php:16
+msgid "Control Center"
+msgstr ""
+
+#: inc/admin.php:17
+msgid "Main panel to configure identity, colors, and Tempone theme utilities."
+msgstr ""
+
+#: inc/admin.php:18
+msgid "Use this page as a summary and shortcut to ACF sub-menus."
+msgstr ""
+
+#: inc/admin.php:21
+msgid "ACF Options"
+msgstr ""
+
+#: inc/admin.php:22
+msgid "General Setting"
+msgstr ""
+
+#: inc/admin.php:23
+msgid "Brand identity, default hero, fallback copy, and basic SEO meta."
+msgstr ""
+
+#: inc/admin.php:24
+msgid "Open General Setting"
+msgstr ""
+
+#: inc/admin.php:28
+msgid "Workflow"
+msgstr ""
+
+#: inc/admin.php:29
+msgid "Customer Care"
+msgstr ""
+
+#: inc/admin.php:30
+msgid "Manage editorial contact data, CS, WhatsApp, and help CTA."
+msgstr ""
+
+#: inc/admin.php:31
+msgid "Open Customer Care"
+msgstr ""
+
+#: inc/admin.php:35
+msgid "SEO & News"
+msgstr ""
+
+#: inc/admin.php:36
+msgid "SEO & News Setup"
+msgstr ""
+
+#: inc/admin.php:37
+msgid "Google News sitemap, AI crawler optimization, and news website SEO guide."
+msgstr ""
+
+#: inc/admin.php:38
+msgid "Open SEO & News"
+msgstr ""
+
+#: inc/admin.php:44
+msgid "Google News Ready"
+msgstr ""
+
+#: inc/admin.php:45
+msgid "Complete guide for Google News submission, AI crawler optimization, and news website SEO."
+msgstr ""
+
+#: inc/admin.php:46
+msgid "Enhance Yoast SEO Free with NewsArticle schema, Google News sitemap, and AI-friendly metadata."
+msgstr ""
+
+#: inc/admin.php:52
+msgid "Brand Identity"
+msgstr ""
+
+#: inc/admin.php:53
+msgid "Configure brand identity, logo, tagline, and fallback content for hero blocks."
+msgstr ""
+
+#: inc/admin.php:54
+msgid "ACF → Location rule: Options Page equals \"Tempone Setup: General Setting\"."
+msgstr ""
+
+#: inc/admin.php:57
+msgid "Suggested Fields"
+msgstr ""
+
+#: inc/admin.php:58
+msgid "Global Values"
+msgstr ""
+
+#: inc/admin.php:60
+msgid "Main logo & alternative versions (desktop/mobile)."
+msgstr ""
+
+#: inc/admin.php:61
+msgid "Default hero copy + fallback CTA button."
+msgstr ""
+
+#: inc/admin.php:62
+msgid "Default SEO metadata (title, description)."
+msgstr ""
+
+#: inc/admin.php:63
+msgid "Newsletter headline & promotional text settings."
+msgstr ""
+
+#: inc/admin.php:68
+msgid "Notes"
+msgstr ""
+
+#: inc/admin.php:69
+msgid "Custom Metabox"
+msgstr ""
+
+#: inc/admin.php:70
+msgid "Add team notes or implementation guidelines via tempone/options_page/after_intro hook or register new meta box."
+msgstr ""
+
+#: inc/admin.php:76
+msgid "Support Channel"
+msgstr ""
+
+#: inc/admin.php:77
+msgid "All communication channels: editorial email, hotline, WhatsApp, and operating hours."
+msgstr ""
+
+#: inc/admin.php:78
+msgid "ACF → Location rule: Options Page equals \"Tempone Setup: Customer Care\"."
+msgstr ""
+
+#: inc/admin.php:82
+msgid "Content"
+msgstr ""
+
+#: inc/admin.php:84
+msgid "Editorial email & complaint form."
+msgstr ""
+
+#: inc/admin.php:85
+msgid "Hotline number, WhatsApp, Telegram."
+msgstr ""
+
+#: inc/admin.php:86
+msgid "Service hours & auto-reply message."
+msgstr ""
+
+#: inc/admin.php:87
+msgid "Advertising or partnership form link."
+msgstr ""
+
+#: inc/admin.php:92
+msgid "Checklist"
+msgstr ""
+
+#: inc/admin.php:93
+msgid "Module Integration"
+msgstr ""
+
+#: inc/admin.php:94
+msgid "Synchronize this field with CTA section, footer, and sticky contact widget."
+msgstr ""
+
+#: inc/admin.php:264
+msgid "ACF Pro is required"
+msgstr ""
+
+#: inc/admin.php:271
+msgid "This page requires ACF Pro plugin"
+msgstr ""
+
+#: inc/admin.php:272
+msgid "Tempone theme uses Advanced Custom Fields (ACF) Pro to manage theme options and flexible content."
+msgstr ""
+
+#: inc/admin.php:277
+msgid "How to install ACF Pro:"
+msgstr ""
+
+#: inc/admin.php:279
+msgid "Purchase ACF Pro license from"
+msgstr ""
+
+#: inc/admin.php:282
+msgid "Download the plugin ZIP file"
+msgstr ""
+
+#: inc/admin.php:283
+msgid "Go to Plugins → Add New → Upload Plugin"
+msgstr ""
+
+#: inc/admin.php:284
+msgid "Select the ZIP file and click Install Now"
+msgstr ""
+
+#: inc/admin.php:285
+msgid "Activate the plugin"
+msgstr ""
+
+#: inc/admin.php:290
+msgid "After installing ACF Pro, this page will automatically show theme customization options."
+msgstr ""
+
+#: inc/admin.php:307
+msgid "Use this meta box to note internal to-dos, client requests, or other references."
+msgstr ""
+
+#: single.php:217
+msgid "No widgets in sidebar. Add from WP Admin."
+msgstr ""
+
+#: single.php:230
+msgid "Related Posts"
+msgstr ""
+
+#: single.php:256
+msgid "No related posts found."
+msgstr ""
+
+#: single.php:298
+msgid "Newest Posts"
+msgstr ""
+
+#: single.php:291
+msgid "No posts found in this category."
+msgstr ""
+
+#: archive.php:127
+msgid "Read More"
+msgstr ""
+
+#: archive.php:151
+msgid "No posts found."
+msgstr ""
+
+#: index.php:30
+msgid "Blog"
+msgstr ""
+
+#: index.php:151
+msgid "Load More Posts"
+msgstr ""
+
+#: tp/section-flexible.php:64
+msgid "No widgets in Landing Page sidebar."
+msgstr ""
+
+#: tp/section-trending.php:18
+msgid "Trending Now"
+msgstr ""
+
+#: tp/section-trending.php:50
+msgid "Trending Tags"
+msgstr ""
+
+#: tp/footer-site.php:32
+msgid "Contact"
+msgstr ""
+
+#: tp/footer-site.php:36
+msgid "Address"
+msgstr ""
+
+#: tp/footer-site.php:42
+msgid "Phone"
+msgstr ""
+
+#: tp/footer-site.php:50
+msgid "Email"
+msgstr ""
+
+#: tp/footer-site.php:65
+msgid "Media Networks"
+msgstr ""
+
+#: tp/footer-site.php:81
+msgid "Information"
+msgstr ""
+
+#: tp/footer-site.php:123
+msgid "Follow us on"
+msgstr ""
+
+#: tp/header-site.php:45
+msgid "Subscribe"
+msgstr ""
+
+#: tp/header-site.php:54
+msgid "Login"
+msgstr ""
+
+#: tp/header-site.php:76
+msgid "Search news…"
+msgstr ""
+
+#: search.php:22
+msgid "Search results for \"%s\""
+msgstr ""

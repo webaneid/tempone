@@ -1,0 +1,529 @@
+// WordPress Core Widget Styles
+// Standardize all WordPress default widgets to match theme design
+
+// Widget wrapper
+.widget {
+  margin-bottom: 2rem;
+
+  // Widget title (Gutenberg blocks use h2.wp-block-heading)
+  .wp-block-heading,
+  .widget-title {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 1rem 0;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--tempone-color-light);
+    color: var(--tempone-color-dark);
+
+    @media (min-width: 1024px) {
+      font-size: 1.125rem;
+    }
+  }
+}
+
+// Latest Posts Widget (Gutenberg)
+.wp-block-latest-posts {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--tempone-color-light);
+
+    &:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &__post-title {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--tempone-color-dark);
+    text-decoration: none;
+    display: block;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--tempone-color-secondary);
+    }
+  }
+
+  // Post date/meta
+  &__post-date,
+  &__post-author {
+    font-size: 0.75rem;
+    color: var(--tempone-color-secondary);
+    margin-top: 0.25rem;
+    display: block;
+  }
+}
+
+// Categories Widget
+.wp-block-categories {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--tempone-color-light);
+
+    &:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  a {
+    font-size: 0.9375rem;
+    color: var(--tempone-color-body);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--tempone-color-dark);
+    }
+  }
+}
+
+// Archives Widget
+.wp-block-archives {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--tempone-color-light);
+
+    &:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  a {
+    font-size: 0.9375rem;
+    color: var(--tempone-color-body);
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--tempone-color-dark);
+    }
+  }
+}
+
+// Tag Cloud Widget
+.wp-block-tag-cloud {
+  a {
+    display: inline-block;
+    font-size: 0.875rem !important;
+    color: var(--tempone-color-body);
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    margin: 0 0.25rem 0.25rem 0;
+    border: 1px solid var(--tempone-color-light);
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: var(--tempone-color-white);
+      background-color: var(--tempone-color-dark);
+      border-color: var(--tempone-color-dark);
+    }
+  }
+}
+
+// Search Widget
+.wp-block-search {
+  &__input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--tempone-color-light);
+    font-size: 0.9375rem;
+    color: var(--tempone-color-body);
+
+    &:focus {
+      outline: none;
+      border-color: var(--tempone-color-dark);
+    }
+  }
+
+  &__button {
+    padding: 0.5rem 1rem;
+    background-color: var(--tempone-color-dark);
+    color: var(--tempone-color-white);
+    border: 0;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: var(--tempone-color-secondary);
+    }
+  }
+}
+
+// Calendar Widget
+.wp-block-calendar {
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+    text-align: center;
+    font-size: 0.875rem;
+    border: 1px solid var(--tempone-color-light);
+  }
+
+  th {
+    font-weight: 600;
+    color: var(--tempone-color-dark);
+    background-color: rgba(var(--tempone-color-light-rgb), 0.3);
+  }
+
+  a {
+    color: var(--tempone-color-dark);
+    text-decoration: none;
+    font-weight: 600;
+
+    &:hover {
+      color: var(--tempone-color-secondary);
+    }
+  }
+}
+
+// RSS Widget
+.wp-block-rss {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--tempone-color-light);
+
+    &:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &__item-title {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+
+    a {
+      color: var(--tempone-color-dark);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--tempone-color-secondary);
+      }
+    }
+  }
+
+  &__item-publish-date,
+  &__item-author {
+    font-size: 0.75rem;
+    color: var(--tempone-color-secondary);
+  }
+}
+
+// Block Group (Gutenberg container)
+.wp-block-group {
+  &__inner-container {
+    // Inherit parent styles
+  }
+}
+
+// Buttons
+.wp-block-buttons {
+  margin-bottom: 1.5rem;
+}
+
+.wp-block-button {
+  margin-bottom: 0.75rem;
+
+  &__link,
+  a.wp-block-button__link,
+  .wp-element-button {
+    display: inline-block !important;
+    padding: 0.75rem 1.5rem !important;
+    background-color: var(--tempone-color-primary) !important;
+    color: var(--tempone-color-white) !important;
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 0.9375rem !important;
+    line-height: 1.4 !important;
+    transition: all 0.2s ease !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    cursor: pointer !important;
+
+    &:hover {
+      background-color: var(--tempone-color-secondary) !important;
+      color: var(--tempone-color-white) !important;
+    }
+
+    &:focus {
+      background-color: var(--tempone-color-secondary) !important;
+      color: var(--tempone-color-white) !important;
+    }
+  }
+}
+
+// Lists (ul) - Only in single post/page content
+.single,
+.page {
+  .single-post__content,
+  .entry-content {
+    ul.wp-block-list {
+      list-style: none;
+      margin: 0 0 1.5rem 0;
+      padding-left: 0;
+
+      li {
+        position: relative;
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        line-height: 1.6;
+        color: var(--tempone-color-body);
+
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0.25rem;
+          top: 0.5rem;
+          width: 0.4rem;
+          height: 0.4rem;
+          background-color: var(--tempone-color-primary);
+          display: block;
+        }
+      }
+
+      // Nested lists
+      ul,
+      ol {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+      }
+    }
+
+    // Ordered Lists (ol)
+    ol.wp-block-list {
+      list-style: none;
+      counter-reset: list-counter;
+      margin: 0 0 1.5rem 0;
+      padding-left: 0;
+
+      li {
+        position: relative;
+        margin-bottom: 0.5rem;
+        padding-left: 2rem;
+        line-height: 1.6;
+        color: var(--tempone-color-body);
+        counter-increment: list-counter;
+
+        &::before {
+          content: counter(list-counter) '.';
+          position: absolute;
+          left: 0;
+          top: 0;
+          color: var(--tempone-color-primary);
+          font-weight: 700;
+          font-size: 1.125em;
+        }
+      }
+
+      // Nested lists
+      ul,
+      ol {
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        padding-left: 2rem;
+      }
+    }
+  }
+}
+
+// Images - Only in single post/page (exclude gallery images)
+.single,
+.page {
+  .single-post__content,
+  .entry-content {
+    // Single standalone images only (not inside gallery)
+    > .wp-block-image:not(.wp-block-gallery .wp-block-image) {
+      margin-bottom: 1.5rem;
+
+      // Mobile: Full-width (cancel container padding)
+      @media (max-width: 767px) {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      figcaption {
+        margin-top: 0.5rem;
+        font-size: 0.875rem;
+        color: var(--tempone-color-secondary);
+        font-style: italic;
+        text-align: center;
+
+        @media (max-width: 767px) {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+      }
+    }
+
+    // Gallery
+    .wp-block-gallery {
+      margin-bottom: 1.5rem;
+      gap: 0.5rem;
+
+      // Mobile: Full-width horizontal scroll
+      @media (max-width: 767px) {
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+        padding: 0 0.5rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        flex-wrap: nowrap;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+
+      .wp-block-image {
+        margin: 0;
+
+        img {
+          width: 100%;
+          height: auto;
+          object-fit: cover;
+          display: block;
+        }
+
+        figcaption {
+          font-size: 0.75rem;
+          color: var(--tempone-color-secondary);
+          font-style: italic;
+          margin-top: 0.25rem;
+          padding: 0 0.25rem;
+        }
+
+        // Mobile: Fixed width for horizontal scroll
+        @media (max-width: 767px) {
+          flex: 0 0 80vw;
+          max-width: 80vw;
+        }
+      }
+    }
+  }
+}
+
+// Tables
+.wp-block-table {
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid var(--tempone-color-light);
+  }
+
+  th,
+  td {
+    padding: 0.75rem;
+    border: 1px solid var(--tempone-color-light);
+    text-align: left;
+    font-size: 0.9375rem;
+  }
+
+  thead {
+    th {
+      font-weight: 700;
+      color: var(--tempone-color-dark);
+      background-color: rgba(var(--tempone-color-light-rgb), 0.3);
+    }
+
+    tr {
+      border-bottom: 2px solid var(--tempone-color-primary);
+    }
+  }
+
+  tfoot {
+    td {
+      font-weight: 600;
+      background-color: rgba(var(--tempone-color-light-rgb), 0.3);
+    }
+
+    tr {
+      border-top: 2px solid var(--tempone-color-primary);
+    }
+  }
+
+  tbody {
+    tr {
+      &:nth-child(even) {
+        background-color: rgba(var(--tempone-color-light-rgb), 0.15);
+      }
+
+      &:hover {
+        background-color: rgba(var(--tempone-color-light-rgb), 0.4);
+      }
+    }
+  }
+}

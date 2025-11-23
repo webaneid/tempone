@@ -1,0 +1,142 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.75;
+  color: var(--tempone-color-body);
+  background-color: var(--tempone-color-light);
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--tempone-color-primary);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--tempone-color-secondary);
+  }
+}
+
+p {
+  margin: 0 0 1.25rem;
+  font-size: 1rem;
+  color: var(--tempone-color-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Poppins", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  color: var(--tempone-color-primary);
+  margin: 0 0 0.75rem;
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 4vw, 3rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 3vw, 2.5rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.1rem;
+}
+
+h6 {
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+ul,
+ol {
+  margin: 0 0 1.5rem 1.25rem;
+  padding: 0;
+  color: var(--tempone-color-body);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  background-color: var(--tempone-color-white);
+  border-radius: 0;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+}
+
+::selection {
+  background-color: rgba(var(--tempone-color-primary-rgb), 0.12);
+  color: var(--tempone-color-primary);
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid rgba(var(--tempone-color-primary-rgb), 0.1);
+  margin: 2rem 0;
+}
+
+.screen-reader-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+// Custom container (Tailwind container disabled via config)
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+
+  @media (min-width: 1024px) {
+    padding: 0 2rem;
+  }
+}
+
+// Site main (full-width)
+.site-main {
+  width: 100%;
+}

@@ -1,0 +1,18 @@
+/*
+Theme Name: Tempone
+Theme URI: https://webane.com/tempone
+Author: Webane Indonesia
+Author URI: https://webane.com
+Description: Tema WordPress yang elegan dan sophisticated untuk website berita dan blog. Dirancang dengan penuh semangat oleh Webane Indonesia, perusahaan yang fokus pada pengembangan website dan aplikasi. Tempone menampilkan desain monochrome yang bersih, ACF Flexible Content sections yang powerful, layout responsif, dan interaksi JavaScript modern. Sempurna untuk publisher, blogger, dan content creator yang menghargai kesederhanaan dan performa.
+Version: 0.1.0
+Requires at least: 6.0
+Tested up to: 6.4
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: tempone
+Domain Path: /languages
+Tags: blog, news, magazine, two-columns, custom-menu, custom-logo, editor-style, featured-images, flexible-header, microformats, post-formats, rtl-language-support, sticky-post, threaded-comments, translation-ready
+*/
+
+/* Minimal fallback styles for compatibility before Tailwind loads */

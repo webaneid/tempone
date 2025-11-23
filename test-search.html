@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+:root {
+  --tempone-color-primary: #2d232e;
+  --tempone-color-secondary: #474448;
+  --tempone-color-light: #f1f0ea;
+  --tempone-color-white: #ffffff;
+  --tempone-color-body: #1e2d2f;
+}
+
+.site-header__search {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--tempone-color-light);
+  border-radius: 999px;
+  padding: 0.2rem 0.25rem 0.2rem 1rem;
+  max-width: 260px;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+@media (min-width: 1024px) {
+  .site-header__search {
+    width: 44px;
+    max-width: 44px;
+    padding: 0;
+    border-color: transparent;
+    overflow: hidden;
+  }
+  
+  .site-header__search.is-expanded {
+    width: 260px;
+    max-width: 260px;
+    padding: 0.2rem 0.25rem 0.2rem 1rem;
+    border-color: var(--tempone-color-light);
+  }
+}
+
+.site-header__search input {
+  border: 0;
+  background: transparent;
+  font-size: 0.9rem;
+  flex: 1;
+  color: var(--tempone-color-body);
+  opacity: 1;
+  transition: opacity 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+  .site-header__search input {
+    opacity: 0;
+    pointer-events: none;
+  }
+  
+  .site-header__search.is-expanded input {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.site-header__search button {
+  border: 0;
+  background: var(--tempone-color-light);
+  border-radius: 999px;
+  width: 34px;
+  height: 34px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+@media (min-width: 1024px) {
+  .site-header__search button {
+    width: 44px;
+    height: 44px;
+    background: var(--tempone-color-primary);
+  }
+  
+  .site-header__search button:hover {
+    background: var(--tempone-color-secondary);
+  }
+  
+  .site-header__search.is-expanded button {
+    width: 34px;
+    height: 34px;
+    background: var(--tempone-color-light);
+  }
+}
+
+.site-header__search button::before,
+.site-header__search button::after {
+  content: "";
+  position: absolute;
+  display: block;
+}
+
+.site-header__search button::before {
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--tempone-color-secondary);
+  border-radius: 50%;
+}
+
+@media (min-width: 1024px) {
+  .site-header__search button::before {
+    width: 14px;
+    height: 14px;
+    border-color: var(--tempone-color-white);
+  }
+  
+  .site-header__search.is-expanded button::before {
+    width: 12px;
+    height: 12px;
+    border-color: var(--tempone-color-secondary);
+  }
+}
+
+.site-header__search button::after {
+  width: 6px;
+  height: 2px;
+  background-color: var(--tempone-color-secondary);
+  transform: rotate(45deg);
+  right: 8px;
+  bottom: 8px;
+}
+
+@media (min-width: 1024px) {
+  .site-header__search button::after {
+    width: 7px;
+    background-color: var(--tempone-color-white);
+    right: 11px;
+    bottom: 11px;
+  }
+  
+  .site-header__search.is-expanded button::after {
+    width: 6px;
+    background-color: var(--tempone-color-secondary);
+    right: 8px;
+    bottom: 8px;
+  }
+}
+</style>
+</head>
+<body style="padding: 50px;">
+<h1>Test Search Desktop (resize window to >1024px)</h1>
+<form class="site-header__search" data-search-form>
+  <input type="search" placeholder="Search news…" />
+  <button type="button" data-search-toggle>
+    <span style="position:absolute; opacity:0;">Submit</span>
+  </button>
+</form>
+
+<script>
+const searchForm = document.querySelector('[data-search-form]');
+const searchButton = document.querySelector('[data-search-toggle]');
+const searchInput = searchForm.querySelector('input');
+
+searchButton.addEventListener('click', function(e) {
+  e.preventDefault();
+  if (window.innerWidth >= 1024) {
+    if (!searchForm.classList.contains('is-expanded')) {
+      searchForm.classList.add('is-expanded');
+      setTimeout(() => searchInput.focus(), 100);
+    }
+  }
+});
+
+document.addEventListener('click', function(e) {
+  if (window.innerWidth >= 1024) {
+    if (!searchForm.contains(e.target) && searchForm.classList.contains('is-expanded')) {
+      searchForm.classList.remove('is-expanded');
+    }
+  }
+});
+</script>
+</body>
+</html>

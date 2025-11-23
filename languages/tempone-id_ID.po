@@ -1,0 +1,718 @@
+# Indonesian (Indonesia) translation for Tempone.
+# Copyright (C) 2024 Tempone
+# This file is distributed under the same license as the Tempone package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Tempone 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/tempone/tempone\n"
+"POT-Creation-Date: 2024-11-20 15:00+0700\n"
+"PO-Revision-Date: 2024-11-20 15:30+0700\n"
+"Last-Translator: Tempone Team <info@tempone.com>\n"
+"Language-Team: Indonesian <id@li.org>\n"
+"Language: id_ID\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Manual\n"
+"X-Domain: tempone\n"
+
+#: style.css
+msgid "Tempone"
+msgstr "Tempone"
+
+#: style.css
+msgid "Modern WordPress theme for news and magazine websites with monochrome design"
+msgstr "Tema WordPress modern untuk website berita dan majalah dengan desain monokrom"
+
+#: style.css
+msgid "Tempone Team"
+msgstr "Tim Tempone"
+
+#: style.css
+msgid "https://tempone.com"
+msgstr "https://tempone.com"
+
+#. translators: %s: search query
+#: search.php:25
+msgid "Search Results for: %s"
+msgstr "Hasil Pencarian untuk: %s"
+
+#: search.php:55
+msgid "Nothing found"
+msgstr "Tidak ditemukan"
+
+#: search.php:56
+msgid "Sorry, but nothing matched your search terms. Please try again with different keywords."
+msgstr "Maaf, tidak ada yang cocok dengan kata kunci pencarian Anda. Silakan coba lagi dengan kata kunci yang berbeda."
+
+#: 404.php:18
+msgid "404 - Page Not Found"
+msgstr "404 - Halaman Tidak Ditemukan"
+
+#: 404.php:19
+msgid "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
+msgstr "Halaman yang Anda cari mungkin telah dihapus, berganti nama, atau sementara tidak tersedia."
+
+#: 404.php:20
+msgid "Back to Homepage"
+msgstr "Kembali ke Beranda"
+
+#: comments.php:39
+msgid "One comment on &ldquo;%1$s&rdquo;"
+msgstr "Satu komentar pada &ldquo;%1$s&rdquo;"
+
+#: comments.php:45
+msgid "%1$s comment on &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s comments on &ldquo;%2$s&rdquo;"
+msgstr[0] "%1$s komentar pada &ldquo;%2$s&rdquo;"
+
+#: comments.php:68
+msgid "Previous Comments"
+msgstr "Komentar Sebelumnya"
+
+#: comments.php:69
+msgid "Next Comments"
+msgstr "Komentar Selanjutnya"
+
+#: comments.php:77
+msgid "Comments are closed."
+msgstr "Komentar ditutup."
+
+#: tp/comments-facebook.php:32
+msgid "Comments"
+msgstr "Komentar"
+
+#: inc/setup.php:27
+msgid "Primary Menu"
+msgstr "Menu Utama"
+
+#: inc/setup.php:28
+msgid "Secondary Menu"
+msgstr "Menu Sekunder"
+
+#: inc/setup.php:29
+msgid "Footer Menu"
+msgstr "Menu Footer"
+
+#: inc/setup.php:30
+msgid "Jaringan Media Menu"
+msgstr "Menu Jaringan Media"
+
+#: inc/setup.php:31
+msgid "Footer Bottom Menu"
+msgstr "Menu Footer Bawah"
+
+#: inc/setup.php:62
+msgid "Main Sidebar"
+msgstr "Sidebar Utama"
+
+#: inc/setup.php:70
+msgid "Landing Page Sidebar"
+msgstr "Sidebar Halaman Landing"
+
+#: inc/template-tags.php:24
+msgid "Posts by %s"
+msgstr "Tulisan oleh %s"
+
+#: inc/template-tags.php:272
+msgid "min read"
+msgstr "menit baca"
+
+#: inc/post.php:186
+msgid "Just now"
+msgstr "Baru saja"
+
+#: inc/post.php:193
+msgid "%s minute ago"
+msgid_plural "%s minutes ago"
+msgstr[0] "%s menit lalu"
+
+#: inc/post.php:202
+msgid "%s hour ago"
+msgid_plural "%s hours ago"
+msgstr[0] "%s jam lalu"
+
+#: inc/post.php:211
+msgid "%s day ago"
+msgid_plural "%s days ago"
+msgstr[0] "%s hari lalu"
+
+#: inc/post.php:220
+msgid "%s week ago"
+msgid_plural "%s weeks ago"
+msgstr[0] "%s minggu lalu"
+
+#: inc/post.php:229
+msgid "%s month ago"
+msgid_plural "%s months ago"
+msgstr[0] "%s bulan lalu"
+
+#: inc/post.php:237
+msgid "%s year ago"
+msgid_plural "%s years ago"
+msgstr[0] "%s tahun lalu"
+
+#: inc/post.php:367
+msgid "%d min read"
+msgid_plural "%d mins read"
+msgstr[0] "%d menit baca"
+
+#: inc/template-tags.php:330
+msgid "Share"
+msgstr "Bagikan"
+
+#: inc/template-tags.php:333
+msgid "Share on Facebook"
+msgstr "Bagikan di Facebook"
+
+#: inc/template-tags.php:337
+msgid "Share on X"
+msgstr "Bagikan di X"
+
+#: inc/template-tags.php:341
+msgid "Share on WhatsApp"
+msgstr "Bagikan di WhatsApp"
+
+#: inc/template-tags.php:345
+msgid "Share on Telegram"
+msgstr "Bagikan di Telegram"
+
+#: inc/post.php:27 single.php:230
+msgid "Related Posts"
+msgstr "Berita Terkait"
+
+#: inc/post.php:65
+msgid "Category"
+msgstr "Kategori"
+
+#: inc/post.php:103 single.php:298
+msgid "Newest Posts"
+msgstr "Berita Terbaru"
+
+#: inc/widget.php:22
+msgid "Tempone: Posts"
+msgstr "Tempone: Postingan"
+
+#: inc/widget.php:23
+msgid "Display posts with various filtering options"
+msgstr "Tampilkan postingan dengan berbagai opsi filter"
+
+#: inc/widget.php:36 inc/widget.php:94 inc/seo.php:143
+msgid "Title"
+msgstr "Judul"
+
+#: inc/widget.php:45
+msgid "Type"
+msgstr "Tipe"
+
+#: inc/widget.php:48
+msgid "Recent Post"
+msgstr "Postingan Terbaru"
+
+#: inc/widget.php:49
+msgid "Popular Post"
+msgstr "Postingan Populer"
+
+#: inc/widget.php:50
+msgid "Most Comments"
+msgstr "Paling Banyak Komentar"
+
+#: inc/widget.php:51
+msgid "Post Format: Gallery"
+msgstr "Format Post: Galeri"
+
+#: inc/widget.php:52
+msgid "Post Format: Video"
+msgstr "Format Post: Video"
+
+#: inc/post.php:482
+msgid "%s view"
+msgid_plural "%s views"
+msgstr[0] "%s tayang"
+
+#: inc/post.php:593
+msgid "Views"
+msgstr "Tayang"
+
+#: inc/widget.php:63
+msgid "Number of posts to show"
+msgstr "Jumlah postingan yang ditampilkan"
+
+#: inc/widget.php:72
+msgid "Category (separate by comma)"
+msgstr "Kategori (pisahkan dengan koma)"
+
+#: inc/widget.php:81
+msgid "Tag (separate by comma)"
+msgstr "Tag (pisahkan dengan koma)"
+
+#: inc/widget.php:90
+msgid "Order By"
+msgstr "Urutkan Berdasarkan"
+
+#: inc/widget.php:93
+msgid "ID"
+msgstr "ID"
+
+#: inc/widget.php:95
+msgid "Date"
+msgstr "Tanggal"
+
+#: inc/widget.php:96
+msgid "Random"
+msgstr "Acak"
+
+#: inc/widget.php:97
+msgid "Comment Count"
+msgstr "Jumlah Komentar"
+
+#: inc/widget.php:98
+msgid "View Count"
+msgstr "Jumlah Tayangan"
+
+#: inc/widget.php:109
+msgid "Order"
+msgstr "Urutan"
+
+#: inc/widget.php:112
+msgid "Descending"
+msgstr "Menurun"
+
+#: inc/widget.php:113
+msgid "Ascending"
+msgstr "Menaik"
+
+#: inc/seo.php:142
+msgid "Author"
+msgstr "Penulis"
+
+#: inc/seo.php:144
+msgid "Description"
+msgstr "Deskripsi"
+
+#: inc/seo.php:145
+msgid "Publisher"
+msgstr "Penerbit"
+
+#: inc/seo.php:146
+msgid "Publication Date"
+msgstr "Tanggal Publikasi"
+
+#: inc/seo.php:147
+msgid "Keywords"
+msgstr "Kata Kunci"
+
+#: inc/seo.php:231
+msgid "Tags:"
+msgstr "Tag:"
+
+#: inc/acf-layouts.php:192
+msgid "Theme Customization"
+msgstr "Kustomisasi Tema"
+
+#: inc/acf-layouts.php:193
+msgid "Customization"
+msgstr "Kustomisasi"
+
+#: inc/acf-layouts.php:384
+msgid "Facebook Comments"
+msgstr "Komentar Facebook"
+
+#: inc/acf-layouts.php:389
+msgid "Enable Facebook Comments"
+msgstr "Aktifkan Komentar Facebook"
+
+#: inc/acf-layouts.php:392
+msgid "Enable to replace WordPress native comments with Facebook Comments Social Plugin."
+msgstr "Aktifkan untuk mengganti komentar WordPress dengan Plugin Sosial Komentar Facebook."
+
+#: inc/acf-layouts.php:399
+msgid "Facebook App ID"
+msgstr "Facebook App ID"
+
+#: inc/acf-layouts.php:402
+msgid "Enter your Facebook App ID. Get it from: https://developers.facebook.com/apps/"
+msgstr "Masukkan Facebook App ID Anda. Dapatkan dari: https://developers.facebook.com/apps/"
+
+#: inc/acf-layouts.php:404
+msgid "<strong>IMPORTANT:</strong> After entering App ID, make sure your website domain is added in Facebook App Settings → Basic → App Domains. Example: yoursite.com"
+msgstr "<strong>PENTING:</strong> Setelah memasukkan App ID, pastikan domain website Anda ditambahkan di Pengaturan Aplikasi Facebook → Dasar → Domain Aplikasi. Contoh: situsanda.com"
+
+#: inc/acf-layouts.php:418
+msgid "Language / Locale"
+msgstr "Bahasa / Lokal"
+
+#: inc/acf-layouts.php:421
+msgid "Select language for Facebook Comments plugin."
+msgstr "Pilih bahasa untuk plugin Komentar Facebook."
+
+#: inc/acf-layouts.php:447
+msgid "Number of Comments"
+msgstr "Jumlah Komentar"
+
+#: inc/acf-layouts.php:450
+msgid "Number of comments to display (default: 10)."
+msgstr "Jumlah komentar yang ditampilkan (default: 10)."
+
+#: inc/admin.php:14
+msgid "Tempone Setup"
+msgstr "Pengaturan Tempone"
+
+#: inc/admin.php:16
+msgid "Control Center"
+msgstr "Pusat Kontrol"
+
+#: inc/admin.php:17
+msgid "Main panel to configure identity, colors, and Tempone theme utilities."
+msgstr "Panel utama untuk mengatur identitas, warna, dan utilitas tema Tempone."
+
+#: inc/admin.php:18
+msgid "Use this page as a summary and shortcut to ACF sub-menus."
+msgstr "Gunakan halaman ini sebagai ringkasan dan pintasan ke sub-menu ACF."
+
+#: inc/admin.php:21
+msgid "ACF Options"
+msgstr "Opsi ACF"
+
+#: inc/admin.php:22
+msgid "General Setting"
+msgstr "Pengaturan Umum"
+
+#: inc/admin.php:23
+msgid "Brand identity, default hero, fallback copy, and basic SEO meta."
+msgstr "Identitas merek, hero default, salinan cadangan, dan meta SEO dasar."
+
+#: inc/admin.php:24
+msgid "Open General Setting"
+msgstr "Buka Pengaturan Umum"
+
+#: inc/admin.php:28
+msgid "Workflow"
+msgstr "Alur Kerja"
+
+#: inc/admin.php:29
+msgid "Customer Care"
+msgstr "Layanan Pelanggan"
+
+#: inc/admin.php:30
+msgid "Manage editorial contact data, CS, WhatsApp, and help CTA."
+msgstr "Kelola data kontak redaksi, CS, WhatsApp, dan tombol bantuan."
+
+#: inc/admin.php:31
+msgid "Open Customer Care"
+msgstr "Buka Layanan Pelanggan"
+
+#: inc/admin.php:35
+msgid "SEO & News"
+msgstr "SEO & Berita"
+
+#: inc/admin.php:36
+msgid "SEO & News Setup"
+msgstr "Pengaturan SEO & Berita"
+
+#: inc/admin.php:37
+msgid "Google News sitemap, AI crawler optimization, and news website SEO guide."
+msgstr "Sitemap Google News, optimasi crawler AI, dan panduan SEO website berita."
+
+#: inc/admin.php:38
+msgid "Open SEO & News"
+msgstr "Buka SEO & Berita"
+
+#: inc/admin.php:44
+msgid "Google News Ready"
+msgstr "Siap Google News"
+
+#: inc/admin.php:45
+msgid "Complete guide for Google News submission, AI crawler optimization, and news website SEO."
+msgstr "Panduan lengkap untuk submit Google News, optimasi crawler AI, dan SEO website berita."
+
+#: inc/admin.php:46
+msgid "Enhance Yoast SEO Free with NewsArticle schema, Google News sitemap, and AI-friendly metadata."
+msgstr "Tingkatkan Yoast SEO Free dengan skema NewsArticle, sitemap Google News, dan metadata ramah AI."
+
+#: inc/admin.php:52
+msgid "Brand Identity"
+msgstr "Identitas Merek"
+
+#: inc/admin.php:53
+msgid "Configure brand identity, logo, tagline, and fallback content for hero blocks."
+msgstr "Atur identitas merek, logo, tagline, dan konten cadangan untuk blok hero."
+
+#: inc/admin.php:54
+msgid "ACF → Location rule: Options Page equals \"Tempone Setup: General Setting\"."
+msgstr "ACF → Aturan lokasi: Halaman Opsi sama dengan \"Tempone Setup: General Setting\"."
+
+#: inc/admin.php:57
+msgid "Suggested Fields"
+msgstr "Field yang Disarankan"
+
+#: inc/admin.php:58
+msgid "Global Values"
+msgstr "Nilai Global"
+
+#: inc/admin.php:60
+msgid "Main logo & alternative versions (desktop/mobile)."
+msgstr "Logo utama & versi alternatif (desktop/mobile)."
+
+#: inc/admin.php:61
+msgid "Default hero copy + fallback CTA button."
+msgstr "Salinan hero default + tombol CTA cadangan."
+
+#: inc/admin.php:62
+msgid "Default SEO metadata (title, description)."
+msgstr "Metadata SEO default (judul, deskripsi)."
+
+#: inc/admin.php:63
+msgid "Newsletter headline & promotional text settings."
+msgstr "Headline newsletter & pengaturan teks promosi."
+
+#: inc/admin.php:68
+msgid "Notes"
+msgstr "Catatan"
+
+#: inc/admin.php:69
+msgid "Custom Metabox"
+msgstr "Metabox Kustom"
+
+#: inc/admin.php:70
+msgid "Add team notes or implementation guidelines via tempone/options_page/after_intro hook or register new meta box."
+msgstr "Tambahkan catatan tim atau panduan implementasi melalui hook tempone/options_page/after_intro atau daftarkan meta box baru."
+
+#: inc/admin.php:76
+msgid "Support Channel"
+msgstr "Kanal Dukungan"
+
+#: inc/admin.php:77
+msgid "All communication channels: editorial email, hotline, WhatsApp, and operating hours."
+msgstr "Semua kanal komunikasi: email redaksi, hotline, WhatsApp, dan jam operasional."
+
+#: inc/admin.php:78
+msgid "ACF → Location rule: Options Page equals \"Tempone Setup: Customer Care\"."
+msgstr "ACF → Aturan lokasi: Halaman Opsi sama dengan \"Tempone Setup: Customer Care\"."
+
+#: inc/admin.php:82
+msgid "Content"
+msgstr "Konten"
+
+#: inc/admin.php:84
+msgid "Editorial email & complaint form."
+msgstr "Email redaksi & formulir pengaduan."
+
+#: inc/admin.php:85
+msgid "Hotline number, WhatsApp, Telegram."
+msgstr "Nomor hotline, WhatsApp, Telegram."
+
+#: inc/admin.php:86
+msgid "Service hours & auto-reply message."
+msgstr "Jam layanan & pesan balasan otomatis."
+
+#: inc/admin.php:87
+msgid "Advertising or partnership form link."
+msgstr "Link formulir iklan atau kemitraan."
+
+#: inc/admin.php:92
+msgid "Checklist"
+msgstr "Daftar Periksa"
+
+#: inc/admin.php:93
+msgid "Module Integration"
+msgstr "Integrasi Modul"
+
+#: inc/admin.php:94
+msgid "Synchronize this field with CTA section, footer, and sticky contact widget."
+msgstr "Sinkronkan field ini dengan seksi CTA, footer, dan widget kontak sticky."
+
+#: inc/admin.php:264
+msgid "ACF Pro is required"
+msgstr "ACF Pro diperlukan"
+
+#: inc/admin.php:271
+msgid "This page requires ACF Pro plugin"
+msgstr "Halaman ini memerlukan plugin ACF Pro"
+
+#: inc/admin.php:272
+msgid "Tempone theme uses Advanced Custom Fields (ACF) Pro to manage theme options and flexible content."
+msgstr "Tema Tempone menggunakan Advanced Custom Fields (ACF) Pro untuk mengelola opsi tema dan konten fleksibel."
+
+#: inc/admin.php:277
+msgid "How to install ACF Pro:"
+msgstr "Cara menginstal ACF Pro:"
+
+#: inc/admin.php:279
+msgid "Purchase ACF Pro license from"
+msgstr "Beli lisensi ACF Pro dari"
+
+#: inc/admin.php:282
+msgid "Download the plugin ZIP file"
+msgstr "Unduh file ZIP plugin"
+
+#: inc/admin.php:283
+msgid "Go to Plugins → Add New → Upload Plugin"
+msgstr "Buka Plugins → Tambah Baru → Unggah Plugin"
+
+#: inc/admin.php:284
+msgid "Select the ZIP file and click Install Now"
+msgstr "Pilih file ZIP dan klik Instal Sekarang"
+
+#: inc/admin.php:285
+msgid "Activate the plugin"
+msgstr "Aktifkan plugin"
+
+#: inc/admin.php:290
+msgid "After installing ACF Pro, this page will automatically show theme customization options."
+msgstr "Setelah menginstal ACF Pro, halaman ini akan otomatis menampilkan opsi kustomisasi tema."
+
+#: inc/admin.php:307
+msgid "Use this meta box to note internal to-dos, client requests, or other references."
+msgstr "Gunakan meta box ini untuk mencatat to-do internal, permintaan klien, atau referensi lain."
+
+#: single.php:217
+msgid "No widgets in sidebar. Add from WP Admin."
+msgstr "Tidak ada widget di sidebar. Tambahkan dari WP Admin."
+
+#: single.php:256
+msgid "No related posts found."
+msgstr "Tidak ada berita terkait ditemukan."
+
+#: single.php:291
+msgid "No posts found in this category."
+msgstr "Tidak ada postingan ditemukan dalam kategori ini."
+
+#: archive.php:127
+msgid "Read More"
+msgstr "Baca Selengkapnya"
+
+#: archive.php:151
+msgid "No posts found."
+msgstr "Tidak ada postingan ditemukan."
+
+#: index.php:30
+msgid "Blog"
+msgstr "Blog"
+
+#: index.php:151
+msgid "Load More Posts"
+msgstr "Muat Lebih Banyak Postingan"
+
+#: tp/section-flexible.php:64
+msgid "No widgets in Landing Page sidebar."
+msgstr "Tidak ada widget di sidebar Halaman Landing."
+
+#: tp/section-trending.php:18
+msgid "Trending Now"
+msgstr "Trending Sekarang"
+
+#: tp/section-trending.php:50
+msgid "Trending Tags"
+msgstr "Tag Trending"
+
+#: tp/footer-site.php:32
+msgid "Contact"
+msgstr "Kontak"
+
+#: tp/footer-site.php:36
+msgid "Address"
+msgstr "Alamat"
+
+#: tp/footer-site.php:42
+msgid "Phone"
+msgstr "Telepon"
+
+#: tp/footer-site.php:50
+msgid "Email"
+msgstr "Email"
+
+#: tp/footer-site.php:65
+msgid "Media Networks"
+msgstr "Jaringan Media"
+
+#: tp/footer-site.php:81
+msgid "Information"
+msgstr "Informasi"
+
+#: tp/footer-site.php:123
+msgid "Follow us on"
+msgstr "Ikuti kami di"
+
+#: tp/header-site.php:45
+msgid "Subscribe"
+msgstr "Langganan"
+
+#: tp/header-site.php:54
+msgid "Login"
+msgstr "Masuk"
+
+#: tp/header-site.php:76
+msgid "Search news…"
+msgstr "Cari berita…"
+
+#: search.php:22
+msgid "Search results for \"%s\""
+msgstr "Hasil pencarian untuk \"%s\""
+
+#: tp/flexi_design_1.php:90 tp/flexi_design_2.php:90 tp/flexi_design_5.php:88
+msgid "View More"
+msgstr "Lihat Lebih Banyak"
+
+#: tp/flexi_design_3.php:88 tp/flexi_design_4.php:88
+msgid "More Articles"
+msgstr "Artikel Lainnya"
+
+#: tp/section-category-featured.php:54
+msgid "All Posts"
+msgstr "Semua Artikel"
+
+#: tp/section-category-featured.php:82
+msgid "Explore All posts"
+msgstr "Jelajahi Semua"
+
+#: tp/section-flexible.php:51
+msgid "No flexible content. Add layouts from ACF on this page."
+msgstr "Belum ada konten. Tambahkan layout dari ACF di halaman ini."
+
+#: tp/section-flexible.php:68
+msgid "Add widgets for Landing Page Sidebar in WP Admin → Appearance → Widgets."
+msgstr "Tambahkan widget untuk Sidebar Landing Page di WP Admin → Tampilan → Widget."
+
+#: tp/section-trending.php:34
+msgid "Recommended for You"
+msgstr "Rekomendasi"
+
+#: tp/section-trending.php:85
+msgid "Trending Topics"
+msgstr "Topik Trending"
+
+#: page-landingpage.php:38
+msgid "Latest Articles"
+msgstr "Artikel Terbaru"
+
+#: inc/admin-dashboard.php:783
+#, php-format
+msgid "Designed with love by %s. Powered by WordPress."
+msgstr "Dirancang sepenuh hati oleh %s. Didukung oleh WordPress."
+
+#: inc/admin-dashboard.php:784 inc/admin-dashboard.php:798
+msgid "Webane Indonesia"
+msgstr "Webane"
+
+#: inc/admin-dashboard.php:797
+#, php-format
+msgid "Designed with love by %s"
+msgstr "Dirancang sepenuh hati oleh %s"
+
+#: inc/admin-dashboard.php:798
+msgid "Web Design Webane Indonesia"
+msgstr "Desain Web Webane Indonesia"
+
+#: inc/admin-customizer.php:328
+msgid "Welcome Back! Please Login To Your Account"
+msgstr "Selamat Datang Kembali! Silakan Masuk Ke Akun Anda"
+
+#: inc/admin-customizer.php:346
+msgid "Don't have an account?"
+msgstr "Belum punya akun?"
+
+#: inc/admin-customizer.php:347
+msgid "Signup"
+msgstr "Daftar"
