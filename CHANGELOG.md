@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.2] - 2025-01-24
+
+### Performance
+- Move Tailwind CDN loading to footer (eliminate render-blocking, save ~250ms)
+- Add preconnect hints for external resources (save ~200-400ms DNS/connection time)
+- Add font-display swap to Google Fonts (prevent invisible text during font loading)
+
 ## [0.1.1] - 2025-01-24
 
 ### Fixed
@@ -116,6 +123,7 @@ This is the initial release of Tempone, a sophisticated WordPress theme for news
 
 ---
 
-[Unreleased]: https://github.com/webane/tempone/compare/v0.1.1...HEAD
-[0.1.1]: https://github.com/webane/tempone/compare/v0.1.0...v0.1.1
-[0.1.0]: https://github.com/webane/tempone/releases/tag/v0.1.0
+[Unreleased]: https://github.com/webaneid/tempone/compare/v0.1.2...HEAD
+[0.1.2]: https://github.com/webaneid/tempone/compare/v0.1.1...v0.1.2
+[0.1.1]: https://github.com/webaneid/tempone/compare/v0.1.0...v0.1.1
+[0.1.0]: https://github.com/webaneid/tempone/releases/tag/v0.1.0

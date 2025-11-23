@@ -8,10 +8,10 @@
 function tempone_enqueue_assets() : void {
 	$theme_version = wp_get_theme()->get( 'Version' );
 
-	// Google Fonts.
+	// Google Fonts with font-display swap for performance.
 	wp_enqueue_style(
 		'tempone-fonts',
-		'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700&display=swap',
+		'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@600;700;800&display=swap',
 		array(),
 		null
 	);
@@ -24,17 +24,16 @@ function tempone_enqueue_assets() : void {
 		$theme_version
 	);
 
-	// Tailwind CSS via Play CDN (must be script, not stylesheet).
+	// Tailwind CSS via Play CDN (loaded in footer to prevent render blocking).
 	wp_enqueue_script(
 		'tempone-tailwind',
 		'https://cdn.tailwindcss.com',
 		array(),
 		'3.4',
-		false // Load in head, not footer.
+		true // Load in footer (optimized for performance).
 	);
 
 	// Disable Tailwind's default container to use our custom one.
-	// Changed to 'after' to ensure Tailwind is loaded first.
 	wp_add_inline_script(
 		'tempone-tailwind',
 		'window.tailwindConfig = { corePlugins: { container: false } };',
@@ -88,3 +87,21 @@ function tempone_enqueue_assets() : void {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'tempone_enqueue_assets' );
+
+/**
+ * Add preconnect resource hints for external domains.
+ *
+ * Establishes early connections to required origins to reduce DNS lookup,
+ * TCP handshake, and TLS negotiation time.
+ *
+ * @return void
+ */
+function tempone_resource_hints() : void {
+	?>
+	<!-- Preconnect to external resources for performance -->
+	<link rel="preconnect" href="https://cdn.tailwindcss.com">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<?php
+}
+add_action( 'wp_head', 'tempone_resource_hints', 1 );
