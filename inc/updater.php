@@ -67,6 +67,9 @@ class Tempone_Updater {
 
 		// Add update checker to admin footer.
 		add_action( 'admin_footer', array( $this, 'add_update_checker_notice' ) );
+
+		// Add custom update link to theme actions.
+		add_filter( 'theme_action_links_' . $this->theme_slug, array( $this, 'add_update_action_link' ), 10, 2 );
 	}
 
 	/**
@@ -217,22 +220,59 @@ class Tempone_Updater {
 		}
 
 		if ( version_compare( $this->current_version, $remote_version['version'], '<' ) ) {
+			$update_url = wp_nonce_url(
+				admin_url( 'update.php?action=upgrade-theme&theme=' . $this->theme_slug ),
+				'upgrade-theme_' . $this->theme_slug
+			);
 			?>
 			<div class="notice notice-info is-dismissible">
 				<p>
 					<strong><?php esc_html_e( 'Tempone Theme Update Available!', 'tempone' ); ?></strong><br>
 					<?php
 					printf(
-						/* translators: 1: current version, 2: new version */
-						esc_html__( 'Version %1$s is available. You have version %2$s. Update now!', 'tempone' ),
+						/* translators: 1: new version, 2: current version, 3: update URL */
+						esc_html__( 'Version %1$s is available. You have version %2$s.', 'tempone' ) . ' <a href="%3$s" class="update-link">' . esc_html__( 'Update now', 'tempone' ) . '</a>',
 						esc_html( $remote_version['version'] ),
-						esc_html( $this->current_version )
+						esc_html( $this->current_version ),
+						esc_url( $update_url )
 					);
 					?>
 				</p>
 			</div>
 			<?php
 		}
+	}
+
+	/**
+	 * Add update link to theme action links.
+	 *
+	 * @param array  $actions Theme action links.
+	 * @param object $theme   Theme object.
+	 * @return array Modified action links.
+	 */
+	public function add_update_action_link( $actions, $theme ) {
+		$remote_version = $this->get_remote_version();
+
+		if ( ! $remote_version ) {
+			return $actions;
+		}
+
+		if ( version_compare( $this->current_version, $remote_version['version'], '<' ) ) {
+			$update_url = wp_nonce_url(
+				admin_url( 'update.php?action=upgrade-theme&theme=' . $this->theme_slug ),
+				'upgrade-theme_' . $this->theme_slug
+			);
+
+			$actions['update'] = sprintf(
+				'<a href="%s" class="update-link" aria-label="%s">%s</a>',
+				esc_url( $update_url ),
+				/* translators: %s: theme name */
+				esc_attr( sprintf( __( 'Update %s now', 'tempone' ), 'Tempone' ) ),
+				__( 'Update Available', 'tempone' )
+			);
+		}
+
+		return $actions;
 	}
 
 	/**

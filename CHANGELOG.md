@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Remove zipball fallback in updater (prevents wrong folder names like webaneid-tempone-ba50689)
 - Use minified CSS (tempone.min.css) for 10KB size reduction
+- Add clickable "Update now" link to update notification
+- Add "Update Available" action link to theme card (visible on hover)
 
 ## [0.1.2] - 2025-01-24
 
