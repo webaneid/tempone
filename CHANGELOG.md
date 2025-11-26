@@ -7,6 +7,86 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.7] - 2025-01-26
+
+### Added
+- **Mobile Footer Navigation Bar** - Bottom navigation for mobile admin (≤782px)
+  - 5 menu items: Dashboard, Pages, Create Post (center), Settings, Plugins
+  - Active state detection based on current screen
+  - Center "Create Post" button with primary color and circular background
+  - Fixed bottom positioning with safe area inset support for notched devices
+  - Slide-up animation on load
+  - SVG icons: 24px standard, 28px for center button
+  - Small readable text (10px) with dominant icons
+  - Auto-adds 70px bottom padding to prevent content overlap
+  - File: `inc/admin/footer-mobile-menu.php`
+  - Styles: `scss/_admin-footer-mobile-menu.scss`
+
+### Changed
+- Enhanced mobile admin experience with bottom navigation
+- Improved mobile usability with quick access to common actions
+- SCSS structure updated with footer mobile menu import
+
+### Technical
+- Function: `tempone_admin_footer_mobile_menu()` hooked to `admin_footer`
+- Active detection: Dashboard, Pages, Create Post, Settings (tempone-setup), Plugins
+- Mobile-only display with `@media (max-width: 782px)`
+- Responsive design with flexbox layout
+- Safe area support: `padding-bottom: env(safe-area-inset-bottom, 0)`
+
+## [0.1.6] - 2025-01-25
+
+### Added
+- Enhanced user profile page (wp-admin/profile.php) with comprehensive analytics
+  - User header card with avatar from ACF field `gravatar_ane`
+  - Performance stats: Total Posts, Total Views, Avg Views/Post, Total Comments, Posts This Month
+  - Dual-axis Chart.js chart: Posts vs Views over 12 months (filtered by user)
+  - Recent posts section with views, comments, and status badges
+  - Recent comments section with post links
+  - Role badge display (Administrator, Editor, Author, Contributor, Subscriber)
+  - User registration date and bio display
+- Complete Indonesian translation for admin panel (288 total strings)
+  - inc/admin/user.php: 19 strings translated
+  - inc/admin/dashboard.php: 20 strings translated
+  - inc/admin.php: 67 strings translated (Tempone Setup pages)
+  - SEO & News, Google News submission guide, testing tools
+- Admin system documentation in inc/admin/README.md
+  - Complete file structure guide for AI assistants
+  - SCSS compilation instructions
+  - ACF color system integration details
+  - Chart.js implementation patterns
+  - Integration guide for new admin pages
+
+### Changed
+- Reorganized admin files into inc/admin/ folder structure
+  - dashboard.php: Custom dashboard (replaces wp-admin/index.php)
+  - user.php: Enhanced user profile page
+  - customizer.php: Glassmorphism login page
+  - menu.php, header.php, navigation.php: Admin UI components
+- Improved translation system reliability
+  - Use `load_textdomain()` instead of `load_theme_textdomain()`
+  - Direct .mo file loading with `determine_locale()`
+  - Bypasses WordPress translation cache for immediate loading
+- Updated documentation structure
+  - Consolidated contact form setup into README.md
+  - Merged deployment guide into README.md
+  - Merged translation guide into README.md
+  - Extracted SOLUTION.md content to CLAUDE.md
+  - Single admin documentation in inc/admin/README.md
+
+### Fixed
+- Translation file duplicates removed using msguniq
+- File organization cleanup (removed 18 unused files)
+  - Deleted unused template parts: section-custom_html.php, section-hero_main.php, section-hero_top_banner.php, section-photo_feature.php
+  - Removed backup files and redundant documentation
+  - Cleaned up languages folder (kept only .pot, .po, .mo files)
+
+### Developer
+- Chart.js integration pattern documented for future admin pages
+- ACF color system fully documented with CSS variable usage
+- SCSS file structure standardized with proper import order
+- Translation workflow documented (Loco Translate, Poedit, msgfmt)
+
 ## [0.1.5] - 2025-01-24
 
 ### Fixed

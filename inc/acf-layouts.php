@@ -200,7 +200,8 @@ function tempone_register_acf_options_customization() {
 		)
 	);
 }
-add_action( 'acf/init', 'tempone_register_acf_options_customization' );
+// Disabled: This submenu conflicts with main menu registration in inc/admin.php
+// add_action( 'acf/init', 'tempone_register_acf_options_customization' );
 
 /**
  * NOTE: Color fields sudah dibuat manual via ACF UI dengan field names:
@@ -471,7 +472,7 @@ function tempone_register_facebook_comments_fields() {
 					array(
 						'param'    => 'options_page',
 						'operator' => '==',
-						'value'    => 'tempone-customization',
+						'value'    => 'tempone-general-setting',
 					),
 				),
 			),

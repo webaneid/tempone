@@ -81,7 +81,7 @@
   @media (max-width: 782px) {
     grid-template-columns: 1fr;
     gap: 1rem;
-    padding: 1rem;
+    padding: 0;
   }
 }
 
@@ -90,15 +90,30 @@
   align-items: flex-start;
   gap: 1rem;
   padding: 1.5rem;
-  background-color: var(--tempone-color-white);
-  border: 1px solid var(--tempone-color-light);
-  border-radius: 8px;
-  transition: all 0.2s ease;
+  background: linear-gradient(135deg, #ffffff 0%, rgba(248, 249, 250, 0.5) 100%);
+  border: 1px solid rgba(var(--tempone-color-primary-rgb, 45, 35, 46), 0.08);
+  border-radius: var(--tempone-radius-lg, 12px);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  transition: all var(--tempone-transition-base, 0.2s ease);
+  position: relative;
+  overflow: hidden;
+
+  // Radial gradient overlay for depth
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, rgba(var(--tempone-color-primary-rgb, 45, 35, 46), 0.03) 0%, transparent 70%);
+    pointer-events: none;
+  }
 
   &:hover {
-    border-color: var(--tempone-color-secondary);
-    box-shadow: 0 4px 12px rgba(var(--tempone-color-black), 0.08);
-    transform: translateY(-2px);
+    border-color: var(--tempone-color-primary, #2d232e);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    transform: translateY(-4px);
   }
 
   &__icon {
@@ -235,7 +250,7 @@
     align-items: flex-start;
     gap: 1rem;
     padding: 1rem;
-    border-bottom: 1px solid var(--tempone-color-accent);
+    border-bottom: 1px solid var(--tempone-color-light);
     transition: background-color 0.2s ease;
 
     &:last-child {

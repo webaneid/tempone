@@ -1,0 +1,135 @@
+/* ============================================
+   ADMIN FOOTER MOBILE MENU
+   Bottom navigation bar for mobile admin
+   ============================================ */
+
+/* Only show on mobile */
+@media screen and (max-width: 782px) {
+	.tempone-footer-mobile-menu {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background: var(--tempone-color-light, #f1f0ea);
+		border-top: 1px solid rgba(var(--tempone-color-primary-rgb, 45, 35, 46), 0.1);
+		box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+		z-index: 99999;
+		padding-bottom: env(safe-area-inset-bottom, 0); /* Safe area for notched devices */
+	}
+
+	.tempone-footer-nav {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		padding: 0.5rem 0;
+		max-width: 100%;
+	}
+
+	.tempone-footer-item {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-decoration: none;
+		color: var(--tempone-color-secondary, #474448);
+		transition: all 0.2s ease;
+		padding: 0.5rem;
+		flex: 1;
+		min-width: 0; /* Prevent flex overflow */
+
+		&:hover,
+		&:focus {
+			color: var(--tempone-color-primary, #2d232e);
+			outline: none;
+		}
+
+		&.is-active {
+			color: var(--tempone-color-primary, #2d232e);
+
+			.tempone-footer-icon {
+				opacity: 1;
+			}
+
+			.tempone-footer-label {
+				font-weight: 600;
+			}
+		}
+	}
+
+	.tempone-footer-icon {
+		width: 24px;
+		height: 24px;
+		margin-bottom: 0.25rem;
+		opacity: 0.7;
+		transition: opacity 0.2s ease;
+	}
+
+	.tempone-footer-label {
+		font-size: 0.625rem; /* 10px - small but readable */
+		line-height: 1.2;
+		text-align: center;
+		font-weight: 500;
+		letter-spacing: 0.01em;
+	}
+
+	/* Center create button - primary color */
+	.tempone-footer-create {
+		.tempone-footer-icon {
+			width: 28px;
+			height: 28px;
+			background: var(--tempone-color-primary, #2d232e);
+			color: var(--tempone-color-light, #f1f0ea);
+			border-radius: 50%;
+			padding: 6px;
+			opacity: 1;
+			box-shadow: 0 2px 8px rgba(var(--tempone-color-primary-rgb, 45, 35, 46), 0.2);
+		}
+
+		.tempone-footer-label {
+			font-weight: 600;
+			color: var(--tempone-color-primary, #2d232e);
+		}
+
+		&:hover,
+		&:focus {
+			.tempone-footer-icon {
+				transform: scale(1.05);
+				box-shadow: 0 3px 12px rgba(var(--tempone-color-primary-rgb, 45, 35, 46), 0.3);
+			}
+		}
+
+		&.is-active {
+			.tempone-footer-icon {
+				background: var(--tempone-color-primary, #2d232e);
+			}
+		}
+	}
+
+	/* Add bottom padding to admin content to prevent overlap */
+	#wpwrap {
+		padding-bottom: 70px;
+	}
+
+	/* Animation */
+	.tempone-footer-mobile-menu {
+		animation: tempone-slide-up 0.3s ease;
+	}
+
+	@keyframes tempone-slide-up {
+		from {
+			transform: translateY(100%);
+			opacity: 0;
+		}
+		to {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+}
+
+/* Hide on desktop */
+@media screen and (min-width: 783px) {
+	.tempone-footer-mobile-menu {
+		display: none;
+	}
+}

@@ -52,48 +52,12 @@ function tempone_get_admin_sections() : array {
 			'menu_title' => __( 'General Setting', 'tempone' ),
 			'badge'      => __( 'Brand Identity', 'tempone' ),
 			'tagline'    => __( 'Configure brand identity, logo, tagline, and fallback content for hero blocks.', 'tempone' ),
-			'location'   => __( 'ACF → Location rule: Options Page equals "Tempone Setup: General Setting".', 'tempone' ),
-			'cards'      => array(
-				array(
-					'label' => __( 'Suggested Fields', 'tempone' ),
-					'title' => __( 'Global Values', 'tempone' ),
-					'items' => array(
-						__( 'Main logo & alternative versions (desktop/mobile).', 'tempone' ),
-						__( 'Default hero copy + fallback CTA button.', 'tempone' ),
-						__( 'Default SEO metadata (title, description).', 'tempone' ),
-						__( 'Newsletter headline & promotional text settings.', 'tempone' ),
-					),
-				),
-				array(
-					'label'       => __( 'Notes', 'tempone' ),
-					'title'       => __( 'Custom Metabox', 'tempone' ),
-					'description' => __( 'Add team notes or implementation guidelines via tempone/options_page/after_intro hook or register new meta box.', 'tempone' ),
-				),
-			),
 		),
 		'tempone-customer-care'    => array(
 			'title'      => __( 'Customer Care', 'tempone' ),
 			'menu_title' => __( 'Customer Care', 'tempone' ),
 			'badge'      => __( 'Support Channel', 'tempone' ),
 			'tagline'    => __( 'All communication channels: editorial email, hotline, WhatsApp, and operating hours.', 'tempone' ),
-			'location'   => __( 'ACF → Location rule: Options Page equals "Tempone Setup: Customer Care".', 'tempone' ),
-			'cards'      => array(
-				array(
-					'label' => __( 'Suggested Fields', 'tempone' ),
-					'title' => __( 'Content', 'tempone' ),
-					'items' => array(
-						__( 'Editorial email & complaint form.', 'tempone' ),
-						__( 'Hotline number, WhatsApp, Telegram.', 'tempone' ),
-						__( 'Service hours & auto-reply message.', 'tempone' ),
-						__( 'Advertising or partnership form link.', 'tempone' ),
-					),
-				),
-				array(
-					'label'       => __( 'Checklist', 'tempone' ),
-					'title'       => __( 'Module Integration', 'tempone' ),
-					'description' => __( 'Synchronize this field with CTA section, footer, and sticky contact widget.', 'tempone' ),
-				),
-			),
 		),
 	);
 
@@ -229,15 +193,12 @@ function tempone_get_current_admin_page_slug() : ?string {
 }
 
 /**
- * Enqueue admin styles for Tempone pages.
+ * Enqueue admin styles for ALL admin pages.
+ *
+ * Loads admin.min.css globally to ensure consistent styling across
+ * all WordPress admin pages (dashboard, posts, media, users, etc).
  */
 function tempone_enqueue_admin_assets( string $hook ) : void { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
-	$slug = tempone_get_current_admin_page_slug();
-
-	if ( ! $slug ) {
-		return;
-	}
-
 	$theme_version = wp_get_theme()->get( 'Version' );
 
 	wp_enqueue_style(
@@ -332,7 +293,7 @@ function tempone_render_admin_intro() : void {
 
 	$screen = get_current_screen();
 
-	echo '<div class="tempone-admin" id="tempone-admin-' . esc_attr( $slug ) . '">';
+	echo '<div class="tempone-admin wrap" id="tempone-admin-' . esc_attr( $slug ) . '">';
 	echo '<div class="tempone-admin__hero">';
 	echo '<div class="tempone-admin__hero-content">';
 	if ( ! empty( $data['badge'] ) ) {
@@ -341,16 +302,6 @@ function tempone_render_admin_intro() : void {
 	echo '<h1>' . esc_html( $data['title'] ) . '</h1>';
 	if ( ! empty( $data['tagline'] ) ) {
 		echo '<p>' . esc_html( $data['tagline'] ) . '</p>';
-	}
-	echo '</div>';
-	echo '<div class="tempone-admin__hero-meta">';
-	if ( ! empty( $data['location'] ) ) {
-		echo '<div class="tempone-admin__location">' . esc_html( $data['location'] ) . '</div>';
-	}
-	if ( ! empty( $data['meta'] ) && is_array( $data['meta'] ) ) {
-		foreach ( $data['meta'] as $meta_line ) {
-			echo '<div class="tempone-admin__location">' . esc_html( $meta_line ) . '</div>';
-		}
 	}
 	echo '</div>';
 	echo '</div>';

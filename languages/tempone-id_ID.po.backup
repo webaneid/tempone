@@ -22,10 +22,8 @@ msgid "Tempone"
 msgstr "Tempone"
 
 #: style.css
-msgid ""
-"Modern WordPress theme for news and magazine websites with monochrome design"
-msgstr ""
-"Tema WordPress modern untuk website berita dan majalah dengan desain monokrom"
+msgid "Modern WordPress theme for news and magazine websites with monochrome design"
+msgstr "Tema WordPress modern untuk website berita dan majalah dengan desain monokrom"
 
 #: style.css
 msgid "Tempone Team"
@@ -45,24 +43,16 @@ msgid "Nothing found"
 msgstr "Tidak ditemukan"
 
 #: search.php:56
-msgid ""
-"Sorry, but nothing matched your search terms. Please try again with "
-"different keywords."
-msgstr ""
-"Maaf, tidak ada yang cocok dengan kata kunci pencarian Anda. Silakan coba "
-"lagi dengan kata kunci yang berbeda."
+msgid "Sorry, but nothing matched your search terms. Please try again with different keywords."
+msgstr "Maaf, tidak ada yang cocok dengan kata kunci pencarian Anda. Silakan coba lagi dengan kata kunci yang berbeda."
 
 #: 404.php:18
 msgid "404 - Page Not Found"
 msgstr "404 - Halaman Tidak Ditemukan"
 
 #: 404.php:19
-msgid ""
-"The page you are looking for might have been removed, had its name changed, "
-"or is temporarily unavailable."
-msgstr ""
-"Halaman yang Anda cari mungkin telah dihapus, berganti nama, atau sementara "
-"tidak tersedia."
+msgid "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
+msgstr "Halaman yang Anda cari mungkin telah dihapus, berganti nama, atau sementara tidak tersedia."
 
 #: 404.php:20
 msgid "Back to Homepage"
@@ -334,34 +324,20 @@ msgid "Enable Facebook Comments"
 msgstr "Aktifkan Komentar Facebook"
 
 #: inc/acf-layouts.php:392
-msgid ""
-"Enable to replace WordPress native comments with Facebook Comments Social "
-"Plugin."
-msgstr ""
-"Aktifkan untuk mengganti komentar WordPress dengan Plugin Sosial Komentar "
-"Facebook."
+msgid "Enable to replace WordPress native comments with Facebook Comments Social Plugin."
+msgstr "Aktifkan untuk mengganti komentar WordPress dengan Plugin Sosial Komentar Facebook."
 
 #: inc/acf-layouts.php:399
 msgid "Facebook App ID"
 msgstr "Facebook App ID"
 
 #: inc/acf-layouts.php:402
-msgid ""
-"Enter your Facebook App ID. Get it from: https://developers.facebook.com/"
-"apps/"
-msgstr ""
-"Masukkan Facebook App ID Anda. Dapatkan dari: https://"
-"developers.facebook.com/apps/"
+msgid "Enter your Facebook App ID. Get it from: https://developers.facebook.com/apps/"
+msgstr "Masukkan Facebook App ID Anda. Dapatkan dari: https://developers.facebook.com/apps/"
 
 #: inc/acf-layouts.php:404
-msgid ""
-"<strong>IMPORTANT:</strong> After entering App ID, make sure your website "
-"domain is added in Facebook App Settings → Basic → App Domains. Example: "
-"yoursite.com"
-msgstr ""
-"<strong>PENTING:</strong> Setelah memasukkan App ID, pastikan domain website "
-"Anda ditambahkan di Pengaturan Aplikasi Facebook → Dasar → Domain Aplikasi. "
-"Contoh: situsanda.com"
+msgid "<strong>IMPORTANT:</strong> After entering App ID, make sure your website domain is added in Facebook App Settings → Basic → App Domains. Example: yoursite.com"
+msgstr "<strong>PENTING:</strong> Setelah memasukkan App ID, pastikan domain website Anda ditambahkan di Pengaturan Aplikasi Facebook → Dasar → Domain Aplikasi. Contoh: situsanda.com"
 
 #: inc/acf-layouts.php:418
 msgid "Language / Locale"
@@ -379,8 +355,7 @@ msgstr "Jumlah Komentar"
 msgid "Number of comments to display (default: 10)."
 msgstr "Jumlah komentar yang ditampilkan (default: 10)."
 
-#: inc/admin.php:14 inc/admin.php:15 inc/admin.php:141 inc/admin.php:142
-#: inc/admin.php:176 inc/admin.php:268
+#: inc/admin.php:14
 msgid "Tempone Setup"
 msgstr "Pengaturan Tempone"
 
@@ -390,8 +365,7 @@ msgstr "Pusat Kontrol"
 
 #: inc/admin.php:17
 msgid "Main panel to configure identity, colors, and Tempone theme utilities."
-msgstr ""
-"Panel utama untuk mengatur identitas, warna, dan utilitas tema Tempone."
+msgstr "Panel utama untuk mengatur identitas, warna, dan utilitas tema Tempone."
 
 #: inc/admin.php:18
 msgid "Use this page as a summary and shortcut to ACF sub-menus."
@@ -409,7 +383,7 @@ msgstr "Pengaturan Umum"
 msgid "Brand identity, default hero, fallback copy, and basic SEO meta."
 msgstr "Identitas merek, hero default, salinan cadangan, dan meta SEO dasar."
 
-#: inc/admin.php:24 inc/admin.php:25
+#: inc/admin.php:24
 msgid "Open General Setting"
 msgstr "Buka Pengaturan Umum"
 
@@ -425,7 +399,7 @@ msgstr "Layanan Pelanggan"
 msgid "Manage editorial contact data, CS, WhatsApp, and help CTA."
 msgstr "Kelola data kontak redaksi, CS, WhatsApp, dan tombol bantuan."
 
-#: inc/admin.php:31 inc/admin.php:32
+#: inc/admin.php:31
 msgid "Open Customer Care"
 msgstr "Buka Layanan Pelanggan"
 
@@ -438,52 +412,36 @@ msgid "SEO & News Setup"
 msgstr "Pengaturan SEO & Berita"
 
 #: inc/admin.php:37
-msgid ""
-"Google News sitemap, AI crawler optimization, and news website SEO guide."
-msgstr ""
-"Sitemap Google News, optimasi crawler AI, dan panduan SEO website berita."
+msgid "Google News sitemap, AI crawler optimization, and news website SEO guide."
+msgstr "Sitemap Google News, optimasi crawler AI, dan panduan SEO website berita."
 
-#: inc/admin.php:38 inc/admin.php:39
+#: inc/admin.php:38
 msgid "Open SEO & News"
 msgstr "Buka SEO & Berita"
 
-#: inc/admin.php:44 inc/admin.php:46
+#: inc/admin.php:44
 msgid "Google News Ready"
 msgstr "Siap Google News"
 
-#: inc/admin.php:45 inc/admin.php:47
-msgid ""
-"Complete guide for Google News submission, AI crawler optimization, and news "
-"website SEO."
-msgstr ""
-"Panduan lengkap untuk submit Google News, optimasi crawler AI, dan SEO "
-"website berita."
+#: inc/admin.php:45
+msgid "Complete guide for Google News submission, AI crawler optimization, and news website SEO."
+msgstr "Panduan lengkap untuk submit Google News, optimasi crawler AI, dan SEO website berita."
 
-#: inc/admin.php:46 inc/admin.php:48
-msgid ""
-"Enhance Yoast SEO Free with NewsArticle schema, Google News sitemap, and AI-"
-"friendly metadata."
-msgstr ""
-"Tingkatkan Yoast SEO Free dengan skema NewsArticle, sitemap Google News, dan "
-"metadata ramah AI."
+#: inc/admin.php:46
+msgid "Enhance Yoast SEO Free with NewsArticle schema, Google News sitemap, and AI-friendly metadata."
+msgstr "Tingkatkan Yoast SEO Free dengan skema NewsArticle, sitemap Google News, dan metadata ramah AI."
 
 #: inc/admin.php:52
 msgid "Brand Identity"
 msgstr "Identitas Merek"
 
-#: inc/admin.php:53 inc/admin.php:54
-msgid ""
-"Configure brand identity, logo, tagline, and fallback content for hero "
-"blocks."
-msgstr ""
-"Atur identitas merek, logo, tagline, dan konten cadangan untuk blok hero."
+#: inc/admin.php:53
+msgid "Configure brand identity, logo, tagline, and fallback content for hero blocks."
+msgstr "Atur identitas merek, logo, tagline, dan konten cadangan untuk blok hero."
 
 #: inc/admin.php:54
-msgid ""
-"ACF → Location rule: Options Page equals \"Tempone Setup: General Setting\"."
-msgstr ""
-"ACF → Aturan lokasi: Halaman Opsi sama dengan \"Tempone Setup: General "
-"Setting\"."
+msgid "ACF → Location rule: Options Page equals \"Tempone Setup: General Setting\"."
+msgstr "ACF → Aturan lokasi: Halaman Opsi sama dengan \"Tempone Setup: General Setting\"."
 
 #: inc/admin.php:57
 msgid "Suggested Fields"
@@ -518,31 +476,20 @@ msgid "Custom Metabox"
 msgstr "Metabox Kustom"
 
 #: inc/admin.php:70
-msgid ""
-"Add team notes or implementation guidelines via tempone/options_page/"
-"after_intro hook or register new meta box."
-msgstr ""
-"Tambahkan catatan tim atau panduan implementasi melalui hook tempone/"
-"options_page/after_intro atau daftarkan meta box baru."
+msgid "Add team notes or implementation guidelines via tempone/options_page/after_intro hook or register new meta box."
+msgstr "Tambahkan catatan tim atau panduan implementasi melalui hook tempone/options_page/after_intro atau daftarkan meta box baru."
 
 #: inc/admin.php:76
 msgid "Support Channel"
 msgstr "Kanal Dukungan"
 
-#: inc/admin.php:77 inc/admin.php:60
-msgid ""
-"All communication channels: editorial email, hotline, WhatsApp, and "
-"operating hours."
-msgstr ""
-"Semua kanal komunikasi: email redaksi, hotline, WhatsApp, dan jam "
-"operasional."
+#: inc/admin.php:77
+msgid "All communication channels: editorial email, hotline, WhatsApp, and operating hours."
+msgstr "Semua kanal komunikasi: email redaksi, hotline, WhatsApp, dan jam operasional."
 
 #: inc/admin.php:78
-msgid ""
-"ACF → Location rule: Options Page equals \"Tempone Setup: Customer Care\"."
-msgstr ""
-"ACF → Aturan lokasi: Halaman Opsi sama dengan \"Tempone Setup: Customer "
-"Care\"."
+msgid "ACF → Location rule: Options Page equals \"Tempone Setup: Customer Care\"."
+msgstr "ACF → Aturan lokasi: Halaman Opsi sama dengan \"Tempone Setup: Customer Care\"."
 
 #: inc/admin.php:82
 msgid "Content"
@@ -573,10 +520,8 @@ msgid "Module Integration"
 msgstr "Integrasi Modul"
 
 #: inc/admin.php:94
-msgid ""
-"Synchronize this field with CTA section, footer, and sticky contact widget."
-msgstr ""
-"Sinkronkan field ini dengan seksi CTA, footer, dan widget kontak sticky."
+msgid "Synchronize this field with CTA section, footer, and sticky contact widget."
+msgstr "Sinkronkan field ini dengan seksi CTA, footer, dan widget kontak sticky."
 
 #: inc/admin.php:264
 msgid "ACF Pro is required"
@@ -587,12 +532,8 @@ msgid "This page requires ACF Pro plugin"
 msgstr "Halaman ini memerlukan plugin ACF Pro"
 
 #: inc/admin.php:272
-msgid ""
-"Tempone theme uses Advanced Custom Fields (ACF) Pro to manage theme options "
-"and flexible content."
-msgstr ""
-"Tema Tempone menggunakan Advanced Custom Fields (ACF) Pro untuk mengelola "
-"opsi tema dan konten fleksibel."
+msgid "Tempone theme uses Advanced Custom Fields (ACF) Pro to manage theme options and flexible content."
+msgstr "Tema Tempone menggunakan Advanced Custom Fields (ACF) Pro untuk mengelola opsi tema dan konten fleksibel."
 
 #: inc/admin.php:277
 msgid "How to install ACF Pro:"
@@ -619,20 +560,12 @@ msgid "Activate the plugin"
 msgstr "Aktifkan plugin"
 
 #: inc/admin.php:290
-msgid ""
-"After installing ACF Pro, this page will automatically show theme "
-"customization options."
-msgstr ""
-"Setelah menginstal ACF Pro, halaman ini akan otomatis menampilkan opsi "
-"kustomisasi tema."
+msgid "After installing ACF Pro, this page will automatically show theme customization options."
+msgstr "Setelah menginstal ACF Pro, halaman ini akan otomatis menampilkan opsi kustomisasi tema."
 
 #: inc/admin.php:307
-msgid ""
-"Use this meta box to note internal to-dos, client requests, or other "
-"references."
-msgstr ""
-"Gunakan meta box ini untuk mencatat to-do internal, permintaan klien, atau "
-"referensi lain."
+msgid "Use this meta box to note internal to-dos, client requests, or other references."
+msgstr "Gunakan meta box ini untuk mencatat to-do internal, permintaan klien, atau referensi lain."
 
 #: single.php:217
 msgid "No widgets in sidebar. Add from WP Admin."
@@ -739,10 +672,8 @@ msgid "No flexible content. Add layouts from ACF on this page."
 msgstr "Belum ada konten. Tambahkan layout dari ACF di halaman ini."
 
 #: tp/section-flexible.php:68
-msgid ""
-"Add widgets for Landing Page Sidebar in WP Admin → Appearance → Widgets."
-msgstr ""
-"Tambahkan widget untuk Sidebar Landing Page di WP Admin → Tampilan → Widget."
+msgid "Add widgets for Landing Page Sidebar in WP Admin → Appearance → Widgets."
+msgstr "Tambahkan widget untuk Sidebar Landing Page di WP Admin → Tampilan → Widget."
 
 #: tp/section-trending.php:34
 msgid "Recommended for You"
@@ -862,8 +793,7 @@ msgstr "Ringkasan Pengguna"
 msgid "Personal Options"
 msgstr "Opsi Personal"
 
-#: inc/admin/dashboard.php:25 inc/admin/dashboard.php:26
-#: inc/admin/dashboard.php:111
+#: inc/admin/dashboard.php:25 inc/admin/dashboard.php:26 inc/admin/dashboard.php:111
 msgid "Dashboard"
 msgstr "Dasbor"
 
@@ -943,27 +873,81 @@ msgstr "Terjadwal"
 msgid "Content Goal This Month"
 msgstr "Target Konten Bulan Ini"
 
+#: inc/admin.php:14 inc/admin.php:15 inc/admin.php:141 inc/admin.php:142 inc/admin.php:176 inc/admin.php:268
+msgid "Tempone Setup"
+msgstr "Pengaturan Tempone"
+
+#: inc/admin.php:16
+msgid "Control Center"
+msgstr "Pusat Kontrol"
+
+#: inc/admin.php:17
+msgid "Main panel to configure identity, colors, and Tempone theme utilities."
+msgstr "Panel utama untuk mengatur identitas, warna, dan utilitas tema Tempone."
+
+#: inc/admin.php:18
+msgid "Use this page as a summary and shortcut to ACF sub-menus."
+msgstr "Gunakan halaman ini sebagai ringkasan dan pintasan ke sub-menu ACF."
+
+#: inc/admin.php:23
+msgid "Brand identity, default hero, fallback copy, and basic SEO meta."
+msgstr "Identitas merek, hero default, salinan cadangan, dan meta SEO dasar."
+
+#: inc/admin.php:25
+msgid "Open General Setting"
+msgstr "Buka Pengaturan Umum"
+
+#: inc/admin.php:30
+msgid "Manage editorial contact data, CS, WhatsApp, and help CTA."
+msgstr "Kelola data kontak redaksi, CS, WhatsApp, dan tombol bantuan."
+
+#: inc/admin.php:32
+msgid "Open Customer Care"
+msgstr "Buka Layanan Pelanggan"
+
+#: inc/admin.php:37
+msgid "Google News sitemap, AI crawler optimization, and news website SEO guide."
+msgstr "Sitemap Google News, optimasi crawler AI, dan panduan SEO website berita."
+
+#: inc/admin.php:39
+msgid "Open SEO & News"
+msgstr "Buka SEO & Berita"
+
+#: inc/admin.php:46
+msgid "Google News Ready"
+msgstr "Siap Google News"
+
+#: inc/admin.php:47
+msgid "Complete guide for Google News submission, AI crawler optimization, and news website SEO."
+msgstr "Panduan lengkap untuk submit Google News, optimasi crawler AI, dan SEO website berita."
+
+#: inc/admin.php:48
+msgid "Enhance Yoast SEO Free with NewsArticle schema, Google News sitemap, and AI-friendly metadata."
+msgstr "Tingkatkan Yoast SEO Free dengan skema NewsArticle, sitemap Google News, dan metadata ramah AI."
+
+#: inc/admin.php:54
+msgid "Configure brand identity, logo, tagline, and fallback content for hero blocks."
+msgstr "Atur identitas merek, logo, tagline, dan konten cadangan untuk blok hero."
+
+#: inc/admin.php:60
+msgid "All communication channels: editorial email, hotline, WhatsApp, and operating hours."
+msgstr "Semua kanal komunikasi: email redaksi, hotline, WhatsApp, dan jam operasional."
+
 #: inc/admin.php:177
 msgid "Activate Advanced Custom Fields Pro to start using this options page."
-msgstr ""
-"Aktifkan Advanced Custom Fields Pro untuk mulai menggunakan halaman opsi ini."
+msgstr "Aktifkan Advanced Custom Fields Pro untuk mulai menggunakan halaman opsi ini."
 
 #: inc/admin.php:242
 msgid "Team Notes"
 msgstr "Catatan Tim"
 
 #: inc/admin.php:270
-msgid ""
-"Please install and activate Advanced Custom Fields Pro to use this options "
-"page."
-msgstr ""
-"Silakan instal dan aktifkan Advanced Custom Fields Pro untuk menggunakan "
-"halaman opsi ini."
+msgid "Please install and activate Advanced Custom Fields Pro to use this options page."
+msgstr "Silakan instal dan aktifkan Advanced Custom Fields Pro untuk menggunakan halaman opsi ini."
 
 #: inc/admin.php:275
 msgid "Add notes via tempone/options_page/register_metaboxes filter."
-msgstr ""
-"Tambahkan catatan melalui filter tempone/options_page/register_metaboxes."
+msgstr "Tambahkan catatan melalui filter tempone/options_page/register_metaboxes."
 
 #: inc/admin.php:276
 msgid "ACF location for this page: "
@@ -974,11 +958,8 @@ msgid "Open page"
 msgstr "Buka halaman"
 
 #: inc/admin.php:466
-msgid ""
-"Your Google News sitemap is general and includes posts from the last 2 days."
-msgstr ""
-"Sitemap Google News Anda bersifat umum dan menyertakan postingan dari 2 hari "
-"terakhir."
+msgid "Your Google News sitemap is general and includes posts from the last 2 days."
+msgstr "Sitemap Google News Anda bersifat umum dan menyertakan postingan dari 2 hari terakhir."
 
 #: inc/admin.php:469
 msgid "News Sitemap URL:"
@@ -998,9 +979,7 @@ msgstr "Tambahkan URL ini ke Google Search Console di bagian Sitemap."
 
 #: inc/admin.php:488
 msgid "Follow these steps to submit your news website to Google News:"
-msgstr ""
-"Ikuti langkah-langkah berikut untuk mengirimkan website berita Anda ke "
-"Google News:"
+msgstr "Ikuti langkah-langkah berikut untuk mengirimkan website berita Anda ke Google News:"
 
 #: inc/admin.php:492
 msgid "Go to Google News Publisher Center"
@@ -1024,8 +1003,7 @@ msgstr "Verifikasi Kepemilikan"
 
 #: inc/admin.php:503
 msgid "Verify via Google Search Console (recommended) or HTML tag."
-msgstr ""
-"Verifikasi melalui Google Search Console (direkomendasikan) atau tag HTML."
+msgstr "Verifikasi melalui Google Search Console (direkomendasikan) atau tag HTML."
 
 #: inc/admin.php:506
 msgid "Add News Sitemap"
@@ -1056,12 +1034,8 @@ msgid "✅ Requirements Met:"
 msgstr "✅ Persyaratan Terpenuhi:"
 
 #: inc/admin.php:522
-msgid ""
-"Your theme includes NewsArticle schema, proper meta tags, and author "
-"attribution."
-msgstr ""
-"Tema Anda menyertakan skema NewsArticle, tag meta yang tepat, dan atribusi "
-"penulis."
+msgid "Your theme includes NewsArticle schema, proper meta tags, and author attribution."
+msgstr "Tema Anda menyertakan skema NewsArticle, tag meta yang tepat, dan atribusi penulis."
 
 #: inc/admin.php:529
 msgid "Tempone theme automatically includes these SEO enhancements:"
@@ -1132,11 +1106,8 @@ msgid "Robots meta enhanced"
 msgstr "Meta robots ditingkatkan"
 
 #: inc/admin.php:573
-msgid ""
-"Your content is optimized for AI models like ChatGPT, Claude, and Perplexity:"
-msgstr ""
-"Konten Anda dioptimalkan untuk model AI seperti ChatGPT, Claude, dan "
-"Perplexity:"
+msgid "Your content is optimized for AI models like ChatGPT, Claude, and Perplexity:"
+msgstr "Konten Anda dioptimalkan untuk model AI seperti ChatGPT, Claude, dan Perplexity:"
 
 #: inc/admin.php:576
 msgid "Dublin Core metadata for academic/news citations"

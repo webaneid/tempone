@@ -875,10 +875,17 @@ To use:
 
 ### Translation Loading Implementation
 
+**IMPORTANT:** Theme uses direct `.mo` file loading instead of standard `load_theme_textdomain()` to bypass WordPress translation cache issues.
+
 ```php
 // inc/setup.php
 function tempone_setup() : void {
-    // Direct .mo file loading (bypasses WordPress translation cache)
+    /**
+     * Load theme translations.
+     * Using load_textdomain() instead of load_theme_textdomain() to bypass WordPress
+     * translation caching mechanism that can prevent new translations from loading.
+     * determine_locale() gets fresh locale without cache interference.
+     */
     $locale = determine_locale();
     $mofile = get_template_directory() . "/languages/tempone-{$locale}.mo";
 
@@ -890,11 +897,44 @@ function tempone_setup() : void {
 add_action( 'after_setup_theme', 'tempone_setup' );
 ```
 
-**Why this approach?**
-- `load_theme_textdomain()` relies on WordPress caching that can prevent new translations from loading
-- `determine_locale()` gets fresh locale without cache interference
-- `load_textdomain()` directly loads specific .mo file, bypassing all caching mechanisms
-- More reliable for development and production environments
+### Why Direct Loading (NOT load_theme_textdomain)?
+
+**Problem with Standard Approach:**
+- `load_theme_textdomain()` relies on WordPress translation cache
+- Object cache (Redis/Memcached) can cache old translations
+- `get_locale()` result can be cached
+- When compiling new `.mo` files, WordPress continues using cached version
+- Deactivating/reactivating theme doesn't always clear cache
+
+**Solution Benefits:**
+
+**1. `determine_locale()` instead of `get_locale()`**
+- Fresh locale detection every time
+- Checks filters and options without cache
+- More reliable for dynamic language switching
+
+**2. `load_textdomain()` instead of `load_theme_textdomain()`**
+- Direct file loading, no search path
+- Bypasses WordPress translation cache
+- No object cache interference
+- Immediate reflection of new translations
+
+**3. `file_exists()` validation**
+- Prevents errors if translation file missing
+- Graceful fallback to English
+- No PHP warnings
+
+**Development Benefits:**
+- ✅ New translations load immediately after compilation
+- ✅ No need to deactivate/reactivate theme
+- ✅ No need to clear cache after each change
+- ✅ Faster iteration when developing translations
+
+**Production Benefits:**
+- ✅ More reliable translation loading
+- ✅ Less affected by caching plugins
+- ✅ Works with Redis/Memcached object cache
+- ✅ Predictable behavior across all environments
 
 ## Admin Customization System
 
@@ -1052,6 +1092,164 @@ H6: 1.125rem, weight 600
 - H1: 2rem, H2: 1.75rem, H3: 1.5rem
 - Body: 16px (dari 17px)
 
+### User Profile Enhancement (`inc/admin/user.php`)
+
+**Modern User Profile Page:**
+- Enhanced WordPress user profile page (`wp-admin/profile.php`)
+- Shows comprehensive user information and performance analytics
+- Reuses Chart.js integration from dashboard
+- Custom avatar support via ACF field `gravatar_ane`
+
+**Features:**
+
+**1. Header Card:**
+- Large avatar (120px, from ACF `gravatar_ane` field)
+- Display name, username, email
+- Role badge with color coding
+- Registration date
+- User bio (description field)
+
+**2. Performance Stats:**
+- 5 stats cards: Total Posts, Total Views, Avg Views/Post, Total Comments, Posts This Month
+- Each card dengan icon dan hover effect
+- Gradient icon backgrounds
+- Real-time data from WordPress database
+
+**3. Posts Per Month Chart:**
+- Line chart showing last 12 months
+- Dual Y-axis: Posts count + Views count
+- Interactive tooltips
+- Uses same Chart.js setup as dashboard
+
+**4. Recent Activity:**
+- **Recent Posts** (5 latest):
+  - Post title (clickable to edit)
+  - Time ago, views count, comments count
+  - Post status badge (publish/draft/pending)
+- **Recent Comments** (5 latest):
+  - Comment excerpt (20 words)
+  - Post link
+  - Time ago
+
+**Key Functions:**
+- `tempone_user_profile_header()` - Main header card renderer
+- `tempone_user_profile_performance()` - Stats cards & chart
+- `tempone_user_profile_recent_activity()` - Posts & comments lists
+- `tempone_get_user_stats()` - Stats calculation
+- `tempone_get_user_posts_data()` - Chart data for specific user
+- `tempone_user_profile_enqueue_scripts()` - Load Chart.js & custom JS
+
+**Hooks:**
+- `show_user_profile` - Own profile page
+- `edit_user_profile` - Editing other user profile
+- `admin_enqueue_scripts` - Conditional script loading (profile/user-edit screens only)
+
+**JavaScript:**
+- File: `js/admin-user.js`
+- Creates dual-axis line chart
+- Localized data via `temponeUserProfile` object
+- Auto-responsive canvas
+
+**Styling:** `scss/_admin-user.scss` → `css/admin.css`
+
+**Database Queries:**
+- Uses `tempone_views` meta key (consistent dengan widget)
+- Filters by user ID for all stats
+- Optimized queries dengan proper indexes
+- 12-month date range untuk chart
+
+**ACF Integration:**
+- Field name: `gravatar_ane`
+- Fallback to WordPress default avatar if not set
+- Uses existing `get_avatar()` filter hook
+
+**Translation Coverage:**
+- All UI strings translatable
+- Stats labels: "Total Posts", "Total Views", etc.
+- Activity labels: "Recent Posts", "Recent Comments"
+- Time labels: "ago", "views", "comments"
+- Empty states: "No posts yet", "No comments yet"
+
+### Mobile Footer Navigation (`inc/admin/footer-mobile-menu.php`)
+
+**Bottom Navigation Bar untuk Mobile Admin:**
+- Fixed bottom navigation bar yang hanya muncul di mobile (≤782px)
+- 5 menu items dengan SVG icons untuk quick access
+- Active state detection berdasarkan current screen
+- Center "Create Post" button dengan primary color highlight
+- Safe area inset support untuk notched devices (iPhone X+)
+
+**Menu Items:**
+1. **Dashboard** → `admin.php?page=tempone-dashboard`
+   - Icon: Dashboard grid (Material Design)
+   - Active: Dashboard page atau Tempone Dashboard
+2. **Pages** → `edit.php?post_type=page`
+   - Icon: Document/page icon
+   - Active: Pages list atau edit page
+3. **Create Post** (CENTER) → `post-new.php`
+   - Icon: Plus symbol dalam circular background
+   - Styling: Primary color (#2d232e), larger (28px vs 24px)
+   - Active: Post creation page
+4. **Settings** → `admin.php?page=tempone-setup`
+   - Icon: Gear/cog icon
+   - Active: Any tempone-* admin page
+5. **Plugins** → `plugins.php`
+   - Icon: Plugin icon
+   - Active: Plugins page
+
+**Design Specifications:**
+- **Layout:** Fixed bottom, flexbox dengan space-around
+- **Background:** `var(--tempone-color-light)` dengan subtle border-top
+- **Icons:** 24px standard, 28px untuk center button
+- **Text:** 10px (small but readable), weight 500, letter-spacing 0.01em
+- **Icon Opacity:** 0.7 default, 1.0 when active
+- **Z-index:** 99999 (above admin bar)
+- **Animation:** Slide-up on load (0.3s ease)
+- **Content Padding:** Auto-adds 70px bottom padding ke #wpwrap
+
+**Center Button Special Styling:**
+- Circular background: `border-radius: 50%`
+- Background color: `var(--tempone-color-primary)`
+- Icon color: `var(--tempone-color-light)`
+- Box shadow: `0 2px 8px rgba(45, 35, 46, 0.2)`
+- Hover: Scale 1.05 + enhanced shadow
+- Padding: 6px
+
+**Active State Detection Logic:**
+```php
+$current_screen = get_current_screen();
+
+if ( 'dashboard' === $current_screen->id || 'tempone-dashboard' === $current_screen->id ) {
+    $current_page = 'dashboard';
+} elseif ( 'edit-page' === $current_screen->id || 'page' === $current_screen->id ) {
+    $current_page = 'pages';
+} elseif ( 'post-new' === $current_screen->id ) {
+    $current_page = 'create';
+} elseif ( strpos( $current_screen->id, 'tempone' ) !== false ) {
+    $current_page = 'settings';
+} elseif ( 'plugins' === $current_screen->id ) {
+    $current_page = 'plugins';
+}
+```
+
+**Safe Area Inset:**
+```scss
+padding-bottom: env(safe-area-inset-bottom, 0);
+```
+Automatically adjusts untuk iPhone dengan notch/Dynamic Island.
+
+**Function:** `tempone_admin_footer_mobile_menu()`
+- Hook: `admin_footer`
+- Conditional: Only renders on admin pages (`is_admin()`)
+- Returns early if not admin
+
+**Styling:** `scss/_admin-footer-mobile-menu.scss` → `css/admin.css`
+
+**Files:**
+- PHP: `inc/admin/footer-mobile-menu.php` (98 lines)
+- SCSS: `scss/_admin-footer-mobile-menu.scss` (127 lines)
+- Registered in: `functions.php` line 46
+
 ### Footer Branding
 
 **"Designed by Webane" Credit:**
@@ -1070,16 +1268,21 @@ H6: 1.125rem, weight 600
 
 ```
 scss/
-├── admin.scss              # Main admin import
-├── _admin-style.scss       # General admin styling
-├── _admin-dashboard.scss   # Dashboard components
-└── editor-style.scss       # Editor standalone (with tokens)
+├── admin.scss                      # Main admin import
+├── _admin-style.scss               # General admin styling
+├── _admin-dashboard.scss           # Dashboard components
+├── _admin-user.scss                # User profile enhancement
+├── _admin-footer-mobile-menu.scss  # Mobile footer navigation
+└── editor-style.scss               # Editor standalone (with tokens)
 ```
 
 Compile commands:
 ```bash
 # Admin styles
 npx sass scss/admin.scss css/admin.css
+
+# Minified admin styles
+npx sass scss/admin.scss css/admin.min.css --style=compressed
 
 # Editor styles
 npx sass scss/editor-style.scss css/editor-style.css
@@ -1118,12 +1321,33 @@ npx sass scss/editor-style.scss css/editor-style.css
 4. Check Chart.js rendering
 5. Test "Create New Post" button functionality
 
+**User Profile:**
+1. Go to Users → Profile (or edit any user)
+2. Verify header card dengan avatar dari ACF `gravatar_ane`
+3. Check 5 stats cards dengan real data
+4. Verify posts per month chart (12 months, dual Y-axis)
+5. Check recent posts list (5 items dengan views/comments)
+6. Check recent comments list (5 items dengan post links)
+7. Test responsive di mobile (grid stacking)
+8. Verify role badge color coding
+
 **Editor:**
 1. Create/Edit post
 2. Verify Poppins font untuk headings
 3. Verify Inter 17px untuk paragraphs
 4. Test different heading levels (H1-H6)
 5. Check blockquotes, lists, code blocks
+
+**Mobile Footer Navigation:**
+1. Resize browser ke mobile width (≤782px) atau gunakan DevTools
+2. Verify footer menu muncul di bottom
+3. Check 5 menu items dengan icons
+4. Verify center "Create Post" button dengan circular background
+5. Test active state (click different menu items)
+6. Check safe area padding di iPhone dengan notch
+7. Verify slide-up animation on page load
+8. Test content tidak tertutup footer (70px padding)
+9. Verify desktop tidak menampilkan footer menu
 
 ### Important Notes
 
@@ -1151,3 +1375,6 @@ npx sass scss/editor-style.scss css/editor-style.css
 - ❌ Skip SCSS compilation after admin changes
 - ❌ Change Chart.js version without testing
 - ❌ Remove translation functions from admin strings
+- ❌ Modify mobile footer menu z-index (must be 99999 to stay above admin bar)
+- ❌ Remove safe area inset support from mobile footer (breaks on notched devices)
+- ❌ Change center button circular design (it's a key visual element)
