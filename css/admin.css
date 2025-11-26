@@ -1,3 +1,4 @@
+@charset "UTF-8";
 :root {
   --tempone-color-primary: #2d232e;
   --tempone-color-primary-rgb: 45, 35, 46;
@@ -18,11 +19,31 @@
 @media screen and (max-width: 600px) {
   #wpbody {
     padding-top: 0px !important;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  #wpbody::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "";
+    display: block;
+    width: 100%;
+    height: 30vh;
+    background-color: var(--tempone-color-primary);
+    background: linear-gradient(180deg, rgba(var(--tempone-color-primary-rgb), 0.71) 50%, rgba(var(--tempone-color-white-rgb), 0) 100%);
+    z-index: 0;
   }
 }
 @media screen and (max-width: 782px) {
   body.admin-bar {
     padding-top: 56px !important;
+  }
+}
+@media screen and (max-width: 782px) {
+  .wrap h1.wp-heading-inline {
+    color: var(--tempone-color-white);
   }
 }
 .tempone-admin {
@@ -267,6 +288,7 @@
 @media (max-width: 1200px) {
   .tempone-custom-dashboard .tempone-dashboard-grid {
     grid-template-columns: 1fr;
+    margin-top: 0;
   }
 }
 .tempone-custom-dashboard .tempone-dashboard-section--full {
@@ -276,6 +298,14 @@
   margin: 0;
   border: 1px solid var(--tempone-color-light);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+@media (max-width: 782px) {
+  .tempone-custom-dashboard .postbox {
+    border: 0;
+    border-radius: var(--tempone-radius-md);
+    overflow: hidden;
+    box-shadow: 0 0 0;
+  }
 }
 .tempone-custom-dashboard .postbox .hndle {
   border-bottom: 1px solid var(--tempone-color-light);
@@ -318,7 +348,7 @@
 @media (max-width: 782px) {
   .tempone-stats-grid {
     grid-template-columns: 1fr;
-    gap: 1rem;
+    gap: 0.4rem;
     padding: 0;
   }
 }
@@ -345,6 +375,13 @@
   height: 100px;
   background: radial-gradient(circle, rgba(var(--tempone-color-primary-rgb, 45, 35, 46), 0.03) 0%, transparent 70%);
   pointer-events: none;
+}
+@media (max-width: 782px) {
+  .tempone-stat-card {
+    border: 0;
+    padding: 15px;
+    flex-direction: column;
+  }
 }
 .tempone-stat-card:hover {
   border-color: var(--tempone-color-primary, #2d232e);
@@ -687,13 +724,25 @@
 
 @media (max-width: 782px) {
   .tempone-stats-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+  .tempone-stats-grid > div:nth-child(1) {
+    background: var(--tempone-color-primary);
+  }
+  .tempone-stats-grid > div:nth-child(1) .tempone-stat-card__icon {
+    background-color: rgba(var(--tempone-color-white-rgb), 0.7);
+    color: var(--tempone-color-primary);
+  }
+  .tempone-stats-grid > div:nth-child(1) .tempone-stat-card__label,
+  .tempone-stats-grid > div:nth-child(1) .tempone-stat-card__value {
+    color: var(--tempone-color-light);
   }
   .tempone-stat-card__value {
     font-size: 1.5rem;
   }
   .tempone-breakdown-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.4rem;
   }
 }
 #dashboard-widgets .postbox {
@@ -1384,7 +1433,7 @@ body.login::after {
    ============================================ */
 /* Body & Plugin background */
 body {
-  background: var(--tempone-color-light) !important;
+  background: var(--tempone-color-light);
 }
 
 .plugins .active td,
@@ -1505,13 +1554,13 @@ body {
 
 .wp-core-ui .button,
 .wp-core-ui .button-secondary {
-  color: var(--tempone-color-primary) !important;
+  color: var(--tempone-color-primary);
   border-color: var(--tempone-color-primary) !important;
 }
 
 .wp-core-ui .button-primary {
-  background: var(--tempone-color-primary) !important;
-  color: var(--tempone-color-light) !important;
+  background: var(--tempone-color-primary);
+  color: var(--tempone-color-light);
 }
 
 /* ============================================
@@ -1858,6 +1907,100 @@ select:focus {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-width='1.5'%3E%3Cpath d='M9 21H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v6'/%3E%3Cpath stroke-linejoin='round' d='M12 21v-4.639c0-.51.1-.999.284-1.453M22 21v-3.185m-7.778-5.08A5.5 5.5 0 0 1 17 12c2.28 0 4.203 1.33 4.805 3.15M15 22v-2.177M19 22v-5.147C19 15.83 18.105 15 17 15s-2 .83-2 1.853v.794M2 7h20M5 5.01l.01-.011M8 5.01l.01-.011M11 5.01l.01-.011'/%3E%3C/g%3E%3C/svg%3E") !important;
 }
 
+/* ===============================================
+   MOBILE MENU ICONS (≤782px)
+   WordPress mobile drawer uses dashicons classes directly
+   Example HTML: <div class="wp-menu-image dashicons-before dashicons-dashboard">
+   We override each specific dashicon class
+   =============================================== */
+@media screen and (max-width: 782px) {
+  /* Base setup - hide dashicons font family */
+  .wp-responsive-open #adminmenu .wp-menu-image.dashicons-before {
+    font-family: inherit !important;
+    font-size: 0 !important;
+  }
+  .wp-responsive-open #adminmenu .wp-menu-image.dashicons-before::before {
+    content: "" !important;
+    display: block !important;
+    width: 24px !important;
+    height: 24px !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    font-family: inherit !important;
+  }
+  /* Override specific dashicons classes */
+  /* Dashboard */
+  .wp-responsive-open #adminmenu .dashicons-dashboard::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.7)' stroke-width='1.5'%3E%3Cpath stroke-linecap='round' d='M13.5 13L17 9m-3 6a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm-8-3a6 6 0 0 1 9-5.197'/%3E%3Cpath d='M2.5 12c0-4.478 0-6.717 1.391-8.109c1.392-1.39 3.63-1.39 8.11-1.39c4.477 0 6.717 0 8.108 1.39c1.391 1.392 1.391 3.63 1.391 8.11c0 4.477 0 6.717-1.391 8.108S16.479 21.5 12 21.5c-4.478 0-6.717 0-8.109-1.391c-1.39-1.391-1.39-3.63-1.39-8.109Z'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  .wp-responsive-open #adminmenu .current .dashicons-dashboard::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1.5'%3E%3Cpath stroke-linecap='round' d='M13.5 13L17 9m-3 6a2 2 0 1 1-4 0a2 2 0 0 1 4 0Zm-8-3a6 6 0 0 1 9-5.197'/%3E%3Cpath d='M2.5 12c0-4.478 0-6.717 1.391-8.109c1.392-1.39 3.63-1.39 8.11-1.39c4.477 0 6.717 0 8.108 1.39c1.391 1.392 1.391 3.63 1.391 8.11c0 4.477 0 6.717-1.391 8.108S16.479 21.5 12 21.5c-4.478 0-6.717 0-8.109-1.391c-1.39-1.391-1.39-3.63-1.39-8.109Z'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  /* Posts */
+  .wp-responsive-open #adminmenu .dashicons-admin-post::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.7)' stroke-linecap='round' stroke-width='1.5'%3E%3Cpath d='m8 10l2.5 2.5L16 7'/%3E%3Cpath stroke-linejoin='round' d='M22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464c.974.974 1.3 2.343 1.41 4.536'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  .wp-responsive-open #adminmenu .current .dashicons-admin-post::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-width='1.5'%3E%3Cpath d='m8 10l2.5 2.5L16 7'/%3E%3Cpath stroke-linejoin='round' d='M22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12s0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464c.974.974 1.3 2.343 1.41 4.536'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  /* Media */
+  .wp-responsive-open #adminmenu .dashicons-admin-media::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.7)' stroke-linecap='round' stroke-width='1.5'%3E%3Cpath stroke-linejoin='round' d='m2 10.154l1.65-1.65a4 4 0 0 1 5.657 0L14 13.198a4 4 0 0 0 5.657 0l.685-.685A2 2 0 0 1 23 11.172V15c0 3.771 0 5.657-1.172 6.828C20.657 23 18.771 23 15 23H9c-3.771 0-5.657 0-6.828-1.172C1 20.657 1 18.771 1 15v-1.667c0-.736.597-1.333 1.333-1.333c.368 0 .72.147.98.41Z'/%3E%3Cpath d='M2 11c0-3.3 0-4.95.86-6.054a4 4 0 0 1 1.086-1.086C5.05 3 6.7 3 10 3h4c3.3 0 4.95 0 6.054.86a4 4 0 0 1 1.086 1.086C22 6.05 22 7.7 22 11'/%3E%3Cpath stroke-linejoin='round' d='M13.5 6.5a1.5 1.5 0 1 1-3 0a1.5 1.5 0 0 1 3 0Z'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  .wp-responsive-open #adminmenu .current .dashicons-admin-media::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-width='1.5'%3E%3Cpath stroke-linejoin='round' d='m2 10.154l1.65-1.65a4 4 0 0 1 5.657 0L14 13.198a4 4 0 0 0 5.657 0l.685-.685A2 2 0 0 1 23 11.172V15c0 3.771 0 5.657-1.172 6.828C20.657 23 18.771 23 15 23H9c-3.771 0-5.657 0-6.828-1.172C1 20.657 1 18.771 1 15v-1.667c0-.736.597-1.333 1.333-1.333c.368 0 .72.147.98.41Z'/%3E%3Cpath d='M2 11c0-3.3 0-4.95.86-6.054a4 4 0 0 1 1.086-1.086C5.05 3 6.7 3 10 3h4c3.3 0 4.95 0 6.054.86a4 4 0 0 1 1.086 1.086C22 6.05 22 7.7 22 11'/%3E%3Cpath stroke-linejoin='round' d='M13.5 6.5a1.5 1.5 0 0 1-3 0a1.5 1.5 0 0 1 3 0Z'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  /* Pages */
+  .wp-responsive-open #adminmenu .dashicons-admin-page::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.7)' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'%3E%3Cpath d='M3.889 14.889C3 13.65 3 11.935 3 8.503v-.997c0-2.804 0-4.207.867-5.078C4.733 1.556 6.128 1.556 8.914 1.556h6.172c2.786 0 4.18 0 5.047.872S21 4.703 21 7.506v.997c0 3.432 0 5.148-.889 6.387m-16.222 0c.6.833 1.54 1.318 3.421 2.029l.697.265c2.916 1.102 4.374 1.654 5.993 1.654c1.62 0 3.077-.552 5.993-1.654l.697-.265c1.881-.71 2.821-1.196 3.422-2.03m-16.223 0c-.491-.684-.71-1.535-.822-2.776'/%3E%3Cpath d='M15 11H9m3 5V6'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  .wp-responsive-open #adminmenu .current .dashicons-admin-page::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'%3E%3Cpath d='M3.889 14.889C3 13.65 3 11.935 3 8.503v-.997c0-2.804 0-4.207.867-5.078C4.733 1.556 6.128 1.556 8.914 1.556h6.172c2.786 0 4.18 0 5.047.872S21 4.703 21 7.506v.997c0 3.432 0 5.148-.889 6.387m-16.222 0c.6.833 1.54 1.318 3.421 2.029l.697.265c2.916 1.102 4.374 1.654 5.993 1.654c1.62 0 3.077-.552 5.993-1.654l.697-.265c1.881-.71 2.821-1.196 3.422-2.03m-16.223 0c-.491-.684-.71-1.535-.822-2.776'/%3E%3Cpath d='M15 11H9m3 5V6'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  /* Comments */
+  .wp-responsive-open #adminmenu .dashicons-admin-comments::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.7)' stroke-linecap='round' stroke-width='1.5'%3E%3Cpath stroke-linejoin='round' d='M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22Z'/%3E%3Cpath d='M8 12h.009m3.982 0H12m3.991 0H16'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  .wp-responsive-open #adminmenu .current .dashicons-admin-comments::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-width='1.5'%3E%3Cpath stroke-linejoin='round' d='M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2S2 6.477 2 12c0 1.6.376 3.112 1.043 4.453c.178.356.237.763.134 1.148l-.595 2.226a1.3 1.3 0 0 0 1.591 1.592l2.226-.596a1.63 1.63 0 0 1 1.149.133A9.96 9.96 0 0 0 12 22Z'/%3E%3Cpath d='M8 12h.009m3.982 0H12m3.991 0H16'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  /* Appearance */
+  .wp-responsive-open #adminmenu .dashicons-admin-appearance::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.7)' stroke-width='1.5'%3E%3Cpath d='M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z'/%3E%3Cpath stroke-linecap='round' d='M13 15.5c-.69 1.5-2.372 2.5-4.126 2.5a4.88 4.88 0 0 1-4.873-4.874C4.001 11.372 5.001 9.69 6.5 9M13 9l8-7M2 2l7 7m13 0l-7-7M2 22l7-7'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  .wp-responsive-open #adminmenu .current .dashicons-admin-appearance::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='1.5'%3E%3Cpath d='M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z'/%3E%3Cpath stroke-linecap='round' d='M13 15.5c-.69 1.5-2.372 2.5-4.126 2.5a4.88 4.88 0 0 1-4.873-4.874C4.001 11.372 5.001 9.69 6.5 9M13 9l8-7M2 2l7 7m13 0l-7-7M2 22l7-7'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  /* Plugins */
+  .wp-responsive-open #adminmenu .dashicons-admin-plugins::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.7)' stroke-linecap='round' stroke-width='1.5'%3E%3Cpath d='M15 2v5m0 0v3m0-3h3m-3 0h-3m6 9v5M6 10v5m0 0v3m0-3h3m-3 0H3'/%3E%3Cpath stroke-linejoin='round' d='M8 3.5A1.5 1.5 0 0 1 9.5 2h5A1.5 1.5 0 0 1 16 3.5v6.357c0 .806 0 1.21-.076 1.586a4 4 0 0 1-.648 1.415c-.217.33-.508.622-1.089 1.204l-4.374 4.374c-.581.582-.872.873-1.204 1.09a4 4 0 0 1-1.415.647C6.81 20.25 6.406 20.25 5.6 20.25H3.5A1.5 1.5 0 0 1 2 18.75v-2.1c0-.806 0-1.21.076-1.586a4 4 0 0 1 .648-1.415c.217-.33.508-.621 1.089-1.203l4.374-4.375c.581-.581.872-.872 1.204-1.089a4 4 0 0 1 1.415-.647C11.19 6.25 11.594 6.25 12.4 6.25H16'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  .wp-responsive-open #adminmenu .current .dashicons-admin-plugins::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-width='1.5'%3E%3Cpath d='M15 2v5m0 0v3m0-3h3m-3 0h-3m6 9v5M6 10v5m0 0v3m0-3h3m-3 0H3'/%3E%3Cpath stroke-linejoin='round' d='M8 3.5A1.5 1.5 0 0 1 9.5 2h5A1.5 1.5 0 0 1 16 3.5v6.357c0 .806 0 1.21-.076 1.586a4 4 0 0 1-.648 1.415c-.217.33-.508.622-1.089 1.204l-4.374 4.374c-.581.582-.872.873-1.204 1.09a4 4 0 0 1-1.415.647C6.81 20.25 6.406 20.25 5.6 20.25H3.5A1.5 1.5 0 0 1 2 18.75v-2.1c0-.806 0-1.21.076-1.586a4 4 0 0 1 .648-1.415c.217-.33.508-.621 1.089-1.203l4.374-4.375c.581-.581.872-.872 1.204-1.089a4 4 0 0 1 1.415-.647C11.19 6.25 11.594 6.25 12.4 6.25H16'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  /* Users */
+  .wp-responsive-open #adminmenu .dashicons-admin-users::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.7)' stroke-linecap='round' stroke-width='1.5'%3E%3Cpath d='M14.5 9a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0Z'/%3E%3Cpath stroke-linejoin='round' d='M18 15.83A6.99 6.99 0 0 0 12 13c-2.493 0-4.647 1.3-5.878 3.253M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0Z'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  .wp-responsive-open #adminmenu .current .dashicons-admin-users::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-width='1.5'%3E%3Cpath d='M14.5 9a2.5 2.5 0 1 1-5 0a2.5 2.5 0 0 1 5 0Z'/%3E%3Cpath stroke-linejoin='round' d='M18 15.83A6.99 6.99 0 0 0 12 13c-2.493 0-4.647 1.3-5.878 3.253M21 12a9 9 0 1 1-18 0a9 9 0 0 1 18 0Z'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  /* Tools */
+  .wp-responsive-open #adminmenu .dashicons-admin-tools::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.7)' stroke-linecap='round' stroke-width='1.5'%3E%3Cpath stroke-linejoin='round' d='M14 3.27c0-.487 0-.731.095-.904a.69.69 0 0 1 .462-.354C14.733 2 14.968 2.097 15.438 2.29l5.46 2.273c.858.357 1.287.536 1.422.827a.84.84 0 0 1 0 .67c-.135.291-.564.47-1.422.827l-5.46 2.273c-.47.193-.705.29-.881.277a.69.69 0 0 1-.462-.353C14 8.81 14 8.567 14 8.08V3.27Z'/%3E%3Cpath d='M18 6.35h.008m-12.15 6.93a3.15 3.15 0 1 1-4.454 4.454a3.15 3.15 0 0 1 4.454-4.454Zm9.89 0a3.15 3.15 0 1 1-4.454 4.455a3.15 3.15 0 0 1 4.455-4.454Z'/%3E%3Cpath stroke-linejoin='round' d='m5.857 7.714l3.243 3.243M9.1 7.714L5.857 10.957'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  .wp-responsive-open #adminmenu .current .dashicons-admin-tools::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-width='1.5'%3E%3Cpath stroke-linejoin='round' d='M14 3.27c0-.487 0-.731.095-.904a.69.69 0 0 1 .462-.354C14.733 2 14.968 2.097 15.438 2.29l5.46 2.273c.858.357 1.287.536 1.422.827a.84.84 0 0 1 0 .67c-.135.291-.564.47-1.422.827l-5.46 2.273c-.47.193-.705.29-.881.277a.69.69 0 0 1-.462-.353C14 8.81 14 8.567 14 8.08V3.27Z'/%3E%3Cpath d='M18 6.35h.008m-12.15 6.93a3.15 3.15 0 1 1-4.454 4.454a3.15 3.15 0 0 1 4.454-4.454Zm9.89 0a3.15 3.15 0 1 1-4.454 4.455a3.15 3.15 0 0 1 4.455-4.454Z'/%3E%3Cpath stroke-linejoin='round' d='m5.857 7.714l3.243 3.243M9.1 7.714L5.857 10.957'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  /* Settings */
+  .wp-responsive-open #adminmenu .dashicons-admin-settings::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='rgba(255,255,255,0.7)' stroke-linecap='round' stroke-width='1.5'%3E%3Cpath d='M15.5 12a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0Z'/%3E%3Cpath d='M21.011 14.084c-.012.018-.319.51-.636.897c-.373.454-.856.816-1.403.797c-.438-.015-.694-.278-.99-.583a1.23 1.23 0 0 0-1.692-.111l-.298.262c-.502.44-.772 1.044-.722 1.607c.06.672.415 1.258 1.087 1.61c.278.148.494.42.676.702c.253.4.423.853.512 1.33c.088.473-.283.797-.74.913c-.617.158-1.256.26-1.896.303c-.492.034-.787-.336-.924-.753a3.47 3.47 0 0 0-.624-1.255c-.42-.518-1.116-.78-1.81-.602a1.79 1.79 0 0 0-1.212 1.062a3.47 3.47 0 0 0-.292 1.395c-.027.548-.438.856-.963.87a11.46 11.46 0 0 1-1.887-.152c-.55-.095-.858-.418-.868-.963a3.48 3.48 0 0 0-.544-1.778c-.412-.634-1.135-.956-1.918-.827c-.58.096-1.029.415-1.318.932c-.205.37-.587.603-1.025.61c-.625.009-1.26-.065-1.847-.254c-.463-.149-.717-.46-.67-.946c.042-.448.19-.895.433-1.284c.346-.553.395-1.228.122-1.848a1.79 1.79 0 0 0-1.158-1.03c-.632-.2-1.268-.167-1.848.085c-.455.198-.856.003-1.05-.434a11.45 11.45 0 0 1-.705-1.774c-.13-.474.097-.823.537-1.003c.404-.165.824-.283 1.26-.353c.62-.1 1.116-.519 1.37-1.084a1.79 1.79 0 0 0-.044-1.575c-.318-.615-.815-1.04-1.462-1.241c-.464-.145-.668-.523-.617-1.001c.07-.668.203-1.324.397-1.96c.15-.494.522-.71 1.014-.61c.45.092.904.235 1.319.458c.59.318 1.27.276 1.858-.098a1.79 1.79 0 0 0 .79-1.39c.052-.651-.133-1.253-.538-1.754c-.289-.36-.245-.813.085-1.148c.475-.481 1.003-.906 1.572-1.264c.449-.282.886-.198 1.186.235c.274.397.508.833.692 1.287c.262.646.798 1.053 1.467 1.117a1.79 1.79 0 0 0 1.559-.542c.465-.502.683-1.088.676-1.767c-.006-.518.269-.826.774-.908c.683-.112 1.378-.151 2.069-.119c.513.024.802.33.85.85c.045.486.042.982-.012 1.466c-.076.686.184 1.303.712 1.704a1.79 1.79 0 0 0 1.617.298c.637-.196 1.177-.567 1.588-1.098c.295-.381.71-.467 1.147-.244c.599.305 1.15.684 1.645 1.128c.39.35.428.783.14 1.195c-.263.378-.577.727-.936 1.029c-.51.429-.732 1.01-.608 1.636a1.79 1.79 0 0 0 1.035 1.29c.636.272 1.288.351 1.956.256c.508-.072.867.184 1 .678c.178.668.28 1.354.305 2.047c.02.543-.253.865-.787.953c-.49.08-.987.107-1.474.081c-.691-.037-1.314.263-1.71.816a1.79 1.79 0 0 0-.216 1.62c.241.622.653 1.13 1.216 1.485c.404.255.487.672.27 1.106a11.45 11.45 0 0 1-1.029 1.714c-.266.36-.654.456-1.08.275a3.47 3.47 0 0 0-1.408-.326c-.71-.004-1.335.336-1.714.927a1.79 1.79 0 0 0-.177 1.623c.233.613.631 1.102 1.17 1.448c.386.248.49.64.318 1.065Z'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+  .wp-responsive-open #adminmenu .current .dashicons-admin-settings::before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23ffffff' stroke-linecap='round' stroke-width='1.5'%3E%3Cpath d='M15.5 12a3.5 3.5 0 1 1-7 0a3.5 3.5 0 0 1 7 0Z'/%3E%3Cpath d='M21.011 14.084c-.012.018-.319.51-.636.897c-.373.454-.856.816-1.403.797c-.438-.015-.694-.278-.99-.583a1.23 1.23 0 0 0-1.692-.111l-.298.262c-.502.44-.772 1.044-.722 1.607c.06.672.415 1.258 1.087 1.61c.278.148.494.42.676.702c.253.4.423.853.512 1.33c.088.473-.283.797-.74.913c-.617.158-1.256.26-1.896.303c-.492.034-.787-.336-.924-.753a3.47 3.47 0 0 0-.624-1.255c-.42-.518-1.116-.78-1.81-.602a1.79 1.79 0 0 0-1.212 1.062a3.47 3.47 0 0 0-.292 1.395c-.027.548-.438.856-.963.87a11.46 11.46 0 0 1-1.887-.152c-.55-.095-.858-.418-.868-.963a3.48 3.48 0 0 0-.544-1.778c-.412-.634-1.135-.956-1.918-.827c-.58.096-1.029.415-1.318.932c-.205.37-.587.603-1.025.61c-.625.009-1.26-.065-1.847-.254c-.463-.149-.717-.46-.67-.946c.042-.448.19-.895.433-1.284c.346-.553.395-1.228.122-1.848a1.79 1.79 0 0 0-1.158-1.03c-.632-.2-1.268-.167-1.848.085c-.455.198-.856.003-1.05-.434a11.45 11.45 0 0 1-.705-1.774c-.13-.474.097-.823.537-1.003c.404-.165.824-.283 1.26-.353c.62-.1 1.116-.519 1.37-1.084a1.79 1.79 0 0 0-.044-1.575c-.318-.615-.815-1.04-1.462-1.241c-.464-.145-.668-.523-.617-1.001c.07-.668.203-1.324.397-1.96c.15-.494.522-.71 1.014-.61c.45.092.904.235 1.319.458c.59.318 1.27.276 1.858-.098a1.79 1.79 0 0 0 .79-1.39c.052-.651-.133-1.253-.538-1.754c-.289-.36-.245-.813.085-1.148c.475-.481 1.003-.906 1.572-1.264c.449-.282.886-.198 1.186.235c.274.397.508.833.692 1.287c.262.646.798 1.053 1.467 1.117a1.79 1.79 0 0 0 1.559-.542c.465-.502.683-1.088.676-1.767c-.006-.518.269-.826.774-.908c.683-.112 1.378-.151 2.069-.119c.513.024.802.33.85.85c.045.486.042.982-.012 1.466c-.076.686.184 1.303.712 1.704a1.79 1.79 0 0 0 1.617.298c.637-.196 1.177-.567 1.588-1.098c.295-.381.71-.467 1.147-.244c.599.305 1.15.684 1.645 1.128c.39.35.428.783.14 1.195c-.263.378-.577.727-.936 1.029c-.51.429-.732 1.01-.608 1.636a1.79 1.79 0 0 0 1.035 1.29c.636.272 1.288.351 1.956.256c.508-.072.867.184 1 .678c.178.668.28 1.354.305 2.047c.02.543-.253.865-.787.953c-.49.08-.987.107-1.474.081c-.691-.037-1.314.263-1.71.816a1.79 1.79 0 0 0-.216 1.62c.241.622.653 1.13 1.216 1.485c.404.255.487.672.27 1.106a11.45 11.45 0 0 1-1.029 1.714c-.266.36-.654.456-1.08.275a3.47 3.47 0 0 0-1.408-.326c-.71-.004-1.335.336-1.714.927a1.79 1.79 0 0 0-.177 1.623c.233.613.631 1.102 1.17 1.448c.386.248.49.64.318 1.065Z'/%3E%3C/g%3E%3C/svg%3E") !important;
+  }
+}
 /**
  * Admin Menu Styling (SCSS Partial)
  *
@@ -2348,13 +2491,12 @@ body.has-open-submenu #wpcontent {
   left: 0 !important;
   right: 0 !important;
   z-index: 99999 !important;
+  /* Top-level menu items - dark text */
+  /* Menu item hover */
 }
 #wpadminbar .ab-item {
   height: 48px !important;
   line-height: 48px !important;
-}
-#wpadminbar {
-  /* Top-level menu items - dark text */
 }
 #wpadminbar .ab-item,
 #wpadminbar a.ab-item,
@@ -2363,9 +2505,6 @@ body.has-open-submenu #wpcontent {
   color: #1e2d2f !important;
   transition: all 0.15s ease;
   background: transparent !important;
-}
-#wpadminbar {
-  /* Menu item hover */
 }
 #wpadminbar .ab-item:hover,
 #wpadminbar a.ab-item:hover,
@@ -2407,24 +2546,18 @@ body.admin-bar {
    ============================================ */
 #wpadminbar {
   /* Hide WordPress logo */
+  /* Hide default new-content menu */
+  /* Hide comments */
+  /* Hide updates */
 }
 #wpadminbar #wp-admin-bar-wp-logo {
   display: none !important;
 }
-#wpadminbar {
-  /* Hide default new-content menu */
-}
 #wpadminbar #wp-admin-bar-new-content {
   display: none !important;
 }
-#wpadminbar {
-  /* Hide comments */
-}
 #wpadminbar #wp-admin-bar-comments {
   display: none !important;
-}
-#wpadminbar {
-  /* Hide updates */
 }
 #wpadminbar #wp-admin-bar-updates {
   display: none !important;
@@ -2449,6 +2582,10 @@ body.admin-bar {
    ============================================ */
 #wpadminbar {
   /* Override ALL submenu backgrounds */
+  /* User info section */
+  /* Submenu items */
+  /* Submenu separator */
+  /* Remove default dark backgrounds */
 }
 #wpadminbar .ab-submenu,
 #wpadminbar .ab-sub-wrapper,
@@ -2461,9 +2598,6 @@ body.admin-bar {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
   padding: 0 !important;
   margin-top: 0 !important;
-}
-#wpadminbar {
-  /* User info section */
 }
 #wpadminbar #wp-admin-bar-user-info {
   border: none !important;
@@ -2499,9 +2633,6 @@ body.admin-bar {
   flex-direction: column;
   padding: 0 !important;
 }
-#wpadminbar {
-  /* Submenu items */
-}
 #wpadminbar .ab-submenu .ab-item,
 #wpadminbar .ab-submenu a,
 #wpadminbar #wp-admin-bar-user-actions .ab-item {
@@ -2525,14 +2656,8 @@ body.admin-bar {
   background: var(--tempone-color-primary) !important;
   color: var(--tempone-color-light) !important;
 }
-#wpadminbar {
-  /* Submenu separator */
-}
 #wpadminbar .ab-submenu .ab-item.menupop {
   color: #1e2d2f !important;
-}
-#wpadminbar {
-  /* Remove default dark backgrounds */
 }
 #wpadminbar .quicklinks .ab-sub-wrapper,
 #wpadminbar .quicklinks .ab-submenu {
@@ -2567,20 +2692,18 @@ body.admin-bar {
    ============================================ */
 #wpadminbar {
   /* Position buttons on right */
+  /* Container untuk buttons */
+  /* Base button styles */
+  /* New Post - Solid */
+  /* New Page - Outline */
 }
 #wpadminbar #wp-admin-bar-top-secondary {
   float: right !important;
-}
-#wpadminbar {
-  /* Container untuk buttons */
 }
 #wpadminbar #wp-admin-bar-tempone-new-post,
 #wpadminbar #wp-admin-bar-tempone-new-page {
   display: inline-block !important;
   margin: 0 3px !important;
-}
-#wpadminbar {
-  /* Base button styles */
 }
 #wpadminbar .tempone-action-btn {
   display: inline-flex !important;
@@ -2597,9 +2720,6 @@ body.admin-bar {
   line-height: 1 !important;
   white-space: nowrap !important;
   margin-top: 8px !important;
-}
-#wpadminbar {
-  /* New Post - Solid */
 }
 #wpadminbar #wp-admin-bar-tempone-new-post > a {
   background: #2d232e !important;
@@ -2620,9 +2740,6 @@ body.admin-bar {
   background: #474448 !important;
   color: #ffffff !important;
   box-shadow: 0 2px 8px rgba(45, 35, 46, 0.12) !important;
-}
-#wpadminbar {
-  /* New Page - Outline */
 }
 #wpadminbar #wp-admin-bar-tempone-new-page > a {
   background: transparent !important;
@@ -2698,6 +2815,14 @@ body.admin-bar {
     padding: 0 !important;
     max-width: 100vw !important;
     /* Hide unnecessary items */
+    /* Main toolbar - No flexbox, use width-based layout */
+    /* LEFT SIDE: root-default (80% width) */
+    /* RIGHT SIDE: top-secondary (60px fixed width) */
+    /* HIDE original WordPress submenu - we use custom panel instead */
+    /* Mobile dropdown menu - Full width overlay */
+    /* User info header in dropdown */
+    /* Dropdown action items */
+    /* Logout button styling */
   }
   #wpadminbar #wp-admin-bar-menu-toggle,
   #wpadminbar #wp-admin-bar-tempone-new-post,
@@ -2709,9 +2834,6 @@ body.admin-bar {
   #wpadminbar #wp-admin-bar-new-content {
     display: none !important;
   }
-  #wpadminbar {
-    /* Main toolbar - No flexbox, use width-based layout */
-  }
   #wpadminbar #wp-toolbar {
     display: flex;
     padding: 0 !important;
@@ -2722,9 +2844,6 @@ body.admin-bar {
     max-width: 100vw;
     align-items: center;
   }
-  #wpadminbar {
-    /* LEFT SIDE: root-default (80% width) */
-  }
   #wpadminbar #wp-admin-bar-root-default {
     width: calc(100% - 60px) !important;
     height: 50px !important;
@@ -2734,11 +2853,13 @@ body.admin-bar {
     margin: 0 !important;
     padding: 0 0 0 16px !important;
     /* Hamburger (site-name) - left */
+    /* CENTER: Logo - absolute centered (dynamically injected via PHP) */
   }
   #wpadminbar #wp-admin-bar-root-default #wp-admin-bar-site-name {
     display: inline-block !important;
     margin: 0 !important;
     vertical-align: middle !important;
+    /* Hide site name text */
   }
   #wpadminbar #wp-admin-bar-root-default #wp-admin-bar-site-name > .ab-item {
     width: 40px !important;
@@ -2765,30 +2886,23 @@ body.admin-bar {
   #wpadminbar #wp-admin-bar-root-default #wp-admin-bar-site-name > .ab-item:hover {
     background: rgba(45, 35, 46, 0.06) !important;
   }
-  #wpadminbar #wp-admin-bar-root-default #wp-admin-bar-site-name {
-    /* Hide site name text */
-  }
   #wpadminbar #wp-admin-bar-root-default #wp-admin-bar-site-name .ab-item {
     font-size: 0 !important;
     color: transparent !important;
   }
-  #wpadminbar #wp-admin-bar-root-default {
-    /* CENTER: Logo "tempone" - absolute centered */
-  }
   #wpadminbar #wp-admin-bar-root-default::after {
-    content: "tempone" !important;
+    content: "" !important;
     position: absolute !important;
     left: 50% !important;
     top: 50% !important;
     transform: translate(-50%, -50%) !important;
-    font-size: 16px !important;
-    font-weight: 600 !important;
-    color: #2d232e !important;
-    letter-spacing: 0.02em !important;
+    width: 110px !important;
+    height: 24px !important;
+    background-size: contain !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
     pointer-events: none !important;
-  }
-  #wpadminbar {
-    /* RIGHT SIDE: top-secondary (60px fixed width) */
+    /* background-image injected via tempone_admin_bar_logo() */
   }
   #wpadminbar #wp-admin-bar-top-secondary {
     width: 50px;
@@ -2834,14 +2948,8 @@ body.admin-bar {
   #wpadminbar #wp-admin-bar-top-secondary #wp-admin-bar-my-account > .ab-item .display-name {
     display: none !important;
   }
-  #wpadminbar {
-    /* HIDE original WordPress submenu - we use custom panel instead */
-  }
   #wpadminbar #wp-admin-bar-my-account .ab-submenu {
     display: none !important;
-  }
-  #wpadminbar {
-    /* Mobile dropdown menu - Full width overlay */
   }
   #wpadminbar .ab-submenu {
     position: fixed !important;
@@ -2857,9 +2965,6 @@ body.admin-bar {
     background: #ffffff !important;
     border: none !important;
     border-top: 1px solid rgba(45, 35, 46, 0.08) !important;
-  }
-  #wpadminbar {
-    /* User info header in dropdown */
   }
   #wpadminbar #wp-admin-bar-user-info {
     padding: 16px 20px !important;
@@ -2890,9 +2995,6 @@ body.admin-bar {
     margin-top: 4px !important;
     color: #6b7280 !important;
   }
-  #wpadminbar {
-    /* Dropdown action items */
-  }
   #wpadminbar .ab-submenu .ab-item,
   #wpadminbar #wp-admin-bar-user-actions .ab-item {
     min-height: 52px !important;
@@ -2902,9 +3004,6 @@ body.admin-bar {
     align-items: center !important;
     margin: 0 !important;
     border-radius: 0 !important;
-  }
-  #wpadminbar {
-    /* Logout button styling */
   }
   #wpadminbar #wp-admin-bar-logout .ab-item {
     background: transparent !important;
@@ -2955,22 +3054,27 @@ body.admin-bar {
     overflow-y: auto;
     transition: left 0.3s ease;
     -webkit-overflow-scrolling: touch;
+    /* Menu styles */
   }
   .tempone-mobile-menu.is-open {
     left: 0;
-  }
-  .tempone-mobile-menu {
-    /* Menu styles */
   }
   .tempone-mobile-menu #tempone-mobile-adminmenu {
     padding: 0;
     margin: 0;
     background: transparent;
     /* Menu items */
+    /* Accordion icon */
+    /* Submenu */
+    /* Open submenu state */
+    /* Hide separators */
   }
   .tempone-mobile-menu #tempone-mobile-adminmenu li {
     margin: 0;
     border-bottom: 1px solid rgba(45, 35, 46, 0.08);
+  }
+  .tempone-mobile-menu #tempone-mobile-adminmenu li.menu-top {
+    /* Current menu item */
   }
   .tempone-mobile-menu #tempone-mobile-adminmenu li.menu-top > a.menu-top {
     display: flex;
@@ -2983,12 +3087,11 @@ body.admin-bar {
     text-decoration: none;
     background: transparent;
     transition: background 0.15s ease;
+    /* Menu icon */
+    /* Menu name */
   }
   .tempone-mobile-menu #tempone-mobile-adminmenu li.menu-top > a.menu-top:hover {
     background: rgba(45, 35, 46, 0.04);
-  }
-  .tempone-mobile-menu #tempone-mobile-adminmenu li.menu-top > a.menu-top {
-    /* Menu icon */
   }
   .tempone-mobile-menu #tempone-mobile-adminmenu li.menu-top > a.menu-top .wp-menu-image {
     width: 20px;
@@ -2997,18 +3100,13 @@ body.admin-bar {
     opacity: 0.7;
   }
   .tempone-mobile-menu #tempone-mobile-adminmenu li.menu-top > a.menu-top .wp-menu-image::before {
-    color: #2d232e;
+    color: var(--tempone-color-primary);
     font-size: 20px;
-  }
-  .tempone-mobile-menu #tempone-mobile-adminmenu li.menu-top > a.menu-top {
-    /* Menu name */
+    padding: 0;
   }
   .tempone-mobile-menu #tempone-mobile-adminmenu li.menu-top > a.menu-top .wp-menu-name {
     flex: 1;
     font-size: 15px;
-  }
-  .tempone-mobile-menu #tempone-mobile-adminmenu li.menu-top {
-    /* Current menu item */
   }
   .tempone-mobile-menu #tempone-mobile-adminmenu li.menu-top.current > a.menu-top, .tempone-mobile-menu #tempone-mobile-adminmenu li.menu-top.wp-has-current-submenu > a.menu-top {
     background: rgba(45, 35, 46, 0.06);
@@ -3017,9 +3115,6 @@ body.admin-bar {
   }
   .tempone-mobile-menu #tempone-mobile-adminmenu li.menu-top.current > a.menu-top .wp-menu-image::before, .tempone-mobile-menu #tempone-mobile-adminmenu li.menu-top.wp-has-current-submenu > a.menu-top .wp-menu-image::before {
     opacity: 1;
-  }
-  .tempone-mobile-menu #tempone-mobile-adminmenu {
-    /* Accordion icon */
   }
   .tempone-mobile-menu #tempone-mobile-adminmenu .tempone-accordion-icon {
     width: 24px;
@@ -3034,9 +3129,6 @@ body.admin-bar {
     font-weight: 300;
     transition: transform 0.3s ease, background 0.15s ease;
     flex-shrink: 0;
-  }
-  .tempone-mobile-menu #tempone-mobile-adminmenu {
-    /* Submenu */
   }
   .tempone-mobile-menu #tempone-mobile-adminmenu .wp-submenu {
     display: none;
@@ -3069,9 +3161,6 @@ body.admin-bar {
     font-weight: 500;
     background: rgba(45, 35, 46, 0.04);
   }
-  .tempone-mobile-menu #tempone-mobile-adminmenu {
-    /* Open submenu state */
-  }
   .tempone-mobile-menu #tempone-mobile-adminmenu li.tempone-submenu-open > a.menu-top {
     background: rgba(45, 35, 46, 0.06);
   }
@@ -3082,9 +3171,6 @@ body.admin-bar {
   }
   .tempone-mobile-menu #tempone-mobile-adminmenu li.tempone-submenu-open .wp-submenu {
     display: block;
-  }
-  .tempone-mobile-menu #tempone-mobile-adminmenu {
-    /* Hide separators */
   }
   .tempone-mobile-menu #tempone-mobile-adminmenu .wp-menu-separator {
     display: none;
@@ -3110,12 +3196,13 @@ body.admin-bar {
     overflow-y: auto;
     transition: right 0.3s ease;
     -webkit-overflow-scrolling: touch;
+    /* User submenu styling */
+    /* User info */
+    /* User actions */
+    /* Logout button */
   }
   .tempone-mobile-user.is-open {
     right: 0;
-  }
-  .tempone-mobile-user {
-    /* User submenu styling */
   }
   .tempone-mobile-user .ab-submenu {
     position: static !important;
@@ -3129,11 +3216,8 @@ body.admin-bar {
     margin: 0 !important;
     background: transparent !important;
   }
-  .tempone-mobile-user {
-    /* User info */
-  }
   .tempone-mobile-user #wp-admin-bar-user-info {
-    padding: 20px !important;
+    padding: 0 !important;
     margin-bottom: 0 !important;
     border-bottom: 1px solid rgba(45, 35, 46, 0.08) !important;
     border-radius: 0 !important;
@@ -3141,17 +3225,23 @@ body.admin-bar {
   }
   .tempone-mobile-user #wp-admin-bar-user-info .ab-item {
     display: flex !important;
-    align-items: center !important;
+    align-items: flex-start !important;
     padding: 0 !important;
+    flex-direction: column;
+    width: 100%;
   }
   .tempone-mobile-user #wp-admin-bar-user-info .avatar {
-    width: 64px !important;
-    height: 64px !important;
-    margin-right: 16px !important;
+    width: 50px !important;
+    height: 50px !important;
+    margin-bottom: 16px !important;
     flex-shrink: 0 !important;
     border: 3px solid rgba(45, 35, 46, 0.1) !important;
+    position: relative;
+    left: 0;
+    border-radius: 8px !important;
   }
   .tempone-mobile-user #wp-admin-bar-user-info .display-name {
+    width: 100%;
     font-size: 18px !important;
     font-weight: 600 !important;
     color: #2d232e !important;
@@ -3163,9 +3253,6 @@ body.admin-bar {
     font-weight: 400 !important;
     color: #6b7280 !important;
     margin-top: 4px !important;
-  }
-  .tempone-mobile-user {
-    /* User actions */
   }
   .tempone-mobile-user #wp-admin-bar-user-actions {
     border: none !important;
@@ -3182,25 +3269,27 @@ body.admin-bar {
     border-radius: 0 !important;
     margin: 0 !important;
     border-bottom: 1px solid rgba(45, 35, 46, 0.06) !important;
-    display: block !important;
     min-height: auto !important;
   }
   .tempone-mobile-user #wp-admin-bar-user-actions .ab-item:hover {
     background: rgba(45, 35, 46, 0.04) !important;
     color: #2d232e !important;
   }
-  .tempone-mobile-user {
-    /* Logout button */
-  }
   .tempone-mobile-user #wp-admin-bar-logout {
     margin-top: 8px !important;
-    padding: 0 20px !important;
+    padding: 16px 20px !important;
+  }
+  .tempone-mobile-user #wp-admin-bar-logout a {
+    text-decoration: none;
   }
   .tempone-mobile-user #wp-admin-bar-logout .ab-item {
-    background: transparent !important;
-    color: #dc2626 !important;
+    background: var(--tempone-color-primary) !important;
+    color: var(--tempone-color-light) !important;
+    padding: 7px 25px !important;
     font-weight: 500 !important;
     border: none !important;
+    line-height: 1;
+    border-radius: 33px !important;
   }
   .tempone-mobile-user #wp-admin-bar-logout .ab-item:hover {
     background: rgba(220, 38, 38, 0.06) !important;
@@ -3887,6 +3976,10 @@ select:focus {
     margin-bottom: 0.25rem;
     opacity: 0.7;
     transition: opacity 0.2s ease;
+    /* Ensure SVG inherits opacity */
+  }
+  .tempone-footer-icon svg, .tempone-footer-icon g, .tempone-footer-icon path {
+    opacity: inherit;
   }
   .tempone-footer-label {
     font-size: 0.625rem; /* 10px - small but readable */
@@ -3941,6 +4034,4 @@ select:focus {
   .tempone-footer-mobile-menu {
     display: none;
   }
-}
-
-/*# sourceMappingURL=admin.css.map */
+}/*# sourceMappingURL=admin.css.map */

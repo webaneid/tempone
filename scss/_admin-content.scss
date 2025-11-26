@@ -5,7 +5,7 @@
 
 /* Body & Plugin background */
 body {
-	background: var(--tempone-color-light) !important;
+	background: var(--tempone-color-light);
 }
 
 .plugins .active td,
@@ -128,13 +128,13 @@ body {
 
 .wp-core-ui .button,
 .wp-core-ui .button-secondary {
-	color: var(--tempone-color-primary) !important;
+	color: var(--tempone-color-primary);
 	border-color: var(--tempone-color-primary) !important;
 }
 
 .wp-core-ui .button-primary {
-	background: var(--tempone-color-primary) !important;
-	color: var(--tempone-color-light) !important;
+	background: var(--tempone-color-primary);
+	color: var(--tempone-color-light);
 }
 
 /* ============================================

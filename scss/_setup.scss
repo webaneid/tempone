@@ -140,3 +140,13 @@ hr {
 .site-main {
   width: 100%;
 }
+#primary {
+  @media (max-width: 782px) {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100vw;
+    overflow: hidden;
+    height: max-content;
+  }
+}

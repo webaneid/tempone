@@ -83,6 +83,7 @@ function tempone_hex2rgb( string $colour ) {
  * - ane-warna-terang     → --tempone-color-light
  * - ane-warna-gelap      → --tempone-color-dark
  * - ane-warna-alternatif → --tempone-color-accent
+ * - ane-warna-putih      → --tempone-color-white
  *
  * Di-inject ke wp_head dengan priority 999 untuk override default tokens.
  */
@@ -95,6 +96,7 @@ function tempone_custom_colors_css() {
 		'ane-warna-terang'     => 'light',
 		'ane-warna-gelap'      => 'dark',
 		'ane-warna-alternatif' => 'accent',
+		'ane-warna-putih'      => 'white',
 	);
 
 	// Start CSS output.
@@ -144,6 +146,7 @@ function tempone_custom_colors_admin_css() {
 		'ane-warna-terang'     => 'light',
 		'ane-warna-gelap'      => 'dark',
 		'ane-warna-alternatif' => 'accent',
+		'ane-warna-putih'      => 'white',
 	);
 
 	// Start CSS output.
@@ -635,16 +638,26 @@ function tempone_acf_custom_avatar( $avatar, $id_or_email, $size, $default, $alt
 	// Handle different ACF return formats.
 	$avatar_url = '';
 
+	// Determine best square size based on requested avatar size.
+	// WordPress avatar sizes typically: 26px (admin bar), 32px (comments), 48px, 96px, 150px.
+	$square_size = $size <= 150 ? 'tempone-square-sm' : 'tempone-square'; // 150x150 or 300x300.
+
 	if ( is_array( $custom_avatar ) ) {
-		// Return format: Array - ambil sizes['thumbnail'] untuk ukuran kecil square.
-		if ( isset( $custom_avatar['sizes']['thumbnail'] ) ) {
-			$avatar_url = $custom_avatar['sizes']['thumbnail'];
+		// Return format: Array - prioritize our square sizes for 1:1 aspect ratio.
+		if ( isset( $custom_avatar['sizes'][ $square_size ] ) ) {
+			$avatar_url = $custom_avatar['sizes'][ $square_size ];
+		} elseif ( isset( $custom_avatar['sizes']['tempone-square-sm'] ) ) {
+			$avatar_url = $custom_avatar['sizes']['tempone-square-sm']; // Fallback to small square.
+		} elseif ( isset( $custom_avatar['sizes']['tempone-square'] ) ) {
+			$avatar_url = $custom_avatar['sizes']['tempone-square']; // Fallback to large square.
+		} elseif ( isset( $custom_avatar['sizes']['thumbnail'] ) ) {
+			$avatar_url = $custom_avatar['sizes']['thumbnail']; // WordPress thumbnail (also square if cropped).
 		} elseif ( isset( $custom_avatar['url'] ) ) {
 			$avatar_url = $custom_avatar['url'];
 		}
 	} elseif ( is_numeric( $custom_avatar ) ) {
-		// Return format: ID - resize ke ukuran yang diminta.
-		$image_data = wp_get_attachment_image_src( $custom_avatar, array( $size, $size ) );
+		// Return format: ID - use our square size instead of arbitrary dimensions.
+		$image_data = wp_get_attachment_image_src( $custom_avatar, $square_size );
 		$avatar_url = $image_data ? $image_data[0] : '';
 	} elseif ( is_string( $custom_avatar ) ) {
 		// Return format: URL.

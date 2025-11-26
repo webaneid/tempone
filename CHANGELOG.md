@@ -7,9 +7,54 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.9] - 2025-01-27
+
+### Fixed
+- **Color system** - White color added to Tempone color palette for better consistency
+- **User profile avatar** - Gravatar now uses square image size instead of circular for modern design
+- **Mobile footer menu icons** - Footer navigation icons now consistent with Tempone custom admin icons
+  - Dashboard: Speedometer icon matching admin menu
+  - Pages: Paper plane icon
+  - Create: Plus symbol (unchanged)
+  - Posts: Edit/pencil icon matching admin menu
+  - Settings: Browser with settings icon matching Tempone Setup
+- **Translations** - Footer menu labels now match WordPress standards
+  - Pages: "Laman" (not "Halaman")
+  - Posts: "Pos" (not "Tulisan")
+- **Mobile admin header logo** - Removed hardcoded "tempone" text, now uses dynamic logo
+  - Uses WordPress custom logo if set in Customizer
+  - Falls back to `/img/logo-tempone.svg` if no custom logo
+  - Function: `tempone_admin_bar_logo()` in `inc/admin.php`
+- **Mobile dashboard** - Enhanced mobile dashboard layout for better dynamics and modern appearance
+  - Improved responsive grid stacking
+  - Better card spacing and typography
+- **Mobile single post** - Cleaner mobile layout for single post pages
+  - Enhanced readability
+  - Optimized spacing and typography
+- **Page template** - Added responsive design improvements for static pages
+  - Better mobile layout handling
+  - Consistent spacing with other templates
+
+### Changed
+- Mobile footer menu structure: Removed "Plugins", added "Posts" for better content workflow
+  - New order: Dashboard, Pages, Create, Posts, Settings
+  - Posts menu more relevant for news/magazine sites
+- Icon opacity system: SVG elements now properly inherit parent opacity for consistent appearance
+
+### Technical
+- Footer menu file: `inc/admin/footer-mobile-menu.php`
+- Admin menu icons: `scss/_admin-menu-icon.scss` (mobile hamburger drawer support)
+- Admin bar logo: `scss/_admin-header.scss` line 455-469
+- Translation file: `languages/tempone-id_ID.po` and `.mo` compiled
+- All changes tested on mobile (≤782px) and desktop viewports
+
 ## [0.1.8] - 2025-01-27
 
 ### Fixed
+- **Mobile admin menu icons** - Custom SVG icons now display correctly in hamburger menu drawer
+  - Added mobile-specific CSS rules with `.wp-responsive-open` selector
+  - Forces custom icons to override default WordPress Dashicons
+  - Maintains consistent icon design between desktop and mobile admin
 - Code synchronization and stability improvements
 - Ensured all admin components properly registered
 - Verified SCSS compilation pipeline
@@ -18,6 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Stable release following v0.1.7
 - All features from v0.1.7 tested and verified
 - Ready for auto-update testing
+- Mobile menu icon system: `scss/_admin-menu-icon.scss` lines 156-182
 
 ## [0.1.7] - 2025-01-26
 

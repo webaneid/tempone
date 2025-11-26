@@ -1232,7 +1232,7 @@ msgstr "Dokumentasi NewsArticle"
 
 #: inc/admin/footer-mobile-menu.php:68
 msgid "Pages"
-msgstr "Laman"
+msgstr "Halaman"
 
 #: inc/admin/footer-mobile-menu.php:77
 msgid "Create"
@@ -1240,7 +1240,7 @@ msgstr "Buat"
 
 #: inc/admin/footer-mobile-menu.php:89
 msgid "Posts"
-msgstr "Pos"
+msgstr "Tulisan"
 
 #: inc/admin/footer-mobile-menu.php:101
 msgid "Settings"

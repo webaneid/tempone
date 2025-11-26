@@ -651,3 +651,36 @@ function tempone_render_seo_news_page() {
 	</div>
 	<?php
 }
+
+/**
+ * Inject admin bar logo dynamically for mobile.
+ *
+ * Uses WordPress custom logo if set, otherwise fallback to theme logo.
+ * Injects inline CSS to replace hardcoded "tempone" text with logo image.
+ *
+ * @since 1.0.0
+ */
+function tempone_admin_bar_logo() : void {
+	// Get custom logo ID from theme customizer.
+	$custom_logo_id = get_theme_mod( 'custom_logo' );
+
+	if ( $custom_logo_id ) {
+		// Use WordPress custom logo if set.
+		$logo_url = wp_get_attachment_image_url( $custom_logo_id, 'full' );
+	} else {
+		// Fallback to theme logo.
+		$logo_url = get_template_directory_uri() . '/img/logo-tempone.svg';
+	}
+
+	?>
+	<style>
+		@media screen and (max-width: 782px) {
+			#wpadminbar #wp-admin-bar-root-default::after {
+				background-image: url('<?php echo esc_url( $logo_url ); ?>') !important;
+			}
+		}
+	</style>
+	<?php
+}
+add_action( 'admin_head', 'tempone_admin_bar_logo' );
+add_action( 'wp_head', 'tempone_admin_bar_logo' );

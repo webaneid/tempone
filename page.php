@@ -20,7 +20,7 @@ get_header();
 		?>
 
 		<!-- Centered single column layout (same width as single.php main content) -->
-		<div class="max-w-[66.666%] mx-auto">
+		<div class="max-w-full md:max-w-[66.666%] mx-auto">
 			<article id="page-<?php the_ID(); ?>" <?php post_class( 'single-post min-w-0' ); ?>>
 
 				<!-- Title -->

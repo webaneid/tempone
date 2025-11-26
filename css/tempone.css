@@ -155,6 +155,17 @@ hr {
   width: 100%;
 }
 
+@media (max-width: 782px) {
+  #primary {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100vw;
+    overflow: hidden;
+    height: max-content;
+  }
+}
+
 .site-header {
   background-color: var(--tempone-color-white);
   border-bottom: 1px solid rgba(var(--tempone-color-primary-rgb), 0.08);

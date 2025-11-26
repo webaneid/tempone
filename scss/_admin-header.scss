@@ -452,18 +452,20 @@ body.admin-bar {
 				}
 			}
 
-			/* CENTER: Logo "tempone" - absolute centered */
+			/* CENTER: Logo - absolute centered (dynamically injected via PHP) */
 			&::after {
-				content: "tempone" !important;
+				content: "" !important;
 				position: absolute !important;
 				left: 50% !important;
 				top: 50% !important;
 				transform: translate(-50%, -50%) !important;
-				font-size: 16px !important;
-				font-weight: 600 !important;
-				color: #2d232e !important;
-				letter-spacing: 0.02em !important;
+				width: 110px !important;
+				height: 24px !important;
+				background-size: contain !important;
+				background-repeat: no-repeat !important;
+				background-position: center !important;
 				pointer-events: none !important;
+				/* background-image injected via tempone_admin_bar_logo() */
 			}
 		}
 
@@ -686,8 +688,9 @@ body.admin-bar {
 							opacity: 0.7;
 
 							&::before {
-								color: #2d232e;
+								color: var(--tempone-color-primary);
 								font-size: 20px;
+								padding: 0;
 							}
 						}
 
@@ -836,7 +839,7 @@ body.admin-bar {
 
 		/* User info */
 		#wp-admin-bar-user-info {
-			padding: 20px !important;
+			padding: 0 !important;
 			margin-bottom: 0 !important;
 			border-bottom: 1px solid rgba(45, 35, 46, 0.08) !important;
 			border-radius: 0 !important;
@@ -844,19 +847,25 @@ body.admin-bar {
 
 			.ab-item {
 				display: flex !important;
-				align-items: center !important;
+				align-items: flex-start !important;
 				padding: 0 !important;
+				flex-direction: column;
+				width: 100%;
 			}
 
 			.avatar {
-				width: 64px !important;
-				height: 64px !important;
-				margin-right: 16px !important;
+				width: 50px !important;
+				height: 50px !important;
+				margin-bottom: 16px !important;
 				flex-shrink: 0 !important;
 				border: 3px solid rgba(45, 35, 46, 0.1) !important;
+				position: relative;
+				left: 0;
+				border-radius: 8px !important;
 			}
 
 			.display-name {
+				width: 100%;
 				font-size: 18px !important;
 				font-weight: 600 !important;
 				color: #2d232e !important;
@@ -888,7 +897,6 @@ body.admin-bar {
 				border-radius: 0 !important;
 				margin: 0 !important;
 				border-bottom: 1px solid rgba(45, 35, 46, 0.06) !important;
-				display: block !important;
 				min-height: auto !important;
 
 				&:hover {
@@ -901,13 +909,20 @@ body.admin-bar {
 		/* Logout button */
 		#wp-admin-bar-logout {
 			margin-top: 8px !important;
-			padding: 0 20px !important;
+			padding: 16px 20px !important;
+
+			a {
+				text-decoration: none;
+			}
 
 			.ab-item {
-				background: transparent !important;
-				color: #dc2626 !important;
+				background: var(--tempone-color-primary) !important;
+				color: var(--tempone-color-light) !important;
+				padding: 7px 25px !important;
 				font-weight: 500 !important;
 				border: none !important;
+				line-height: 1;
+				border-radius: 33px !important;
 
 				&:hover {
 					background: rgba(220, 38, 38, 0.06) !important;

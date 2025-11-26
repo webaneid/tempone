@@ -754,6 +754,8 @@ Matches landing page typography untuk visual consistency.
 - ❌ Modify Google News sitemap to include more than 2 days
 - ❌ Remove Open Graph meta tags - Facebook sharing relies on them
 - ❌ Use `extract()` in widget code - security risk
+- ❌ Remove mobile menu icon rules from `_admin-menu-icon.scss` - both desktop and mobile need separate selectors
+- ❌ Skip `.wp-responsive-open` selector for mobile admin menu - critical for hamburger drawer icons
 
 ## Translation System
 
@@ -1181,21 +1183,31 @@ H6: 1.125rem, weight 600
 
 **Menu Items:**
 1. **Dashboard** → `admin.php?page=tempone-dashboard`
-   - Icon: Dashboard grid (Material Design)
+   - Icon: Tempone Dashboard icon (speedometer with gauge) - synced from `_admin-menu-icon.scss`
+   - Stroke-based SVG dengan viewBox 24x24
    - Active: Dashboard page atau Tempone Dashboard
 2. **Pages** → `edit.php?post_type=page`
-   - Icon: Document/page icon
+   - Icon: Paper plane/send icon - minimalist design
+   - Fill-based SVG dengan viewBox 16x16
    - Active: Pages list atau edit page
 3. **Create Post** (CENTER) → `post-new.php`
    - Icon: Plus symbol dalam circular background
    - Styling: Primary color (#2d232e), larger (28px vs 24px)
    - Active: Post creation page
 4. **Settings** → `admin.php?page=tempone-setup`
-   - Icon: Gear/cog icon
+   - Icon: Tempone Setup icon (dashboard with settings) - synced from `_admin-menu-icon.scss`
+   - Stroke-based SVG dengan browser window + settings elements
    - Active: Any tempone-* admin page
 5. **Plugins** → `plugins.php`
-   - Icon: Plugin icon
+   - Icon: Plug icon dengan circular design
+   - Stroke-based SVG dengan viewBox 24x24
    - Active: Plugins page
+
+**Icon Consistency:**
+- All icons (except Create Post) synced dengan admin menu icons dari `_admin-menu-icon.scss`
+- Dashboard, Settings, Plugins menggunakan same SVG paths as desktop/mobile admin menu
+- Ensures visual consistency across all admin navigation elements
+- Icons use `currentColor` untuk automatic color adaptation based on active state
 
 **Design Specifications:**
 - **Layout:** Fixed bottom, flexbox dengan space-around
@@ -1264,12 +1276,63 @@ Automatically adjusts untuk iPhone dengan notch/Dynamic Island.
 - Text: "Designed with love by Webane Indonesia. Powered by WordPress."
 - Replaces default "Thank you for creating with WordPress"
 
+### Admin Menu Icon System
+
+**Custom SVG Icons for Admin Menu:**
+- File: `scss/_admin-menu-icon.scss` (182 lines)
+- Replaces default WordPress Dashicons dengan custom SVG icons
+- Uses data URI format untuk inline SVG (no external files)
+- Icons untuk: Dashboard, Posts, Media, Pages, Comments, Appearance, Plugins, Users, Tools, Settings, Tempone Setup
+
+**Desktop Implementation:**
+```scss
+#adminmenu .wp-menu-image:before {
+    content: '' !important;
+    background-image: url("data:image/svg+xml,...") !important;
+    background-size: contain !important;
+    width: 24px !important;
+    height: 24px !important;
+}
+```
+
+**Mobile Implementation (≤782px):**
+```scss
+@media screen and (max-width: 782px) {
+    /* Force custom icons in mobile hamburger drawer */
+    .wp-responsive-open #adminmenu .wp-menu-image:before {
+        content: '' !important;
+        background-size: contain !important;
+        background-position: center !important;
+        width: 24px !important;
+        height: 24px !important;
+        display: block !important;
+    }
+
+    /* Hide WordPress Dashicons font */
+    .wp-responsive-open #adminmenu .wp-menu-image {
+        font-size: 0 !important;
+    }
+}
+```
+
+**Icon States:**
+- Default: `rgba(255,255,255,0.7)` opacity
+- Hover/Active/Current: `%23ffffff` (white, URL-encoded `#ffffff`)
+- Active classes: `.current`, `.wp-has-current-submenu`, `.opensub`
+
+**Key Details:**
+- WordPress mobile drawer uses `.wp-responsive-open` class when hamburger menu is opened
+- Custom icons MUST override Dashicons font dengan `font-size: 0 !important`
+- SVG colors in data URI must be URL-encoded (`#` becomes `%23`)
+- Mobile drawer has same HTML structure as desktop but needs explicit forcing with higher specificity
+
 ### SCSS Structure for Admin
 
 ```
 scss/
 ├── admin.scss                      # Main admin import
 ├── _admin-style.scss               # General admin styling
+├── _admin-menu-icon.scss           # Custom SVG icons (desktop + mobile)
 ├── _admin-dashboard.scss           # Dashboard components
 ├── _admin-user.scss                # User profile enhancement
 ├── _admin-footer-mobile-menu.scss  # Mobile footer navigation
@@ -1349,6 +1412,17 @@ npx sass scss/editor-style.scss css/editor-style.css
 8. Test content tidak tertutup footer (70px padding)
 9. Verify desktop tidak menampilkan footer menu
 
+**Mobile Admin Menu Icons:**
+1. Resize browser ke mobile width (≤782px) atau gunakan DevTools
+2. Click hamburger menu icon (top left)
+3. Verify mobile drawer slides in from left
+4. Check custom SVG icons display for all menu items (not default Dashicons)
+5. Icons should be: Dashboard (speedometer), Posts (document), Media (image), Pages (page), Comments (chat), Appearance (palette), Plugins (puzzle), Users (people), Tools (wrench), Settings (gear), Tempone Setup (dashboard with settings)
+6. Test icon opacity: default 0.7, active 1.0
+7. Verify icons remain visible when scrolling drawer
+8. Test desktop admin menu also shows same custom icons
+9. Close drawer and verify icons reset properly
+
 ### Important Notes
 
 **Admin Customization:**
@@ -1356,6 +1430,8 @@ npx sass scss/editor-style.scss css/editor-style.css
 - Chart.js loaded from CDN (4.4.0)
 - Dashboard uses WordPress postbox structure
 - Editor styles auto-loaded untuk Gutenberg
+- Admin menu icons: SVG data URIs in SCSS (no external image files)
+- Mobile menu icons require `.wp-responsive-open` selector for hamburger drawer
 
 **Color Consistency:**
 - Login: Webane green palette (#73ab01 family)
@@ -1378,3 +1454,5 @@ npx sass scss/editor-style.scss css/editor-style.css
 - ❌ Modify mobile footer menu z-index (must be 99999 to stay above admin bar)
 - ❌ Remove safe area inset support from mobile footer (breaks on notched devices)
 - ❌ Change center button circular design (it's a key visual element)
+- ❌ Remove mobile icon selectors from `_admin-menu-icon.scss` - hamburger menu won't show custom icons
+- ❌ Change icon SVG colors without URL encoding (`#` must be `%23`)
