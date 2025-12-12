@@ -6,29 +6,44 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Tempone** adalah WordPress theme untuk news/online magazine dengan desain monochrome yang elegan. Theme ini menggunakan Tailwind CSS Play CDN untuk styling dan memiliki sistem loop/archive yang sophisticated dengan featured posts section dan responsive layout.
 
+**Current Version:** 0.1.9 (January 2025)
+**WordPress Version:** 6.0+
+**PHP Version:** 7.4+
+**Author:** Webane Indonesia (https://webane.com)
+
 ## Architecture
 
 ### Core Structure
 
 Theme ini menggunakan arsitektur modular dengan separation of concerns:
 
-- `functions.php` - Bootstrap utama yang hanya mendefinisikan konstanta `TEMPONE_PATH` dan `TEMPONE_URI`, kemudian me-load semua file dari `/inc`
+- `functions.php` - Bootstrap utama yang mendefinisikan 3 konstanta: `TEMPONE_PATH`, `TEMPONE_URI`, `TEMPONE_VERSION`, kemudian me-load semua file dari `/inc`
 - `/inc` - Berisi semua file fungsi PHP yang dipisah berdasarkan concern:
   - `setup.php` - Theme supports, navigation menus, image sizes, text domain
   - `assets.php` - Enqueue CSS/JS, Tailwind Play CDN loading
   - `template-tags.php` - Helper functions untuk templating
   - `share.php` - Generator URL untuk social media sharing
   - `security.php` - Sanitization/escaping helpers
-  - `admin.php` - Admin customizations
-  - `admin-dashboard.php` - Custom dashboard page dengan analytics
-  - `admin-customizer.php` - Login page customization & admin branding
   - `editor.php` - Gutenberg editor styling & Google Fonts
   - `footer.php` - Footer-related functions
   - `post.php` - Post-related utilities
+  - `image.php` - Image processing utilities
   - `seo.php` - SEO & Google News optimization
   - `widget.php` - Custom widgets
   - `acf-layouts.php` - ACF Flexible Content layouts
   - `wordpress.php` - WordPress core customizations
+  - `updater.php` - GitHub-based auto-update system
+  - `admin.php` - Main admin page (Tempone Setup)
+  - `/inc/admin/` - Modular admin customizations (v0.1.6+):
+    - `dashboard.php` - Custom dashboard dengan analytics
+    - `customizer.php` - Login page glassmorphism design
+    - `user.php` - Enhanced user profile dengan Chart.js
+    - `design-tokens.php` - ACF color system integration
+    - `menu.php` - Admin menu customizations
+    - `header.php` - Admin header modifications
+    - `navigation.php` - Admin navigation tweaks
+    - `content.php` - Admin content area customizations
+    - `footer-mobile-menu.php` - Mobile bottom navigation (v0.1.7+)
 - `/tp` - Template parts (partials) untuk komponen UI yang reusable
 - `/scss` - SCSS files dengan struktur modular (tokens, setup, header, footer, post)
 - `/css` - Compiled CSS output
@@ -283,14 +298,21 @@ ane_post_pagination( $wp_query );
 SCSS files **WAJIB** di-compile ke CSS setelah perubahan:
 
 ```bash
-# Development
-sass scss/tempone.scss css/tempone.css
+# Main theme styles
+npx sass scss/tempone.scss css/tempone.css
 
-# Watch mode
-sass --watch scss/tempone.scss:css/tempone.css
+# Production (minified) - recommended for production
+npx sass scss/tempone.scss css/tempone.css --style=compressed
 
-# Production (minified)
-sass scss/tempone.scss css/tempone.min.css --style=compressed
+# Admin styles
+npx sass scss/admin.scss css/admin.css
+npx sass scss/admin.scss css/admin.css --style=compressed
+
+# Editor styles
+npx sass scss/editor-style.scss css/editor-style.css
+
+# Watch mode (auto-compile on save)
+npx sass --watch scss/tempone.scss:css/tempone.css
 ```
 
 **File structure:**
@@ -299,6 +321,64 @@ sass scss/tempone.scss css/tempone.min.css --style=compressed
 - `scss/_post.scss` → All post loop styles
 - `scss/_header.scss` → Header styles
 - `scss/_footer.scss` → Footer styles
+- `scss/admin.scss` → Admin styles import
+- `scss/_admin-*.scss` → Admin component styles
+- `scss/editor-style.scss` → Gutenberg editor styles
+
+**IMPORTANT:** GitHub Actions automatically compiles all SCSS on release, but for local development you must compile manually.
+
+### Auto-Update System & Release Process
+
+**GitHub-Based Auto-Updater** (`inc/updater.php`):
+- Automatically checks for new releases from GitHub every 24 hours
+- Compares current version (`TEMPONE_VERSION`) with latest GitHub release
+- Shows update notification in WordPress admin
+- Users can click "Update now" to install latest version
+
+**Manual Update Check:**
+```
+wp-admin/themes.php?tempone_force_check=1
+```
+
+**Creating a New Release:**
+
+1. **Update version** in `style.css` (line 7):
+   ```css
+   Version: 0.2.0
+   ```
+
+2. **Update CHANGELOG.md** with new version info
+
+3. **Commit changes:**
+   ```bash
+   git add style.css CHANGELOG.md
+   git commit -m "Release v0.2.0 - Description"
+   git push
+   ```
+
+4. **Create and push tag:**
+   ```bash
+   git tag -a v0.2.0 -m "Release version 0.2.0"
+   git push origin v0.2.0
+   ```
+
+5. **GitHub Actions automatically:**
+   - Compiles all SCSS to CSS (compressed)
+   - Compiles translations (.po → .mo)
+   - Creates ZIP package (excludes: .git, .github, node_modules, scss, .gitignore)
+   - Creates GitHub Release with CHANGELOG.md content
+   - Uploads ZIP as release asset
+
+**Release Workflow File:** `.github/workflows/release.yml`
+- Triggers on: `push` to tags matching `v*.*.*`
+- Requires: Node.js 18, Sass, gettext
+- Output: `tempone-{version}.zip`
+
+**IMPORTANT:**
+- Always use semantic versioning: `v{MAJOR}.{MINOR}.{PATCH}`
+- Test thoroughly before creating release tag
+- GitHub repository must be accessible for updater to work
+- Repository settings in `inc/updater.php`: `$github_owner` and `$github_repo`
 
 ### Testing Theme
 
@@ -738,6 +818,51 @@ Matches landing page typography untuk visual consistency.
 - Security: No `extract()`, full sanitization
 - Widget appears in all sidebars using `sidebar-main`
 
+## Constants & Configuration
+
+### Theme Constants (defined in `functions.php`)
+
+```php
+TEMPONE_PATH    // get_template_directory() - Full filesystem path
+TEMPONE_URI     // get_template_directory_uri() - Theme URL
+TEMPONE_VERSION // wp_get_theme()->get('Version') - Current version from style.css
+```
+
+**Usage:**
+```php
+// Correct
+require_once TEMPONE_PATH . '/inc/setup.php';
+wp_enqueue_style( 'tempone-style', TEMPONE_URI . '/css/tempone.css', [], TEMPONE_VERSION );
+
+// Wrong - don't hardcode paths
+require_once get_template_directory() . '/inc/setup.php';  // Use TEMPONE_PATH instead
+```
+
+### GitHub Repository Configuration (`inc/updater.php`)
+
+```php
+private $github_owner = 'webaneid';     // GitHub username/organization
+private $github_repo  = 'tempone';      // Repository name
+```
+
+**IMPORTANT:** Update these values if you fork/clone the repository to enable auto-updates.
+
+### ACF Field Groups (Options Pages)
+
+**Main Options Page:** `ane_konfigurasi` (Tempone Setup)
+- Customization: Color palette (6 colors)
+- Company Info: Name, address, phone, email
+- Social Media: Facebook, Instagram, X, TikTok, Threads, WhatsApp
+- Contact Page: Tagline, description
+
+**Featured Post Meta:** `ane_news_utama` (checkbox on post edit screen)
+- Value: `1` = Featured, `0` or empty = Not featured
+- Used in archive.php featured query
+
+**User Profile:** `gravatar_ane` (user profile image field)
+- Used in admin user profile page
+- Fallback to WordPress default avatar if not set
+
 ## DO NOT
 
 - ❌ Create `the_posts_pagination()` wrappers - use `ane_post_pagination()` directly
@@ -756,6 +881,9 @@ Matches landing page typography untuk visual consistency.
 - ❌ Use `extract()` in widget code - security risk
 - ❌ Remove mobile menu icon rules from `_admin-menu-icon.scss` - both desktop and mobile need separate selectors
 - ❌ Skip `.wp-responsive-open` selector for mobile admin menu - critical for hamburger drawer icons
+- ❌ Create new files in root `/inc` for admin functionality - use `/inc/admin/` folder (v0.1.6+ modular structure)
+- ❌ Modify `TEMPONE_VERSION` manually - it's auto-loaded from style.css
+- ❌ Change GitHub repo settings in `inc/updater.php` without testing - breaks auto-updates
 
 ## Translation System
 
@@ -944,7 +1072,7 @@ add_action( 'after_setup_theme', 'tempone_setup' );
 
 Theme memiliki sistem admin customization yang comprehensive meliputi custom dashboard, login page branding, dan editor styling.
 
-### Custom Dashboard (`inc/admin-dashboard.php`)
+### Custom Dashboard (`inc/admin/dashboard.php`)
 
 **Features:**
 - Custom dashboard page yang menggantikan default WordPress dashboard
@@ -983,7 +1111,7 @@ temponeDashboard.colors    // Theme color palette
 - Active authors
 - 12-month content trend
 
-### Login Page Customization (`inc/admin-customizer.php`)
+### Login Page Customization (`inc/admin/customizer.php`)
 
 **Modern Glassmorphism Design:**
 - Dark background (#0a0a0a)

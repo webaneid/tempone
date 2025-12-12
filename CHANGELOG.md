@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+- **Admin animations** - Removed page transition animations that caused unnecessary page refreshes
+  - Disabled `initPageTransitions()` - was intercepting all admin links and forcing refresh with fade animation
+  - Removed unused animation functions for better performance
+  - Kept minimal animations: page fade-in and progress bars only
+  - File size reduced from 220 to 75 lines in `js/admin-animations.js`
+
 ## [0.1.9] - 2025-01-27
 
 ### Fixed
