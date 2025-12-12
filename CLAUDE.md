@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 **Tempone** adalah WordPress theme untuk news/online magazine dengan desain monochrome yang elegan. Theme ini menggunakan Tailwind CSS Play CDN untuk styling dan memiliki sistem loop/archive yang sophisticated dengan featured posts section dan responsive layout.
 
-**Current Version:** 0.1.9 (January 2025)
+**Current Version:** 0.2.0 (January 2025)
 **WordPress Version:** 6.0+
 **PHP Version:** 7.4+
 **Author:** Webane Indonesia (https://webane.com)

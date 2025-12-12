@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2025-01-27
+
 ### Fixed
 - **Admin animations** - Removed page transition animations that caused unnecessary page refreshes
   - Disabled `initPageTransitions()` - was intercepting all admin links and forcing refresh with fade animation
